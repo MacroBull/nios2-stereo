@@ -8,7 +8,7 @@ module hw_indicator(
     input iRST_n;
     output oLED;
     
-    parameter FREQ = 128000000;
+    parameter FREQ = 120*1000000;
     
     reg [31:0] rCnt, mLED;
     
