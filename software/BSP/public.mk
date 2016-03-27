@@ -152,14 +152,14 @@ SOPC_SYSID_FLAG += --id=136
 ELF_PATCH_FLAG  += --id 136
 
 # The SOPC System ID Base Address 
-# setting SOPC_SYSID_BASE_ADDRESS is 0x21050
-SOPC_SYSID_FLAG += --sidp=0x21050
-ELF_PATCH_FLAG  += --sidp 0x21050
+# setting SOPC_SYSID_BASE_ADDRESS is 0x21070
+SOPC_SYSID_FLAG += --sidp=0x21070
+ELF_PATCH_FLAG  += --sidp 0x21070
 
 # The SOPC Timestamp 
-# setting SOPC_TIMESTAMP is 1459089404
-SOPC_SYSID_FLAG += --timestamp=1459089404
-ELF_PATCH_FLAG  += --timestamp 1459089404
+# setting SOPC_TIMESTAMP is 1459099844
+SOPC_SYSID_FLAG += --timestamp=1459099844
+ELF_PATCH_FLAG  += --timestamp 1459099844
 
 # Enable JTAG UART driver to recover when host is inactive causing buffer to 
 # full without returning error. Printf will not fail with this recovery. none 
@@ -252,7 +252,9 @@ ALT_CPPFLAGS += -DALT_NO_INSTRUCTION_EMULATION
 # are removed such as floating-point support in printf(), stdin input routines, 
 # and buffered I/O. The small C library is not compatible with Micrium 
 # MicroC/OS-II. If true, adds -msmallc to ALT_LDFLAGS in public.mk. none 
-# setting hal.enable_small_c_library is false
+# setting hal.enable_small_c_library is true
+ALT_LDFLAGS += -msmallc
+ALT_CPPFLAGS += -DSMALL_C_LIB
 
 # Enable SOPC Builder System ID. If a System ID SOPC Builder component is 
 # connected to the CPU associated with this BSP, it will be enabled in the 

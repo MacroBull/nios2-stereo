@@ -8,6 +8,20 @@ set_location_assignment	PIN_R9	-to CLOCK
 set_location_assignment	PIN_K2	-to LED[3]
 set_location_assignment	PIN_A8	-to RXD
 set_location_assignment	PIN_G5	-to TXD
+set_location_assignment	PIN_M8	-to DIG[0]
+set_location_assignment	PIN_L7	-to DIG[1]
+set_location_assignment	PIN_P9	-to DIG[2]
+set_location_assignment	PIN_N9	-to DIG[3]
+set_location_assignment	PIN_M9	-to DIG[4]
+set_location_assignment	PIN_M10	-to DIG[5]
+set_location_assignment	PIN_P11	-to DIG[6]
+set_location_assignment	PIN_N11	-to DIG[7]
+set_location_assignment	PIN_N6	-to SEL[5]
+set_location_assignment	PIN_P6	-to SEL[4]
+set_location_assignment	PIN_M6  -to SEL[3]
+set_location_assignment	PIN_M7	-to SEL[2]
+set_location_assignment	PIN_P8	-to SEL[1] 
+set_location_assignment	PIN_N8	-to SEL[0]
 
 
 # set_location_assignment	PIN_A9	-to CLOCK_40M
@@ -210,20 +224,6 @@ set_location_assignment	PIN_D14	-to RTC_DATA
 set_location_assignment	PIN_D6	-to BUZZER
 
 #数码管对应的引脚
-set_location_assignment	PIN_M8	-to DIG[0]
-set_location_assignment	PIN_L7	-to DIG[1]
-set_location_assignment	PIN_P9	-to DIG[2]
-set_location_assignment	PIN_N9	-to DIG[3]
-set_location_assignment	PIN_M9	-to DIG[4]
-set_location_assignment	PIN_M10	-to DIG[5]
-set_location_assignment	PIN_P11	-to DIG[6]
-set_location_assignment	PIN_N11	-to DIG[7]
-set_location_assignment	PIN_N6	-to SEL[5]
-set_location_assignment	PIN_P6	-to SEL[4]
-set_location_assignment	PIN_M6  -to SEL[3]
-set_location_assignment	PIN_M7	-to SEL[2]
-set_location_assignment	PIN_P8	-to SEL[1] 
-set_location_assignment	PIN_N8	-to SEL[0]
 
 
 

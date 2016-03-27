@@ -4,7 +4,7 @@
  * Machine generated for CPU 'cpu' in SOPC Builder design 'soc'
  * SOPC Builder design path: ../../soc.sopcinfo
  *
- * Generated: Sun Mar 27 22:45:56 CST 2016
+ * Generated: Mon Mar 28 01:39:56 CST 2016
  */
 
 /*
@@ -143,6 +143,7 @@
 
 #define __ALTERA_AVALON_JTAG_UART
 #define __ALTERA_AVALON_ONCHIP_MEMORY2
+#define __ALTERA_AVALON_PIO
 #define __ALTERA_AVALON_SYSID_QSYS
 #define __ALTERA_AVALON_UART
 #define __ALTERA_NIOS2_GEN2
@@ -164,7 +165,7 @@
 #define ALT_NUM_INTERNAL_INTERRUPT_CONTROLLERS 1
 #define ALT_NUM_INTERRUPT_CONTROLLERS 1
 #define ALT_STDERR "/dev/jtag_uart"
-#define ALT_STDERR_BASE 0x21058
+#define ALT_STDERR_BASE 0x21078
 #define ALT_STDERR_DEV jtag_uart
 #define ALT_STDERR_IS_JTAG_UART
 #define ALT_STDERR_PRESENT
@@ -201,7 +202,7 @@
  */
 
 #define ALT_MODULE_CLASS_jtag_uart altera_avalon_jtag_uart
-#define JTAG_UART_BASE 0x21058
+#define JTAG_UART_BASE 0x21078
 #define JTAG_UART_IRQ 0
 #define JTAG_UART_IRQ_INTERRUPT_CONTROLLER_ID 0
 #define JTAG_UART_NAME "/dev/jtag_uart"
@@ -243,18 +244,45 @@
 
 
 /*
+ * seg6 configuration
+ *
+ */
+
+#define ALT_MODULE_CLASS_seg6 altera_avalon_pio
+#define SEG6_BASE 0x21050
+#define SEG6_BIT_CLEARING_EDGE_REGISTER 0
+#define SEG6_BIT_MODIFYING_OUTPUT_REGISTER 0
+#define SEG6_CAPTURE 0
+#define SEG6_DATA_WIDTH 24
+#define SEG6_DO_TEST_BENCH_WIRING 0
+#define SEG6_DRIVEN_SIM_VALUE 0
+#define SEG6_EDGE_TYPE "NONE"
+#define SEG6_FREQ 120000000
+#define SEG6_HAS_IN 0
+#define SEG6_HAS_OUT 1
+#define SEG6_HAS_TRI 0
+#define SEG6_IRQ -1
+#define SEG6_IRQ_INTERRUPT_CONTROLLER_ID -1
+#define SEG6_IRQ_TYPE "NONE"
+#define SEG6_NAME "/dev/seg6"
+#define SEG6_RESET_VALUE 0
+#define SEG6_SPAN 16
+#define SEG6_TYPE "altera_avalon_pio"
+
+
+/*
  * sysid configuration
  *
  */
 
 #define ALT_MODULE_CLASS_sysid altera_avalon_sysid_qsys
-#define SYSID_BASE 0x21050
+#define SYSID_BASE 0x21070
 #define SYSID_ID 136
 #define SYSID_IRQ -1
 #define SYSID_IRQ_INTERRUPT_CONTROLLER_ID -1
 #define SYSID_NAME "/dev/sysid"
 #define SYSID_SPAN 8
-#define SYSID_TIMESTAMP 1459089404
+#define SYSID_TIMESTAMP 1459099844
 #define SYSID_TYPE "altera_avalon_sysid_qsys"
 
 

@@ -50,10 +50,6 @@ set_global_assignment -name ERROR_CHECK_FREQUENCY_DIVISOR 1
 set_global_assignment -name NOMINAL_CORE_SUPPLY_VOLTAGE 1.2V
 set_global_assignment -name EDA_SIMULATION_TOOL "ModelSim-Altera (Verilog)"
 set_global_assignment -name EDA_OUTPUT_DATA_FORMAT "VERILOG HDL" -section_id eda_simulation
-set_global_assignment -name QIP_FILE soc/synthesis/soc.qip
-set_global_assignment -name VERILOG_FILE hw_indicator.v
-set_global_assignment -name QIP_FILE pll.qip
-set_global_assignment -name BDF_FILE top.bdf
 set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH 200 LFPM AIRFLOW"
 set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
 set_global_assignment -name RESERVE_ALL_UNUSED_PINS "AS INPUT TRI-STATED"
@@ -64,8 +60,54 @@ set_location_assignment PIN_K2 -to LED[3]
 set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
 set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
 set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
-set_global_assignment -name CDF_FILE top.cdf
 set_global_assignment -name RESERVE_ALL_UNUSED_PINS_NO_OUTPUT_GND "AS OUTPUT DRIVING AN UNSPECIFIED SIGNAL"
 set_location_assignment PIN_A8 -to RXD
 set_location_assignment PIN_G5 -to TXD
+set_location_assignment PIN_M8 -to DIG[0]
+set_location_assignment PIN_L7 -to DIG[1]
+set_location_assignment PIN_P9 -to DIG[2]
+set_location_assignment PIN_N9 -to DIG[3]
+set_location_assignment PIN_M9 -to DIG[4]
+set_location_assignment PIN_M10 -to DIG[5]
+set_location_assignment PIN_P11 -to DIG[6]
+set_location_assignment PIN_N11 -to DIG[7]
+set_location_assignment PIN_N6 -to SEL[5]
+set_location_assignment PIN_P6 -to SEL[4]
+set_location_assignment PIN_M6 -to SEL[3]
+set_location_assignment PIN_M7 -to SEL[2]
+set_location_assignment PIN_P8 -to SEL[1]
+set_location_assignment PIN_N8 -to SEL[0]
+set_global_assignment -name STRATIX_DEVICE_IO_STANDARD "2.5 V"
+set_location_assignment PIN_R8 -to KEY[0]
+set_location_assignment PIN_E1 -to KEY[1]
+set_location_assignment PIN_T8 -to KEY[2]
+set_location_assignment PIN_M2 -to KEY[3]
+set_location_assignment PIN_T9 -to KEY[4]
+set_location_assignment PIN_M2 -to KEY[5]
+set_location_assignment PIN_M2 -to KEY[6]
+set_location_assignment PIN_M2 -to KEY[7]
+set_location_assignment PIN_M2 -to KEY[8]
+set_location_assignment PIN_M2 -to KEY[9]
+set_location_assignment PIN_M2 -to KEY[10]
+set_location_assignment PIN_M2 -to KEY[11]
+set_location_assignment PIN_M2 -to KEY[12]
+set_location_assignment PIN_M2 -to KEY[13]
+set_location_assignment PIN_M2 -to KEY[14]
+set_location_assignment PIN_M2 -to KEY[15]
+set_location_assignment PIN_M2 -to KEY[16]
+set_location_assignment PIN_M2 -to KEY[17]
+set_location_assignment PIN_M2 -to KEY[18]
+set_location_assignment PIN_M2 -to KEY[19]
+set_location_assignment PIN_M2 -to KEY[20]
+set_location_assignment PIN_M2 -to KEY[21]
+set_location_assignment PIN_M2 -to KEY[22]
+set_location_assignment PIN_M2 -to KEY[23]
+set_global_assignment -name VERILOG_FILE _acc.v
+set_global_assignment -name VERILOG_FILE hw_seg_scan.v
+set_global_assignment -name VERILOG_FILE hw_seg.v
+set_global_assignment -name QIP_FILE soc/synthesis/soc.qip
+set_global_assignment -name VERILOG_FILE hw_indicator.v
+set_global_assignment -name QIP_FILE pll.qip
+set_global_assignment -name BDF_FILE top.bdf
+set_global_assignment -name CDF_FILE top.cdf
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

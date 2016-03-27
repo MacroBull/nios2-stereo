@@ -1,3 +1,5 @@
+
+
 module hw_indicator(
     iCLK, 
     iRST_n,
@@ -8,20 +10,21 @@ module hw_indicator(
     input iRST_n;
     output oLED;
     
-    parameter FREQ = 120*1000000;
+	parameter FREQ = 120*1000000;
     
-    reg [31:0] rCnt, mLED;
+    reg	[31:0] rCnt;
+	 reg	rLED;
     
-    assign oLED = mLED;
+    assign oLED = rLED;
     
     always@( posedge iCLK or negedge iRST_n) begin
 	    if(!iRST_n) begin
 	        rCnt <= 0;
-	        mLED <= 1;
+	        rLED <= 1;
 		end
 		else if (rCnt == FREQ/2) begin
 	        rCnt <= 0;
-	        mLED <= ~mLED;
+	        rLED <= ~rLED;
 		end
 	    else rCnt <= rCnt + 1;
 	end
