@@ -1,0 +1,557 @@
+Archive member included to satisfy reference by file (symbol)
+
+../hs_bsp//libhal_bsp.a(alt_getchar.o)
+                              obj/default/hello_world_small.o (alt_getchar)
+../hs_bsp//libhal_bsp.a(alt_load.o)
+                              ../hs_bsp//obj/HAL/src/crt0.o (alt_load)
+../hs_bsp//libhal_bsp.a(alt_main.o)
+                              ../hs_bsp//obj/HAL/src/crt0.o (alt_main)
+../hs_bsp//libhal_bsp.a(alt_putstr.o)
+                              obj/default/hello_world_small.o (alt_putstr)
+../hs_bsp//libhal_bsp.a(alt_sys_init.o)
+                              ../hs_bsp//libhal_bsp.a(alt_main.o) (alt_irq_init)
+../hs_bsp//libhal_bsp.a(altera_avalon_uart_read.o)
+                              ../hs_bsp//libhal_bsp.a(alt_getchar.o) (altera_avalon_uart_read)
+../hs_bsp//libhal_bsp.a(altera_avalon_uart_write.o)
+                              ../hs_bsp//libhal_bsp.a(alt_putstr.o) (altera_avalon_uart_write)
+../hs_bsp//libhal_bsp.a(alt_dcache_flush_all.o)
+                              ../hs_bsp//libhal_bsp.a(alt_load.o) (alt_dcache_flush_all)
+../hs_bsp//libhal_bsp.a(alt_dev.o)
+                              ../hs_bsp//libhal_bsp.a(alt_getchar.o) (alt_fd_list)
+../hs_bsp//libhal_bsp.a(alt_errno.o)
+                              ../hs_bsp//libhal_bsp.a(altera_avalon_uart_read.o) (alt_errno)
+../hs_bsp//libhal_bsp.a(alt_icache_flush_all.o)
+                              ../hs_bsp//libhal_bsp.a(alt_load.o) (alt_icache_flush_all)
+../hs_bsp//libhal_bsp.a(altera_nios2_gen2_irq.o)
+                              ../hs_bsp//libhal_bsp.a(alt_sys_init.o) (altera_nios2_gen2_irq_init)
+../hs_bsp//libhal_bsp.a(alt_icache_flush.o)
+                              ../hs_bsp//libhal_bsp.a(alt_icache_flush_all.o) (alt_icache_flush)
+/opt/Altera/QuartusPrime-15.1/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.2/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/lib/libsmallc.a(lib_a-int_errno.o)
+                              ../hs_bsp//libhal_bsp.a(altera_avalon_uart_read.o) (errno)
+/opt/Altera/QuartusPrime-15.1/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.2/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/lib/libsmallc.a(lib_a-strlen.o)
+                              ../hs_bsp//libhal_bsp.a(alt_putstr.o) (strlen)
+
+Allocating common symbols
+Common symbol       size              file
+
+errno               0x4               /opt/Altera/QuartusPrime-15.1/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.2/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/lib/libsmallc.a(lib_a-int_errno.o)
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+reset            0x0000000000010000 0x0000000000000020
+ram              0x0000000000010020 0x0000000000009fe0
+*default*        0x0000000000000000 0xffffffffffffffff
+
+Linker script and memory map
+
+LOAD ../hs_bsp//obj/HAL/src/crt0.o
+LOAD obj/default/hello_world_small.o
+LOAD /opt/Altera/QuartusPrime-15.1/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.2/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/lib/libstdc++.a
+LOAD /opt/Altera/QuartusPrime-15.1/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.2/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/lib/libm.a
+LOAD /opt/Altera/QuartusPrime-15.1/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.2/libgcc.a
+START GROUP
+LOAD /opt/Altera/QuartusPrime-15.1/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.2/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/lib/libsmallc.a
+LOAD /opt/Altera/QuartusPrime-15.1/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.2/libgcc.a
+LOAD ../hs_bsp//libhal_bsp.a
+LOAD /opt/Altera/QuartusPrime-15.1/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.2/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/lib/libm.a
+END GROUP
+LOAD /opt/Altera/QuartusPrime-15.1/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.2/libgcc.a
+                0x0000000000010000                __alt_mem_ram = 0x10000
+
+.entry          0x0000000000010000       0x20
+ *(.entry)
+ .entry         0x0000000000010000       0x20 ../hs_bsp//obj/HAL/src/crt0.o
+                0x0000000000010000                __reset
+                0x000000000001001c                _exit
+
+.exceptions     0x0000000000010020        0x0
+                0x0000000000010020                PROVIDE (__ram_exceptions_start, ABSOLUTE (.))
+                0x0000000000010020                . = ALIGN (0x20)
+ *(.irq)
+ *(.exceptions.entry.label)
+ *(.exceptions.entry.user)
+ *(.exceptions.entry.ecc_fatal)
+ *(.exceptions.entry)
+ *(.exceptions.irqtest.user)
+ *(.exceptions.irqtest)
+ *(.exceptions.irqhandler.user)
+ *(.exceptions.irqhandler)
+ *(.exceptions.irqreturn.user)
+ *(.exceptions.irqreturn)
+ *(.exceptions.notirq.label)
+ *(.exceptions.notirq.user)
+ *(.exceptions.notirq)
+ *(.exceptions.soft.user)
+ *(.exceptions.soft)
+ *(.exceptions.unknown.user)
+ *(.exceptions.unknown)
+ *(.exceptions.exit.label)
+ *(.exceptions.exit.user)
+ *(.exceptions.exit)
+ *(.exceptions)
+                0x0000000000010020                PROVIDE (__ram_exceptions_end, ABSOLUTE (.))
+                0x0000000000010020                PROVIDE (__flash_exceptions_start, LOADADDR (.exceptions))
+
+.text           0x0000000000010020      0x3d4
+                0x0000000000010020                PROVIDE (stext, ABSOLUTE (.))
+ *(.interp)
+ *(.hash)
+ *(.dynsym)
+ *(.dynstr)
+ *(.gnu.version)
+ *(.gnu.version_d)
+ *(.gnu.version_r)
+ *(.rel.init)
+ *(.rela.init)
+ *(.rel.text .rel.text.* .rel.gnu.linkonce.t.*)
+ *(.rela.text .rela.text.* .rela.gnu.linkonce.t.*)
+ *(.rel.fini)
+ *(.rela.fini)
+ *(.rel.rodata .rel.rodata.* .rel.gnu.linkonce.r.*)
+ *(.rela.rodata .rela.rodata.* .rela.gnu.linkonce.r.*)
+ *(.rel.data .rel.data.* .rel.gnu.linkonce.d.*)
+ *(.rela.data .rela.data.* .rela.gnu.linkonce.d.*)
+ *(.rel.tdata .rel.tdata.* .rel.gnu.linkonce.td.*)
+ *(.rela.tdata .rela.tdata.* .rela.gnu.linkonce.td.*)
+ *(.rel.tbss .rel.tbss.* .rel.gnu.linkonce.tb.*)
+ *(.rela.tbss .rela.tbss.* .rela.gnu.linkonce.tb.*)
+ *(.rel.ctors)
+ *(.rela.ctors)
+ *(.rel.dtors)
+ *(.rela.dtors)
+ *(.rel.got)
+ *(.rela.got)
+ *(.rel.sdata .rel.sdata.* .rel.gnu.linkonce.s.*)
+ *(.rela.sdata .rela.sdata.* .rela.gnu.linkonce.s.*)
+ *(.rel.sbss .rel.sbss.* .rel.gnu.linkonce.sb.*)
+ *(.rela.sbss .rela.sbss.* .rela.gnu.linkonce.sb.*)
+ *(.rel.sdata2 .rel.sdata2.* .rel.gnu.linkonce.s2.*)
+ *(.rela.sdata2 .rela.sdata2.* .rela.gnu.linkonce.s2.*)
+ *(.rel.sbss2 .rel.sbss2.* .rel.gnu.linkonce.sb2.*)
+ *(.rela.sbss2 .rela.sbss2.* .rela.gnu.linkonce.sb2.*)
+ *(.rel.bss .rel.bss.* .rel.gnu.linkonce.b.*)
+ *(.rela.bss .rela.bss.* .rela.gnu.linkonce.b.*)
+ *(.rel.plt)
+ *(.rela.plt)
+ *(.rel.dyn)
+ *(.init)
+ *(.plt)
+ *(.text .stub .text.* .gnu.linkonce.t.*)
+ .text          0x0000000000010020       0x4c ../hs_bsp//obj/HAL/src/crt0.o
+                0x0000000000010020                _start
+ .text          0x000000000001006c        0x0 obj/default/hello_world_small.o
+ .text.startup  0x000000000001006c       0x20 obj/default/hello_world_small.o
+                0x000000000001006c                main
+ .text          0x000000000001008c       0x44 ../hs_bsp//libhal_bsp.a(alt_getchar.o)
+                0x000000000001008c                alt_getchar
+ .text          0x00000000000100d0       0xf8 ../hs_bsp//libhal_bsp.a(alt_load.o)
+                0x00000000000100d0                alt_load
+ .text          0x00000000000101c8       0x2c ../hs_bsp//libhal_bsp.a(alt_main.o)
+                0x00000000000101c8                alt_main
+ .text          0x00000000000101f4       0x38 ../hs_bsp//libhal_bsp.a(alt_putstr.o)
+                0x00000000000101f4                alt_putstr
+ .text          0x000000000001022c       0x24 ../hs_bsp//libhal_bsp.a(alt_sys_init.o)
+                0x000000000001022c                alt_irq_init
+                0x000000000001024c                alt_sys_init
+ .text          0x0000000000010250       0x8c ../hs_bsp//libhal_bsp.a(altera_avalon_uart_read.o)
+                0x0000000000010250                altera_avalon_uart_read
+ .text          0x00000000000102dc       0x90 ../hs_bsp//libhal_bsp.a(altera_avalon_uart_write.o)
+                0x00000000000102dc                altera_avalon_uart_write
+ .text          0x000000000001036c       0x18 ../hs_bsp//libhal_bsp.a(alt_dcache_flush_all.o)
+                0x000000000001036c                alt_dcache_flush_all
+ .text          0x0000000000010384        0x8 ../hs_bsp//libhal_bsp.a(alt_dev.o)
+ .text          0x000000000001038c        0x0 ../hs_bsp//libhal_bsp.a(alt_errno.o)
+ .text          0x000000000001038c        0xc ../hs_bsp//libhal_bsp.a(alt_icache_flush_all.o)
+                0x000000000001038c                alt_icache_flush_all
+ .text          0x0000000000010398        0x8 ../hs_bsp//libhal_bsp.a(altera_nios2_gen2_irq.o)
+                0x0000000000010398                altera_nios2_gen2_irq_init
+ .text          0x00000000000103a0       0x38 ../hs_bsp//libhal_bsp.a(alt_icache_flush.o)
+                0x00000000000103a0                alt_icache_flush
+ .text          0x00000000000103d8        0x0 /opt/Altera/QuartusPrime-15.1/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.2/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/lib/libsmallc.a(lib_a-int_errno.o)
+ .text          0x00000000000103d8        0x0 /opt/Altera/QuartusPrime-15.1/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.2/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/lib/libsmallc.a(lib_a-strlen.o)
+ .text.strlen   0x00000000000103d8       0x1c /opt/Altera/QuartusPrime-15.1/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.2/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/lib/libsmallc.a(lib_a-strlen.o)
+                0x00000000000103d8                strlen
+ *(.gnu.warning.*)
+ *(.fini)
+                0x00000000000103f4                PROVIDE (__etext, ABSOLUTE (.))
+                0x00000000000103f4                PROVIDE (_etext, ABSOLUTE (.))
+                0x00000000000103f4                PROVIDE (etext, ABSOLUTE (.))
+ *(.eh_frame_hdr)
+                0x00000000000103f4                . = ALIGN (0x4)
+                0x00000000000103f4                PROVIDE (__preinit_array_start, ABSOLUTE (.))
+ *(.preinit_array)
+                0x00000000000103f4                PROVIDE (__preinit_array_end, ABSOLUTE (.))
+                0x00000000000103f4                PROVIDE (__init_array_start, ABSOLUTE (.))
+ *(.init_array)
+                0x00000000000103f4                PROVIDE (__init_array_end, ABSOLUTE (.))
+                0x00000000000103f4                PROVIDE (__fini_array_start, ABSOLUTE (.))
+ *(.fini_array)
+                0x00000000000103f4                PROVIDE (__fini_array_end, ABSOLUTE (.))
+ *(.eh_frame)
+ *(.gcc_except_table .gcc_except_table.*)
+ *(.dynamic)
+                0x00000000000103f4                PROVIDE (__CTOR_LIST__, ABSOLUTE (.))
+ *(.ctors)
+ *(SORT(.ctors.*))
+                0x00000000000103f4                PROVIDE (__CTOR_END__, ABSOLUTE (.))
+                0x00000000000103f4                PROVIDE (__DTOR_LIST__, ABSOLUTE (.))
+ *(.dtors)
+ *(SORT(.dtors.*))
+                0x00000000000103f4                PROVIDE (__DTOR_END__, ABSOLUTE (.))
+ *(.jcr)
+                0x00000000000103f4                . = ALIGN (0x4)
+
+.rodata         0x00000000000103f4        0xc
+                0x00000000000103f4                PROVIDE (__ram_rodata_start, ABSOLUTE (.))
+                0x00000000000103f4                . = ALIGN (0x4)
+ *(.rodata .rodata.* .gnu.linkonce.r.*)
+ .rodata.str1.4
+                0x00000000000103f4        0xc ../hs_bsp//libhal_bsp.a(alt_dev.o)
+ *(.rodata1)
+                0x0000000000010400                . = ALIGN (0x4)
+                0x0000000000010400                PROVIDE (__ram_rodata_end, ABSOLUTE (.))
+                0x00000000000103f4                PROVIDE (__flash_rodata_start, LOADADDR (.rodata))
+
+.rwdata         0x0000000000010400       0x78 load address 0x0000000000010478
+                0x0000000000010400                PROVIDE (__ram_rwdata_start, ABSOLUTE (.))
+                0x0000000000010400                . = ALIGN (0x4)
+ *(.got.plt)
+ *(.got)
+ *(.data1)
+ *(.data .data.* .gnu.linkonce.d.*)
+ .data          0x0000000000010400        0x0 ../hs_bsp//obj/HAL/src/crt0.o
+ .data          0x0000000000010400        0x0 obj/default/hello_world_small.o
+ .data          0x0000000000010400        0x0 ../hs_bsp//libhal_bsp.a(alt_getchar.o)
+ .data          0x0000000000010400        0x0 ../hs_bsp//libhal_bsp.a(alt_load.o)
+ .data          0x0000000000010400        0x0 ../hs_bsp//libhal_bsp.a(alt_main.o)
+ .data          0x0000000000010400        0x0 ../hs_bsp//libhal_bsp.a(alt_putstr.o)
+ .data          0x0000000000010400        0x0 ../hs_bsp//libhal_bsp.a(alt_sys_init.o)
+ .data          0x0000000000010400        0x0 ../hs_bsp//libhal_bsp.a(altera_avalon_uart_read.o)
+ .data          0x0000000000010400        0x0 ../hs_bsp//libhal_bsp.a(altera_avalon_uart_write.o)
+ .data          0x0000000000010400        0x0 ../hs_bsp//libhal_bsp.a(alt_dcache_flush_all.o)
+ .data          0x0000000000010400       0x58 ../hs_bsp//libhal_bsp.a(alt_dev.o)
+                0x0000000000010400                alt_fd_list
+                0x0000000000010430                alt_dev_null
+ .data          0x0000000000010458        0x0 ../hs_bsp//libhal_bsp.a(alt_errno.o)
+ .data          0x0000000000010458        0x0 ../hs_bsp//libhal_bsp.a(alt_icache_flush_all.o)
+ .data          0x0000000000010458        0x0 ../hs_bsp//libhal_bsp.a(altera_nios2_gen2_irq.o)
+ .data          0x0000000000010458        0x0 ../hs_bsp//libhal_bsp.a(alt_icache_flush.o)
+ .data          0x0000000000010458        0x0 /opt/Altera/QuartusPrime-15.1/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.2/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/lib/libsmallc.a(lib_a-int_errno.o)
+ .data          0x0000000000010458        0x0 /opt/Altera/QuartusPrime-15.1/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.2/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/lib/libsmallc.a(lib_a-strlen.o)
+                0x0000000000018458                _gp = ABSOLUTE ((. + 0x8000))
+                0x0000000000018458                PROVIDE (gp, _gp)
+ *(.rwdata .rwdata.*)
+ *(.sdata .sdata.* .gnu.linkonce.s.*)
+ .sdata         0x0000000000010458        0x8 ../hs_bsp//libhal_bsp.a(alt_sys_init.o)
+                0x0000000000010458                uart
+                0x000000000001045c                jtag_uart
+ .sdata         0x0000000000010460       0x14 ../hs_bsp//libhal_bsp.a(alt_dev.o)
+                0x0000000000010460                alt_max_fd
+                0x0000000000010464                alt_dev_list
+                0x000000000001046c                alt_fs_list
+ .sdata         0x0000000000010474        0x4 ../hs_bsp//libhal_bsp.a(alt_errno.o)
+                0x0000000000010474                alt_errno
+ *(.sdata2 .sdata2.* .gnu.linkonce.s2.*)
+                0x0000000000010478                . = ALIGN (0x4)
+                0x0000000000010478                _edata = ABSOLUTE (.)
+                0x0000000000010478                PROVIDE (edata, ABSOLUTE (.))
+                0x0000000000010478                PROVIDE (__ram_rwdata_end, ABSOLUTE (.))
+                0x0000000000010478                PROVIDE (__flash_rwdata_start, LOADADDR (.rwdata))
+
+.bss            0x00000000000104f0       0x10
+                0x00000000000104f0                __bss_start = ABSOLUTE (.)
+                0x00000000000104f0                PROVIDE (__sbss_start, ABSOLUTE (.))
+                0x00000000000104f0                PROVIDE (___sbss_start, ABSOLUTE (.))
+ *(.dynsbss)
+ *(.sbss .sbss.* .gnu.linkonce.sb.*)
+ .sbss          0x00000000000104f0        0xc ../hs_bsp//libhal_bsp.a(alt_main.o)
+                0x00000000000104f0                alt_envp
+                0x00000000000104f4                alt_argv
+                0x00000000000104f8                alt_argc
+ .sbss          0x00000000000104fc        0x4 /opt/Altera/QuartusPrime-15.1/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.2/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/lib/libsmallc.a(lib_a-int_errno.o)
+                0x00000000000104fc                errno
+ *(.sbss2 .sbss2.* .gnu.linkonce.sb2.*)
+ *(.scommon)
+                0x0000000000010500                PROVIDE (__sbss_end, ABSOLUTE (.))
+                0x0000000000010500                PROVIDE (___sbss_end, ABSOLUTE (.))
+ *(.dynbss)
+ *(.bss .bss.* .gnu.linkonce.b.*)
+ .bss           0x0000000000010500        0x0 ../hs_bsp//obj/HAL/src/crt0.o
+ .bss           0x0000000000010500        0x0 obj/default/hello_world_small.o
+ .bss           0x0000000000010500        0x0 ../hs_bsp//libhal_bsp.a(alt_getchar.o)
+ .bss           0x0000000000010500        0x0 ../hs_bsp//libhal_bsp.a(alt_load.o)
+ .bss           0x0000000000010500        0x0 ../hs_bsp//libhal_bsp.a(alt_main.o)
+ .bss           0x0000000000010500        0x0 ../hs_bsp//libhal_bsp.a(alt_putstr.o)
+ .bss           0x0000000000010500        0x0 ../hs_bsp//libhal_bsp.a(alt_sys_init.o)
+ .bss           0x0000000000010500        0x0 ../hs_bsp//libhal_bsp.a(altera_avalon_uart_read.o)
+ .bss           0x0000000000010500        0x0 ../hs_bsp//libhal_bsp.a(altera_avalon_uart_write.o)
+ .bss           0x0000000000010500        0x0 ../hs_bsp//libhal_bsp.a(alt_dcache_flush_all.o)
+ .bss           0x0000000000010500        0x0 ../hs_bsp//libhal_bsp.a(alt_dev.o)
+ .bss           0x0000000000010500        0x0 ../hs_bsp//libhal_bsp.a(alt_errno.o)
+ .bss           0x0000000000010500        0x0 ../hs_bsp//libhal_bsp.a(alt_icache_flush_all.o)
+ .bss           0x0000000000010500        0x0 ../hs_bsp//libhal_bsp.a(altera_nios2_gen2_irq.o)
+ .bss           0x0000000000010500        0x0 ../hs_bsp//libhal_bsp.a(alt_icache_flush.o)
+ .bss           0x0000000000010500        0x0 /opt/Altera/QuartusPrime-15.1/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.2/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/lib/libsmallc.a(lib_a-int_errno.o)
+ .bss           0x0000000000010500        0x0 /opt/Altera/QuartusPrime-15.1/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.2/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/lib/libsmallc.a(lib_a-strlen.o)
+ *(COMMON)
+                0x0000000000010500                . = ALIGN (0x4)
+                0x0000000000010500                __bss_end = ABSOLUTE (.)
+
+.ram            0x0000000000010500        0x0
+                0x0000000000010500                PROVIDE (_alt_partition_ram_start, ABSOLUTE (.))
+ *(.ram .ram. ram.*)
+                0x0000000000010500                . = ALIGN (0x4)
+                0x0000000000010500                PROVIDE (_alt_partition_ram_end, ABSOLUTE (.))
+                0x0000000000010500                _end = ABSOLUTE (.)
+                0x0000000000010500                end = ABSOLUTE (.)
+                0x0000000000010500                __alt_stack_base = ABSOLUTE (.)
+                0x0000000000010500                PROVIDE (_alt_partition_ram_load_addr, LOADADDR (.ram))
+
+.stab
+ *(.stab)
+
+.stabstr
+ *(.stabstr)
+
+.stab.excl
+ *(.stab.excl)
+
+.stab.exclstr
+ *(.stab.exclstr)
+
+.stab.index
+ *(.stab.index)
+
+.stab.indexstr
+ *(.stab.indexstr)
+
+.comment        0x0000000000000000       0x23
+ *(.comment)
+ .comment       0x0000000000000000       0x23 obj/default/hello_world_small.o
+                                         0x24 (size before relaxing)
+ .comment       0x0000000000000000       0x24 ../hs_bsp//libhal_bsp.a(alt_getchar.o)
+ .comment       0x0000000000000000       0x24 ../hs_bsp//libhal_bsp.a(alt_load.o)
+ .comment       0x0000000000000000       0x24 ../hs_bsp//libhal_bsp.a(alt_main.o)
+ .comment       0x0000000000000000       0x24 ../hs_bsp//libhal_bsp.a(alt_putstr.o)
+ .comment       0x0000000000000000       0x24 ../hs_bsp//libhal_bsp.a(alt_sys_init.o)
+ .comment       0x0000000000000000       0x24 ../hs_bsp//libhal_bsp.a(altera_avalon_uart_read.o)
+ .comment       0x0000000000000000       0x24 ../hs_bsp//libhal_bsp.a(altera_avalon_uart_write.o)
+ .comment       0x0000000000000000       0x24 ../hs_bsp//libhal_bsp.a(alt_dcache_flush_all.o)
+ .comment       0x0000000000000000       0x24 ../hs_bsp//libhal_bsp.a(alt_dev.o)
+ .comment       0x0000000000000000       0x24 ../hs_bsp//libhal_bsp.a(alt_errno.o)
+ .comment       0x0000000000000000       0x24 ../hs_bsp//libhal_bsp.a(alt_icache_flush_all.o)
+ .comment       0x0000000000000000       0x24 ../hs_bsp//libhal_bsp.a(altera_nios2_gen2_irq.o)
+ .comment       0x0000000000000000       0x24 ../hs_bsp//libhal_bsp.a(alt_icache_flush.o)
+ .comment       0x0000000000000000       0x24 /opt/Altera/QuartusPrime-15.1/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.2/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/lib/libsmallc.a(lib_a-int_errno.o)
+ .comment       0x0000000000000000       0x24 /opt/Altera/QuartusPrime-15.1/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.2/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/lib/libsmallc.a(lib_a-strlen.o)
+
+.debug
+ *(.debug)
+
+.line
+ *(.line)
+
+.debug_srcinfo
+ *(.debug_srcinfo)
+
+.debug_sfnames
+ *(.debug_sfnames)
+
+.debug_aranges  0x0000000000000000      0x218
+ *(.debug_aranges)
+ .debug_aranges
+                0x0000000000000000       0x28 ../hs_bsp//obj/HAL/src/crt0.o
+ .debug_aranges
+                0x0000000000000028       0x20 obj/default/hello_world_small.o
+ .debug_aranges
+                0x0000000000000048       0x20 ../hs_bsp//libhal_bsp.a(alt_getchar.o)
+ .debug_aranges
+                0x0000000000000068       0x20 ../hs_bsp//libhal_bsp.a(alt_load.o)
+ .debug_aranges
+                0x0000000000000088       0x20 ../hs_bsp//libhal_bsp.a(alt_main.o)
+ .debug_aranges
+                0x00000000000000a8       0x20 ../hs_bsp//libhal_bsp.a(alt_putstr.o)
+ .debug_aranges
+                0x00000000000000c8       0x20 ../hs_bsp//libhal_bsp.a(alt_sys_init.o)
+ .debug_aranges
+                0x00000000000000e8       0x20 ../hs_bsp//libhal_bsp.a(altera_avalon_uart_read.o)
+ .debug_aranges
+                0x0000000000000108       0x20 ../hs_bsp//libhal_bsp.a(altera_avalon_uart_write.o)
+ .debug_aranges
+                0x0000000000000128       0x20 ../hs_bsp//libhal_bsp.a(alt_dcache_flush_all.o)
+ .debug_aranges
+                0x0000000000000148       0x20 ../hs_bsp//libhal_bsp.a(alt_dev.o)
+ .debug_aranges
+                0x0000000000000168       0x18 ../hs_bsp//libhal_bsp.a(alt_errno.o)
+ .debug_aranges
+                0x0000000000000180       0x20 ../hs_bsp//libhal_bsp.a(alt_icache_flush_all.o)
+ .debug_aranges
+                0x00000000000001a0       0x20 ../hs_bsp//libhal_bsp.a(altera_nios2_gen2_irq.o)
+ .debug_aranges
+                0x00000000000001c0       0x20 ../hs_bsp//libhal_bsp.a(alt_icache_flush.o)
+ .debug_aranges
+                0x00000000000001e0       0x18 /opt/Altera/QuartusPrime-15.1/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.2/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/lib/libsmallc.a(lib_a-int_errno.o)
+ .debug_aranges
+                0x00000000000001f8       0x20 /opt/Altera/QuartusPrime-15.1/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.2/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/lib/libsmallc.a(lib_a-strlen.o)
+
+.debug_pubnames
+ *(.debug_pubnames)
+
+.debug_info     0x0000000000000000     0x172f
+ *(.debug_info .gnu.linkonce.wi.*)
+ .debug_info    0x0000000000000000       0x65 ../hs_bsp//obj/HAL/src/crt0.o
+ .debug_info    0x0000000000000065       0xa8 obj/default/hello_world_small.o
+ .debug_info    0x000000000000010d      0x33b ../hs_bsp//libhal_bsp.a(alt_getchar.o)
+ .debug_info    0x0000000000000448      0x1ba ../hs_bsp//libhal_bsp.a(alt_load.o)
+ .debug_info    0x0000000000000602      0x17b ../hs_bsp//libhal_bsp.a(alt_main.o)
+ .debug_info    0x000000000000077d      0x15d ../hs_bsp//libhal_bsp.a(alt_putstr.o)
+ .debug_info    0x00000000000008da      0x1af ../hs_bsp//libhal_bsp.a(alt_sys_init.o)
+ .debug_info    0x0000000000000a89      0x1ab ../hs_bsp//libhal_bsp.a(altera_avalon_uart_read.o)
+ .debug_info    0x0000000000000c34      0x1bf ../hs_bsp//libhal_bsp.a(altera_avalon_uart_write.o)
+ .debug_info    0x0000000000000df3       0x9f ../hs_bsp//libhal_bsp.a(alt_dcache_flush_all.o)
+ .debug_info    0x0000000000000e92      0x492 ../hs_bsp//libhal_bsp.a(alt_dev.o)
+ .debug_info    0x0000000000001324       0x9f ../hs_bsp//libhal_bsp.a(alt_errno.o)
+ .debug_info    0x00000000000013c3       0xc5 ../hs_bsp//libhal_bsp.a(alt_icache_flush_all.o)
+ .debug_info    0x0000000000001488       0x8b ../hs_bsp//libhal_bsp.a(altera_nios2_gen2_irq.o)
+ .debug_info    0x0000000000001513       0xd7 ../hs_bsp//libhal_bsp.a(alt_icache_flush.o)
+ .debug_info    0x00000000000015ea       0x83 /opt/Altera/QuartusPrime-15.1/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.2/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/lib/libsmallc.a(lib_a-int_errno.o)
+ .debug_info    0x000000000000166d       0xc2 /opt/Altera/QuartusPrime-15.1/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.2/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/lib/libsmallc.a(lib_a-strlen.o)
+
+.debug_abbrev   0x0000000000000000      0xb30
+ *(.debug_abbrev)
+ .debug_abbrev  0x0000000000000000       0x12 ../hs_bsp//obj/HAL/src/crt0.o
+ .debug_abbrev  0x0000000000000012       0xab obj/default/hello_world_small.o
+ .debug_abbrev  0x00000000000000bd      0x11f ../hs_bsp//libhal_bsp.a(alt_getchar.o)
+ .debug_abbrev  0x00000000000001dc       0xd8 ../hs_bsp//libhal_bsp.a(alt_load.o)
+ .debug_abbrev  0x00000000000002b4      0x120 ../hs_bsp//libhal_bsp.a(alt_main.o)
+ .debug_abbrev  0x00000000000003d4       0xe2 ../hs_bsp//libhal_bsp.a(alt_putstr.o)
+ .debug_abbrev  0x00000000000004b6      0x107 ../hs_bsp//libhal_bsp.a(alt_sys_init.o)
+ .debug_abbrev  0x00000000000005bd       0xe1 ../hs_bsp//libhal_bsp.a(altera_avalon_uart_read.o)
+ .debug_abbrev  0x000000000000069e       0xe8 ../hs_bsp//libhal_bsp.a(altera_avalon_uart_write.o)
+ .debug_abbrev  0x0000000000000786       0x5a ../hs_bsp//libhal_bsp.a(alt_dcache_flush_all.o)
+ .debug_abbrev  0x00000000000007e0       0xd9 ../hs_bsp//libhal_bsp.a(alt_dev.o)
+ .debug_abbrev  0x00000000000008b9       0x5a ../hs_bsp//libhal_bsp.a(alt_errno.o)
+ .debug_abbrev  0x0000000000000913       0x8a ../hs_bsp//libhal_bsp.a(alt_icache_flush_all.o)
+ .debug_abbrev  0x000000000000099d       0x42 ../hs_bsp//libhal_bsp.a(altera_nios2_gen2_irq.o)
+ .debug_abbrev  0x00000000000009df       0x9b ../hs_bsp//libhal_bsp.a(alt_icache_flush.o)
+ .debug_abbrev  0x0000000000000a7a       0x37 /opt/Altera/QuartusPrime-15.1/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.2/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/lib/libsmallc.a(lib_a-int_errno.o)
+ .debug_abbrev  0x0000000000000ab1       0x7f /opt/Altera/QuartusPrime-15.1/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.2/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/lib/libsmallc.a(lib_a-strlen.o)
+
+.debug_line     0x0000000000000000      0xbd9
+ *(.debug_line)
+ .debug_line    0x0000000000000000       0x72 ../hs_bsp//obj/HAL/src/crt0.o
+ .debug_line    0x0000000000000072       0x79 obj/default/hello_world_small.o
+ .debug_line    0x00000000000000eb       0xb7 ../hs_bsp//libhal_bsp.a(alt_getchar.o)
+ .debug_line    0x00000000000001a2       0xa6 ../hs_bsp//libhal_bsp.a(alt_load.o)
+ .debug_line    0x0000000000000248       0xbd ../hs_bsp//libhal_bsp.a(alt_main.o)
+ .debug_line    0x0000000000000305      0x11d ../hs_bsp//libhal_bsp.a(alt_putstr.o)
+ .debug_line    0x0000000000000422      0x119 ../hs_bsp//libhal_bsp.a(alt_sys_init.o)
+ .debug_line    0x000000000000053b       0xfc ../hs_bsp//libhal_bsp.a(altera_avalon_uart_read.o)
+ .debug_line    0x0000000000000637       0xec ../hs_bsp//libhal_bsp.a(altera_avalon_uart_write.o)
+ .debug_line    0x0000000000000723       0x5a ../hs_bsp//libhal_bsp.a(alt_dcache_flush_all.o)
+ .debug_line    0x000000000000077d      0x102 ../hs_bsp//libhal_bsp.a(alt_dev.o)
+ .debug_line    0x000000000000087f       0x51 ../hs_bsp//libhal_bsp.a(alt_errno.o)
+ .debug_line    0x00000000000008d0       0x87 ../hs_bsp//libhal_bsp.a(alt_icache_flush_all.o)
+ .debug_line    0x0000000000000957       0x50 ../hs_bsp//libhal_bsp.a(altera_nios2_gen2_irq.o)
+ .debug_line    0x00000000000009a7       0x7d ../hs_bsp//libhal_bsp.a(alt_icache_flush.o)
+ .debug_line    0x0000000000000a24       0x5c /opt/Altera/QuartusPrime-15.1/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.2/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/lib/libsmallc.a(lib_a-int_errno.o)
+ .debug_line    0x0000000000000a80      0x159 /opt/Altera/QuartusPrime-15.1/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.2/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/lib/libsmallc.a(lib_a-strlen.o)
+
+.debug_frame    0x0000000000000000      0x23c
+ *(.debug_frame)
+ .debug_frame   0x0000000000000000       0x28 obj/default/hello_world_small.o
+ .debug_frame   0x0000000000000028       0x2c ../hs_bsp//libhal_bsp.a(alt_getchar.o)
+ .debug_frame   0x0000000000000054       0x30 ../hs_bsp//libhal_bsp.a(alt_load.o)
+ .debug_frame   0x0000000000000084       0x2c ../hs_bsp//libhal_bsp.a(alt_main.o)
+ .debug_frame   0x00000000000000b0       0x30 ../hs_bsp//libhal_bsp.a(alt_putstr.o)
+ .debug_frame   0x00000000000000e0       0x3c ../hs_bsp//libhal_bsp.a(alt_sys_init.o)
+ .debug_frame   0x000000000000011c       0x2c ../hs_bsp//libhal_bsp.a(altera_avalon_uart_read.o)
+ .debug_frame   0x0000000000000148       0x34 ../hs_bsp//libhal_bsp.a(altera_avalon_uart_write.o)
+ .debug_frame   0x000000000000017c       0x20 ../hs_bsp//libhal_bsp.a(alt_dcache_flush_all.o)
+ .debug_frame   0x000000000000019c       0x20 ../hs_bsp//libhal_bsp.a(alt_dev.o)
+ .debug_frame   0x00000000000001bc       0x20 ../hs_bsp//libhal_bsp.a(alt_icache_flush_all.o)
+ .debug_frame   0x00000000000001dc       0x20 ../hs_bsp//libhal_bsp.a(altera_nios2_gen2_irq.o)
+ .debug_frame   0x00000000000001fc       0x20 ../hs_bsp//libhal_bsp.a(alt_icache_flush.o)
+ .debug_frame   0x000000000000021c       0x20 /opt/Altera/QuartusPrime-15.1/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.2/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/lib/libsmallc.a(lib_a-strlen.o)
+
+.debug_str      0x0000000000000000      0x888
+ *(.debug_str)
+ .debug_str     0x0000000000000000       0x8d obj/default/hello_world_small.o
+                                         0x97 (size before relaxing)
+ .debug_str     0x000000000000008d      0x169 ../hs_bsp//libhal_bsp.a(alt_getchar.o)
+                                        0x1fe (size before relaxing)
+ .debug_str     0x00000000000001f6      0x11b ../hs_bsp//libhal_bsp.a(alt_load.o)
+                                        0x213 (size before relaxing)
+ .debug_str     0x0000000000000311       0x5e ../hs_bsp//libhal_bsp.a(alt_main.o)
+                                        0x18c (size before relaxing)
+ .debug_str     0x000000000000036f       0x3c ../hs_bsp//libhal_bsp.a(alt_putstr.o)
+                                        0x15f (size before relaxing)
+ .debug_str     0x00000000000003ab       0xc9 ../hs_bsp//libhal_bsp.a(alt_sys_init.o)
+                                        0x234 (size before relaxing)
+ .debug_str     0x0000000000000474       0x4b ../hs_bsp//libhal_bsp.a(altera_avalon_uart_read.o)
+                                        0x1d8 (size before relaxing)
+ .debug_str     0x00000000000004bf       0x2d ../hs_bsp//libhal_bsp.a(altera_avalon_uart_write.o)
+                                        0x1e0 (size before relaxing)
+ .debug_str     0x00000000000004ec       0x1f ../hs_bsp//libhal_bsp.a(alt_dcache_flush_all.o)
+                                        0x12c (size before relaxing)
+ .debug_str     0x000000000000050b      0x120 ../hs_bsp//libhal_bsp.a(alt_dev.o)
+                                        0x2dc (size before relaxing)
+ .debug_str     0x000000000000062b       0x14 ../hs_bsp//libhal_bsp.a(alt_errno.o)
+                                        0x11c (size before relaxing)
+ .debug_str     0x000000000000063f       0x30 ../hs_bsp//libhal_bsp.a(alt_icache_flush_all.o)
+                                        0x145 (size before relaxing)
+ .debug_str     0x000000000000066f       0x20 ../hs_bsp//libhal_bsp.a(altera_nios2_gen2_irq.o)
+                                        0x133 (size before relaxing)
+ .debug_str     0x000000000000068f       0x1b ../hs_bsp//libhal_bsp.a(alt_icache_flush.o)
+                                        0x132 (size before relaxing)
+ .debug_str     0x00000000000006aa      0x119 /opt/Altera/QuartusPrime-15.1/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.2/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/lib/libsmallc.a(lib_a-int_errno.o)
+                                        0x1b1 (size before relaxing)
+ .debug_str     0x00000000000007c3       0xc5 /opt/Altera/QuartusPrime-15.1/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.2/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/lib/libsmallc.a(lib_a-strlen.o)
+                                        0x1be (size before relaxing)
+
+.debug_loc      0x0000000000000000      0x35c
+ *(.debug_loc)
+ .debug_loc     0x0000000000000000       0x13 obj/default/hello_world_small.o
+ .debug_loc     0x0000000000000013       0x37 ../hs_bsp//libhal_bsp.a(alt_putstr.o)
+ .debug_loc     0x000000000000004a       0x21 ../hs_bsp//libhal_bsp.a(alt_sys_init.o)
+ .debug_loc     0x000000000000006b      0x106 ../hs_bsp//libhal_bsp.a(altera_avalon_uart_read.o)
+ .debug_loc     0x0000000000000171      0x15c ../hs_bsp//libhal_bsp.a(altera_avalon_uart_write.o)
+ .debug_loc     0x00000000000002cd       0x1f ../hs_bsp//libhal_bsp.a(alt_dcache_flush_all.o)
+ .debug_loc     0x00000000000002ec       0x52 ../hs_bsp//libhal_bsp.a(alt_icache_flush.o)
+ .debug_loc     0x000000000000033e       0x1e /opt/Altera/QuartusPrime-15.1/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.2/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/lib/libsmallc.a(lib_a-strlen.o)
+
+.debug_macinfo
+ *(.debug_macinfo)
+
+.debug_weaknames
+ *(.debug_weaknames)
+
+.debug_funcnames
+ *(.debug_funcnames)
+
+.debug_typenames
+ *(.debug_typenames)
+
+.debug_varnames
+ *(.debug_varnames)
+
+.debug_alt_sim_info
+                0x0000000000000000       0x30
+ *(.debug_alt_sim_info)
+ .debug_alt_sim_info
+                0x0000000000000000       0x30 ../hs_bsp//obj/HAL/src/crt0.o
+                0x000000000001a000                __alt_data_end = 0x1a000
+                0x000000000001a000                PROVIDE (__alt_stack_pointer, __alt_data_end)
+                0x0000000000010500                PROVIDE (__alt_stack_limit, __alt_stack_base)
+                0x0000000000010500                PROVIDE (__alt_heap_start, end)
+                0x000000000001a000                PROVIDE (__alt_heap_limit, 0x1a000)
+OUTPUT(hs.elf elf32-littlenios2)
+
+.debug_ranges   0x0000000000000000       0xb8
+ .debug_ranges  0x0000000000000000       0x20 ../hs_bsp//obj/HAL/src/crt0.o
+ .debug_ranges  0x0000000000000020       0x10 obj/default/hello_world_small.o
+ .debug_ranges  0x0000000000000030       0x48 ../hs_bsp//libhal_bsp.a(alt_load.o)
+ .debug_ranges  0x0000000000000078       0x20 ../hs_bsp//libhal_bsp.a(altera_avalon_uart_read.o)
+ .debug_ranges  0x0000000000000098       0x10 ../hs_bsp//libhal_bsp.a(alt_icache_flush.o)
+ .debug_ranges  0x00000000000000a8       0x10 /opt/Altera/QuartusPrime-15.1/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.9.2/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/lib/libsmallc.a(lib_a-strlen.o)

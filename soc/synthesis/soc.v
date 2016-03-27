@@ -5,7 +5,9 @@
 `timescale 1 ps / 1 ps
 module soc (
 		input  wire  clk_clk,       //   clk.clk
-		input  wire  reset_reset_n  // reset.reset_n
+		input  wire  reset_reset_n, // reset.reset_n
+		input  wire  uart_rxd,      //  uart.rxd
+		output wire  uart_txd       //      .txd
 	);
 
 	wire  [31:0] cpu_data_master_readdata;                                  // mm_interconnect_0:cpu_data_master_readdata -> cpu:d_readdata
@@ -46,9 +48,17 @@ module soc (
 	wire         mm_interconnect_0_ram_s1_write;                            // mm_interconnect_0:ram_s1_write -> ram:write
 	wire  [31:0] mm_interconnect_0_ram_s1_writedata;                        // mm_interconnect_0:ram_s1_writedata -> ram:writedata
 	wire         mm_interconnect_0_ram_s1_clken;                            // mm_interconnect_0:ram_s1_clken -> ram:clken
+	wire         mm_interconnect_0_uart_s1_chipselect;                      // mm_interconnect_0:uart_s1_chipselect -> uart:chipselect
+	wire  [15:0] mm_interconnect_0_uart_s1_readdata;                        // uart:readdata -> mm_interconnect_0:uart_s1_readdata
+	wire   [2:0] mm_interconnect_0_uart_s1_address;                         // mm_interconnect_0:uart_s1_address -> uart:address
+	wire         mm_interconnect_0_uart_s1_read;                            // mm_interconnect_0:uart_s1_read -> uart:read_n
+	wire         mm_interconnect_0_uart_s1_begintransfer;                   // mm_interconnect_0:uart_s1_begintransfer -> uart:begintransfer
+	wire         mm_interconnect_0_uart_s1_write;                           // mm_interconnect_0:uart_s1_write -> uart:write_n
+	wire  [15:0] mm_interconnect_0_uart_s1_writedata;                       // mm_interconnect_0:uart_s1_writedata -> uart:writedata
 	wire         irq_mapper_receiver0_irq;                                  // jtag_uart:av_irq -> irq_mapper:receiver0_irq
+	wire         irq_mapper_receiver1_irq;                                  // uart:irq -> irq_mapper:receiver1_irq
 	wire  [31:0] cpu_irq_irq;                                               // irq_mapper:sender_irq -> cpu:irq
-	wire         rst_controller_reset_out_reset;                            // rst_controller:reset_out -> [cpu:reset_n, irq_mapper:reset, jtag_uart:rst_n, mm_interconnect_0:cpu_reset_reset_bridge_in_reset_reset, ram:reset, rst_translator:in_reset, sysid:reset_n]
+	wire         rst_controller_reset_out_reset;                            // rst_controller:reset_out -> [cpu:reset_n, irq_mapper:reset, jtag_uart:rst_n, mm_interconnect_0:cpu_reset_reset_bridge_in_reset_reset, ram:reset, rst_translator:in_reset, sysid:reset_n, uart:reset_n]
 	wire         rst_controller_reset_out_reset_req;                        // rst_controller:reset_req -> [cpu:reset_req, ram:reset_req, rst_translator:reset_req_in]
 	wire         cpu_debug_reset_request_reset;                             // cpu:debug_reset_request -> rst_controller:reset_in1
 
@@ -116,6 +126,23 @@ module soc (
 		.address  (mm_interconnect_0_sysid_control_slave_address)   //              .address
 	);
 
+	soc_uart uart (
+		.clk           (clk_clk),                                 //                 clk.clk
+		.reset_n       (~rst_controller_reset_out_reset),         //               reset.reset_n
+		.address       (mm_interconnect_0_uart_s1_address),       //                  s1.address
+		.begintransfer (mm_interconnect_0_uart_s1_begintransfer), //                    .begintransfer
+		.chipselect    (mm_interconnect_0_uart_s1_chipselect),    //                    .chipselect
+		.read_n        (~mm_interconnect_0_uart_s1_read),         //                    .read_n
+		.write_n       (~mm_interconnect_0_uart_s1_write),        //                    .write_n
+		.writedata     (mm_interconnect_0_uart_s1_writedata),     //                    .writedata
+		.readdata      (mm_interconnect_0_uart_s1_readdata),      //                    .readdata
+		.dataavailable (),                                        //                    .dataavailable
+		.readyfordata  (),                                        //                    .readyfordata
+		.rxd           (uart_rxd),                                // external_connection.export
+		.txd           (uart_txd),                                //                    .export
+		.irq           (irq_mapper_receiver1_irq)                 //                 irq.irq
+	);
+
 	soc_mm_interconnect_0 mm_interconnect_0 (
 		.clk_clk_clk                             (clk_clk),                                                   //                         clk_clk.clk
 		.cpu_reset_reset_bridge_in_reset_reset   (rst_controller_reset_out_reset),                            // cpu_reset_reset_bridge_in_reset.reset
@@ -156,13 +183,21 @@ module soc (
 		.ram_s1_chipselect                       (mm_interconnect_0_ram_s1_chipselect),                       //                                .chipselect
 		.ram_s1_clken                            (mm_interconnect_0_ram_s1_clken),                            //                                .clken
 		.sysid_control_slave_address             (mm_interconnect_0_sysid_control_slave_address),             //             sysid_control_slave.address
-		.sysid_control_slave_readdata            (mm_interconnect_0_sysid_control_slave_readdata)             //                                .readdata
+		.sysid_control_slave_readdata            (mm_interconnect_0_sysid_control_slave_readdata),            //                                .readdata
+		.uart_s1_address                         (mm_interconnect_0_uart_s1_address),                         //                         uart_s1.address
+		.uart_s1_write                           (mm_interconnect_0_uart_s1_write),                           //                                .write
+		.uart_s1_read                            (mm_interconnect_0_uart_s1_read),                            //                                .read
+		.uart_s1_readdata                        (mm_interconnect_0_uart_s1_readdata),                        //                                .readdata
+		.uart_s1_writedata                       (mm_interconnect_0_uart_s1_writedata),                       //                                .writedata
+		.uart_s1_begintransfer                   (mm_interconnect_0_uart_s1_begintransfer),                   //                                .begintransfer
+		.uart_s1_chipselect                      (mm_interconnect_0_uart_s1_chipselect)                       //                                .chipselect
 	);
 
 	soc_irq_mapper irq_mapper (
 		.clk           (clk_clk),                        //       clk.clk
 		.reset         (rst_controller_reset_out_reset), // clk_reset.reset
 		.receiver0_irq (irq_mapper_receiver0_irq),       // receiver0.irq
+		.receiver1_irq (irq_mapper_receiver1_irq),       // receiver1.irq
 		.sender_irq    (cpu_irq_irq)                     //    sender.irq
 	);
 

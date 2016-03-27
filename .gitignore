@@ -3,6 +3,7 @@ RemoteSystemsTempFiles/
 greybox_tmp/
 simulation/
 submodules/
+obj/
 
 *.done
 *.rpt

@@ -6,6 +6,8 @@ set_global_assignment -name ENABLE_INIT_DONE_OUTPUT OFF
 set_location_assignment	PIN_M1	-to RESET
 set_location_assignment	PIN_R9	-to CLOCK
 set_location_assignment	PIN_K2	-to LED[3]
+set_location_assignment	PIN_A8	-to RXD
+set_location_assignment	PIN_G5	-to TXD
 
 
 # set_location_assignment	PIN_A9	-to CLOCK_40M
@@ -190,8 +192,6 @@ set_location_assignment	PIN_M2	-to KEY_LEFT
 set_location_assignment	PIN_T9	-to KEY_RIGHT
 
 #串口对应的引脚
-set_location_assignment	PIN_A8	-to RXD
-set_location_assignment	PIN_G5	-to TXD
 
 #24LC04（EEPROM）对应的引脚
 set_location_assignment	PIN_G11	-to I2C_SDA

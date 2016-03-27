@@ -16,12 +16,15 @@
 
 #include <stdio.h>
 
+
+char s[10];
+
 int main()
 {
 
 while (1){
-  printf("Hello from Nios II!1231231231432u4ieuripowamadjfis;fmacwi;rmwaeri;wmriwe;criwpwuieropwruicw;mwriwc;ermcwi;amrcija;smfisa;dm\n");
-  usleep(1000*1000);
+  scanf("%s", s);
+  fprintf(stderr, s);
 }
 
   return 0;
