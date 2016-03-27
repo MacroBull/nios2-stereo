@@ -1,0 +1,14 @@
+*db/
+RemoteSystemsTempFiles/
+greybox_tmp/
+simulation/
+submodules/
+
+*.done
+*.rpt
+*.*msg
+*.summary
+*.html
+*.bak
+*~
+~*
