@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <EnsembleReport name="soc" kind="system" version="15.1" fabric="QSYS">
  <!-- Format version 15.1 193 (Future versions may contain additional information.) -->
- <!-- 2016.03.27.20:56:24 -->
+ <!-- 2016.03.27.22:04:32 -->
  <!-- A collection of modules and connections -->
  <parameter name="clockCrossingAdapter">
   <type>com.altera.sopcmodel.ensemble.EClockAdapter</type>
@@ -53,7 +53,7 @@
  </parameter>
  <parameter name="generationId">
   <type>int</type>
-  <value>1459083368</value>
+  <value>1459087456</value>
   <derived>false</derived>
   <enabled>true</enabled>
   <visible>true</visible>
@@ -101,7 +101,7 @@
  </parameter>
  <parameter name="projectName">
   <type>java.lang.String</type>
-  <value></value>
+  <value>Stereo.qpf</value>
   <derived>false</derived>
   <enabled>true</enabled>
   <visible>false</visible>
@@ -3720,7 +3720,7 @@ parameters are a RESULT of the module parameters. -->
 the requested settings for a module instance. -->
   <assignment>
    <name>embeddedsw.CMacro.READ_DEPTH</name>
-   <value>64</value>
+   <value>256</value>
   </assignment>
   <assignment>
    <name>embeddedsw.CMacro.READ_THRESHOLD</name>
@@ -3728,7 +3728,7 @@ the requested settings for a module instance. -->
   </assignment>
   <assignment>
    <name>embeddedsw.CMacro.WRITE_DEPTH</name>
-   <value>64</value>
+   <value>256</value>
   </assignment>
   <assignment>
    <name>embeddedsw.CMacro.WRITE_THRESHOLD</name>
@@ -3768,7 +3768,7 @@ the requested settings for a module instance. -->
   </parameter>
   <parameter name="readBufferDepth">
    <type>int</type>
-   <value>64</value>
+   <value>256</value>
    <derived>false</derived>
    <enabled>true</enabled>
    <visible>true</visible>
@@ -3824,7 +3824,7 @@ the requested settings for a module instance. -->
   </parameter>
   <parameter name="writeBufferDepth">
    <type>int</type>
-   <value>64</value>
+   <value>256</value>
    <derived>false</derived>
    <enabled>true</enabled>
    <visible>true</visible>
@@ -5283,7 +5283,7 @@ the requested settings for a module instance. -->
   </assignment>
   <assignment>
    <name>embeddedsw.CMacro.TIMESTAMP</name>
-   <value>1459083368</value>
+   <value>1459087456</value>
   </assignment>
   <assignment>
    <name>embeddedsw.dts.compatible</name>
@@ -5303,7 +5303,7 @@ the requested settings for a module instance. -->
   </assignment>
   <assignment>
    <name>embeddedsw.dts.params.timestamp</name>
-   <value>1459083368</value>
+   <value>1459087456</value>
   </assignment>
   <assignment>
    <name>embeddedsw.dts.vendor</name>
@@ -5319,7 +5319,7 @@ the requested settings for a module instance. -->
   </parameter>
   <parameter name="timestamp">
    <type>int</type>
-   <value>1459083368</value>
+   <value>1459087456</value>
    <derived>true</derived>
    <enabled>false</enabled>
    <visible>false</visible>
@@ -10079,5 +10079,5 @@ parameters are a RESULT of the module parameters. -->
   <version>15.1</version>
  </plugin>
  <reportVersion>15.1 193</reportVersion>
- <uniqueIdentifier>3C970EA2A7AE00000153B82561E2</uniqueIdentifier>
+ <uniqueIdentifier>3C970EA2A7AE00000153B863C507</uniqueIdentifier>
 </EnsembleReport>

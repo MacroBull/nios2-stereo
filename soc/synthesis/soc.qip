@@ -2,7 +2,7 @@ set_global_assignment -entity "soc" -library "soc" -name IP_TOOL_NAME "Qsys"
 set_global_assignment -entity "soc" -library "soc" -name IP_TOOL_VERSION "15.1"
 set_global_assignment -entity "soc" -library "soc" -name IP_TOOL_ENV "Qsys"
 set_global_assignment -library "soc" -name SOPCINFO_FILE [file join $::quartus(qip_path) "../../soc.sopcinfo"]
-set_global_assignment -entity "soc" -library "soc" -name SLD_INFO "QSYS_NAME soc HAS_SOPCINFO 1 GENERATION_ID 1459083368"
+set_global_assignment -entity "soc" -library "soc" -name SLD_INFO "QSYS_NAME soc HAS_SOPCINFO 1 GENERATION_ID 1459087456"
 set_global_assignment -library "soc" -name MISC_FILE [file join $::quartus(qip_path) "../soc.cmp"]
 set_global_assignment -library "soc" -name SLD_FILE [file join $::quartus(qip_path) "soc.regmap"]
 set_global_assignment -library "soc" -name SLD_FILE [file join $::quartus(qip_path) "soc.debuginfo"]
@@ -16,7 +16,7 @@ set_global_assignment -entity "soc" -library "soc" -name IP_COMPONENT_DISPLAY_NA
 set_global_assignment -entity "soc" -library "soc" -name IP_COMPONENT_REPORT_HIERARCHY "On"
 set_global_assignment -entity "soc" -library "soc" -name IP_COMPONENT_INTERNAL "Off"
 set_global_assignment -entity "soc" -library "soc" -name IP_COMPONENT_VERSION "MS4w"
-set_global_assignment -entity "soc" -library "soc" -name IP_COMPONENT_PARAMETER "QVVUT19HRU5FUkFUSU9OX0lE::MTQ1OTA4MzM2OA==::QXV0byBHRU5FUkFUSU9OX0lE"
+set_global_assignment -entity "soc" -library "soc" -name IP_COMPONENT_PARAMETER "QVVUT19HRU5FUkFUSU9OX0lE::MTQ1OTA4NzQ1Ng==::QXV0byBHRU5FUkFUSU9OX0lE"
 set_global_assignment -entity "soc" -library "soc" -name IP_COMPONENT_PARAMETER "QVVUT19ERVZJQ0VfRkFNSUxZ::Q3ljbG9uZSBJViBF::QXV0byBERVZJQ0VfRkFNSUxZ"
 set_global_assignment -entity "soc" -library "soc" -name IP_COMPONENT_PARAMETER "QVVUT19ERVZJQ0U=::RVA0Q0UxNUYxN0M4::QXV0byBERVZJQ0U="
 set_global_assignment -entity "soc" -library "soc" -name IP_COMPONENT_PARAMETER "QVVUT19ERVZJQ0VfU1BFRURHUkFERQ==::OA==::QXV0byBERVZJQ0VfU1BFRURHUkFERQ=="
@@ -571,13 +571,13 @@ set_global_assignment -entity "soc_jtag_uart" -library "soc" -name IP_COMPONENT_
 set_global_assignment -entity "soc_jtag_uart" -library "soc" -name IP_COMPONENT_VERSION "MTUuMQ=="
 set_global_assignment -entity "soc_jtag_uart" -library "soc" -name IP_COMPONENT_PARAMETER "YWxsb3dNdWx0aXBsZUNvbm5lY3Rpb25z::ZmFsc2U=::QWxsb3cgbXVsdGlwbGUgY29ubmVjdGlvbnMgdG8gQXZhbG9uIEpUQUcgc2xhdmU="
 set_global_assignment -entity "soc_jtag_uart" -library "soc" -name IP_COMPONENT_PARAMETER "aHViSW5zdGFuY2VJRA==::MA==::aHViSW5zdGFuY2VJRA=="
-set_global_assignment -entity "soc_jtag_uart" -library "soc" -name IP_COMPONENT_PARAMETER "cmVhZEJ1ZmZlckRlcHRo::NjQ=::QnVmZmVyIGRlcHRoIChieXRlcyk="
+set_global_assignment -entity "soc_jtag_uart" -library "soc" -name IP_COMPONENT_PARAMETER "cmVhZEJ1ZmZlckRlcHRo::MjU2::QnVmZmVyIGRlcHRoIChieXRlcyk="
 set_global_assignment -entity "soc_jtag_uart" -library "soc" -name IP_COMPONENT_PARAMETER "cmVhZElSUVRocmVzaG9sZA==::OA==::SVJRIHRocmVzaG9sZA=="
 set_global_assignment -entity "soc_jtag_uart" -library "soc" -name IP_COMPONENT_PARAMETER "c2ltSW50ZXJhY3RpdmVPcHRpb25z::Tk9fSU5URVJBQ1RJVkVfV0lORE9XUw==::T3B0aW9ucw=="
 set_global_assignment -entity "soc_jtag_uart" -library "soc" -name IP_COMPONENT_PARAMETER "dXNlUmVnaXN0ZXJzRm9yUmVhZEJ1ZmZlcg==::ZmFsc2U=::Q29uc3RydWN0IHVzaW5nIHJlZ2lzdGVycyBpbnN0ZWFkIG9mIG1lbW9yeSBibG9ja3M="
 set_global_assignment -entity "soc_jtag_uart" -library "soc" -name IP_COMPONENT_PARAMETER "dXNlUmVnaXN0ZXJzRm9yV3JpdGVCdWZmZXI=::ZmFsc2U=::Q29uc3RydWN0IHVzaW5nIHJlZ2lzdGVycyBpbnN0ZWFkIG9mIG1lbW9yeSBibG9ja3M="
 set_global_assignment -entity "soc_jtag_uart" -library "soc" -name IP_COMPONENT_PARAMETER "dXNlUmVsYXRpdmVQYXRoRm9yU2ltRmlsZQ==::ZmFsc2U=::dXNlUmVsYXRpdmVQYXRoRm9yU2ltRmlsZQ=="
-set_global_assignment -entity "soc_jtag_uart" -library "soc" -name IP_COMPONENT_PARAMETER "d3JpdGVCdWZmZXJEZXB0aA==::NjQ=::QnVmZmVyIGRlcHRoIChieXRlcyk="
+set_global_assignment -entity "soc_jtag_uart" -library "soc" -name IP_COMPONENT_PARAMETER "d3JpdGVCdWZmZXJEZXB0aA==::MjU2::QnVmZmVyIGRlcHRoIChieXRlcyk="
 set_global_assignment -entity "soc_jtag_uart" -library "soc" -name IP_COMPONENT_PARAMETER "d3JpdGVJUlFUaHJlc2hvbGQ=::OA==::SVJRIHRocmVzaG9sZA=="
 set_global_assignment -entity "soc_jtag_uart" -library "soc" -name IP_COMPONENT_PARAMETER "Y2xrRnJlcQ==::MTIwMDAwMDAw::Y2xrRnJlcQ=="
 set_global_assignment -entity "soc_jtag_uart" -library "soc" -name IP_COMPONENT_PARAMETER "YXZhbG9uU3BlYw==::Mi4w::YXZhbG9uU3BlYw=="
