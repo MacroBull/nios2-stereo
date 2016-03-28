@@ -139,7 +139,7 @@ ACDS_VERSION := 15.1
 # Define path to the application ELF. 
 # It may be used by the makefile fragments so is defined before including them. 
 # 
-ELF := master.elf
+ELF := t0.elf
 
 # Paths to C, C++, and assembly source files.
 C_SRCS := main.c
@@ -152,7 +152,7 @@ OBJ_ROOT_DIR := obj
 
 # Options to control objdump.
 CREATE_OBJDUMP := 1
-OBJDUMP_INCLUDE_SOURCE := 0
+OBJDUMP_INCLUDE_SOURCE := 1
 OBJDUMP_FULL_CONTENTS := 0
 
 # Options to enable/disable optional files.
@@ -188,6 +188,7 @@ APP_LIBRARY_NAMES :=
 BUILD_PRE_PROCESS :=
 BUILD_POST_PROCESS :=
 
+QUARTUS_PROJECT_DIR := ../../
 
 
 #END GENERATED

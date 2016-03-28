@@ -2827,3 +2827,235 @@ Binding(ALT+CTRL+I,
 
 !ENTRY com.altera.sbtgui.launch 1 0 2016-03-28 08:40:38.462
 !MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [1-1.2]' --device=1 --instance=0 --go --accept-bad-sysid --sidp=0x21070 /home/macrobull/Workspace/Stereo/software/master/master.elf]
+
+!ENTRY org.eclipse.cdt.core 1 0 2016-03-28 08:46:03.477
+!MESSAGE Indexed 'BSP' (85 sources, 159 headers) in 6.30 sec: 5,453 declarations; 9,124 references; 11 unresolved inclusions; 2 syntax errors; 47 unresolved names (0.32%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2016-03-28 08:46:04.769
+!MESSAGE Indexed 't0' (1 sources, 21 headers) in 0.12 sec: 926 declarations; 1,553 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0.00%)
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-28 08:49:13.624
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [1-1.2]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-28 08:49:13.880
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [1-1.2]' --device=1 --instance=0 --stop --accept-bad-sysid --sidp=0x21070]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-28 08:49:16.275
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [1-1.2]' --device=1 --instance=0 --go --accept-bad-sysid --sidp=0x21070 /home/macrobull/Workspace/Stereo/software/t0/t0.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-28 08:50:29.020
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [1-1.2]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-28 08:50:29.268
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [1-1.2]' --device=1 --instance=0 --stop --accept-bad-sysid --sidp=0x21070]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-28 08:50:31.629
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [1-1.2]' --device=1 --instance=0 --go --accept-bad-sysid --sidp=0x21070 /home/macrobull/Workspace/Stereo/software/t0/t0.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-28 08:51:00.403
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [1-1.2]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-28 08:51:00.579
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [1-1.2]' --device=1 --instance=0 --stop --accept-bad-sysid --sidp=0x21070]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-28 08:51:02.929
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [1-1.2]' --device=1 --instance=0 --go --accept-bad-sysid --sidp=0x21070 /home/macrobull/Workspace/Stereo/software/t0/t0.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-28 08:51:16.834
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [1-1.2]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-28 08:51:17.056
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [1-1.2]' --device=1 --instance=0 --stop --accept-bad-sysid --sidp=0x21070]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-28 08:51:19.422
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [1-1.2]' --device=1 --instance=0 --go --accept-bad-sysid --sidp=0x21070 /home/macrobull/Workspace/Stereo/software/t0/t0.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-28 08:52:09.688
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [1-1.2]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-28 08:52:09.882
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [1-1.2]' --device=1 --instance=0 --stop --accept-bad-sysid --sidp=0x21070]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-28 08:52:12.232
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [1-1.2]' --device=1 --instance=0 --go --accept-bad-sysid --sidp=0x21070 /home/macrobull/Workspace/Stereo/software/t0/t0.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-28 08:52:30.958
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [1-1.2]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-28 08:52:31.152
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [1-1.2]' --device=1 --instance=0 --stop --accept-bad-sysid --sidp=0x21070]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-28 08:52:33.514
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [1-1.2]' --device=1 --instance=0 --go --accept-bad-sysid --sidp=0x21070 /home/macrobull/Workspace/Stereo/software/t0/t0.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-28 08:52:52.567
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [1-1.2]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-28 08:52:52.759
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [1-1.2]' --device=1 --instance=0 --stop --accept-bad-sysid --sidp=0x21070]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-28 08:52:55.110
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [1-1.2]' --device=1 --instance=0 --go --accept-bad-sysid --sidp=0x21070 /home/macrobull/Workspace/Stereo/software/t0/t0.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-28 08:53:16.847
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [1-1.2]' --device=1 --instance=0 --stop --accept-bad-sysid --sidp=0x21070]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-28 08:53:19.218
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [1-1.2]' --device=1 --instance=0 --go --accept-bad-sysid --sidp=0x21070 /home/macrobull/Workspace/Stereo/software/t0/t0.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-28 08:53:50.115
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [1-1.2]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-28 08:53:50.297
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [1-1.2]' --device=1 --instance=0 --stop --accept-bad-sysid --sidp=0x21070]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-28 08:53:52.655
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [1-1.2]' --device=1 --instance=0 --go --accept-bad-sysid --sidp=0x21070 /home/macrobull/Workspace/Stereo/software/t0/t0.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-28 08:55:05.237
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [1-1.2]' --device=1 --instance=0 --stop --accept-bad-sysid --sidp=0x21070]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-28 08:55:07.605
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [1-1.2]' --device=1 --instance=0 --go --accept-bad-sysid --sidp=0x21070 /home/macrobull/Workspace/Stereo/software/t0/t0.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-28 08:55:51.936
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [1-1.2]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-28 08:55:52.130
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [1-1.2]' --device=1 --instance=0 --stop --accept-bad-sysid --sidp=0x21070]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-28 08:55:54.510
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [1-1.2]' --device=1 --instance=0 --go --accept-bad-sysid --sidp=0x21070 /home/macrobull/Workspace/Stereo/software/t0/t0.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-28 08:57:04.752
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [1-1.2]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-28 08:57:05.016
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [1-1.2]' --device=1 --instance=0 --stop --accept-bad-sysid --sidp=0x21070]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-28 08:57:07.404
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [1-1.2]' --device=1 --instance=0 --go --accept-bad-sysid --sidp=0x21070 /home/macrobull/Workspace/Stereo/software/t0/t0.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-28 08:57:40.629
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [1-1.2]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-28 08:57:40.828
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [1-1.2]' --device=1 --instance=0 --stop --accept-bad-sysid --sidp=0x21070]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-28 08:57:43.177
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [1-1.2]' --device=1 --instance=0 --go --accept-bad-sysid --sidp=0x21070 /home/macrobull/Workspace/Stereo/software/t0/t0.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-28 08:57:53.272
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [1-1.2]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-28 08:57:53.471
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [1-1.2]' --device=1 --instance=0 --stop --accept-bad-sysid --sidp=0x21070]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-28 08:57:55.809
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [1-1.2]' --device=1 --instance=0 --go --accept-bad-sysid --sidp=0x21070 /home/macrobull/Workspace/Stereo/software/t0/t0.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-28 08:58:04.831
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [1-1.2]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-28 08:58:05.006
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [1-1.2]' --device=1 --instance=0 --stop --accept-bad-sysid --sidp=0x21070]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-28 08:58:07.362
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [1-1.2]' --device=1 --instance=0 --go --accept-bad-sysid --sidp=0x21070 /home/macrobull/Workspace/Stereo/software/t0/t0.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-28 08:59:33.498
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [1-1.2]' --device=1 --instance=0 --stop --accept-bad-sysid --sidp=0x21070]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-28 08:59:35.862
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [1-1.2]' --device=1 --instance=0 --go --accept-bad-sysid --sidp=0x21070 /home/macrobull/Workspace/Stereo/software/t0/t0.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-28 09:01:03.916
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [1-1.2]
+
+!ENTRY org.eclipse.cdt.launch 4 104 2016-03-28 09:01:03.921
+!MESSAGE The Nios II ELF executable does not exist. Please verify that the project t0 built successfully.
+!STACK 0
+java.io.FileNotFoundException: ELF file 't0.elf' not found.
+	at com.altera.sbtgui.launch.hardware.Nios2HardwareLaunchDelegate.getProgramFile(Nios2HardwareLaunchDelegate.java:1232)
+	at org.eclipse.cdt.launch.AbstractCLaunchDelegate.verifyProgramFile(AbstractCLaunchDelegate.java:448)
+	at com.altera.sbtgui.launch.hardware.AbstractNios2CLaunchDelegate.initialize(AbstractNios2CLaunchDelegate.java:183)
+	at com.altera.sbtgui.launch.hardware.AbstractNios2CLaunchDelegate.launch(AbstractNios2CLaunchDelegate.java:90)
+	at com.altera.sbtgui.launch.hardware.Nios2HardwareLaunchDelegate.launch(Nios2HardwareLaunchDelegate.java:98)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:858)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:707)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1018)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1222)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
+!SUBENTRY 1 org.eclipse.cdt.launch 4 104 2016-03-28 09:01:03.922
+!MESSAGE ELF file 't0.elf' not found.
+!STACK 0
+java.io.FileNotFoundException: ELF file 't0.elf' not found.
+	at com.altera.sbtgui.launch.hardware.Nios2HardwareLaunchDelegate.getProgramFile(Nios2HardwareLaunchDelegate.java:1232)
+	at org.eclipse.cdt.launch.AbstractCLaunchDelegate.verifyProgramFile(AbstractCLaunchDelegate.java:448)
+	at com.altera.sbtgui.launch.hardware.AbstractNios2CLaunchDelegate.initialize(AbstractNios2CLaunchDelegate.java:183)
+	at com.altera.sbtgui.launch.hardware.AbstractNios2CLaunchDelegate.launch(AbstractNios2CLaunchDelegate.java:90)
+	at com.altera.sbtgui.launch.hardware.Nios2HardwareLaunchDelegate.launch(Nios2HardwareLaunchDelegate.java:98)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:858)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:707)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1018)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1222)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
+
+!ENTRY org.eclipse.cdt.launch 4 104 2016-03-28 09:01:46.362
+!MESSAGE The Nios II ELF executable does not exist. Please verify that the project t0 built successfully.
+!STACK 0
+java.io.FileNotFoundException: ELF file 't0.elf' not found.
+	at com.altera.sbtgui.launch.hardware.Nios2HardwareLaunchDelegate.getProgramFile(Nios2HardwareLaunchDelegate.java:1232)
+	at org.eclipse.cdt.launch.AbstractCLaunchDelegate.verifyProgramFile(AbstractCLaunchDelegate.java:448)
+	at com.altera.sbtgui.launch.hardware.AbstractNios2CLaunchDelegate.initialize(AbstractNios2CLaunchDelegate.java:183)
+	at com.altera.sbtgui.launch.hardware.AbstractNios2CLaunchDelegate.launch(AbstractNios2CLaunchDelegate.java:90)
+	at com.altera.sbtgui.launch.hardware.Nios2HardwareLaunchDelegate.launch(Nios2HardwareLaunchDelegate.java:98)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:858)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:707)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1018)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1222)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
+!SUBENTRY 1 org.eclipse.cdt.launch 4 104 2016-03-28 09:01:46.363
+!MESSAGE ELF file 't0.elf' not found.
+!STACK 0
+java.io.FileNotFoundException: ELF file 't0.elf' not found.
+	at com.altera.sbtgui.launch.hardware.Nios2HardwareLaunchDelegate.getProgramFile(Nios2HardwareLaunchDelegate.java:1232)
+	at org.eclipse.cdt.launch.AbstractCLaunchDelegate.verifyProgramFile(AbstractCLaunchDelegate.java:448)
+	at com.altera.sbtgui.launch.hardware.AbstractNios2CLaunchDelegate.initialize(AbstractNios2CLaunchDelegate.java:183)
+	at com.altera.sbtgui.launch.hardware.AbstractNios2CLaunchDelegate.launch(AbstractNios2CLaunchDelegate.java:90)
+	at com.altera.sbtgui.launch.hardware.Nios2HardwareLaunchDelegate.launch(Nios2HardwareLaunchDelegate.java:98)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:858)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:707)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1018)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1222)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-28 09:02:25.167
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [1-1.2]' --device=1 --instance=0 --stop --accept-bad-sysid --sidp=0x21070]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-28 09:02:27.502
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [1-1.2]' --device=1 --instance=0 --go --accept-bad-sysid --sidp=0x21070 /home/macrobull/Workspace/Stereo/software/t0/t0.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-28 09:03:50.428
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [1-1.2]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-28 09:03:50.611
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [1-1.2]' --device=1 --instance=0 --stop --accept-bad-sysid --sidp=0x21070]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-28 09:03:52.973
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [1-1.2]' --device=1 --instance=0 --go --accept-bad-sysid --sidp=0x21070 /home/macrobull/Workspace/Stereo/software/t0/t0.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-28 09:04:02.112
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [1-1.2]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-28 09:04:02.318
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [1-1.2]' --device=1 --instance=0 --stop --accept-bad-sysid --sidp=0x21070]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-28 09:04:04.655
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [1-1.2]' --device=1 --instance=0 --go --accept-bad-sysid --sidp=0x21070 /home/macrobull/Workspace/Stereo/software/t0/t0.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-28 09:06:41.714
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [1-1.2]' --device=1 --instance=0 --stop --accept-bad-sysid --sidp=0x21070]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-28 09:06:44.090
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [1-1.2]' --device=1 --instance=0 --go --accept-bad-sysid --sidp=0x21070 /home/macrobull/Workspace/Stereo/software/t0/t0.elf]

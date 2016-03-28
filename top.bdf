@@ -346,28 +346,6 @@ agreement for further details.
 		(rectangle (rect 16 16 176 96))
 	)
 )
-(symbol
-	(rect 608 -16 776 64)
-	(text "acc23" (rect 5 0 46 11)(font "Arial" ))
-	(text "inst2" (rect 8 64 49 75)(font "Liberation Sans" ))
-	(port
-		(pt 0 32)
-		(input)
-		(text "iCLK" (rect 0 0 33 11)(font "Arial" ))
-		(text "iCLK" (rect 21 27 54 38)(font "Arial" ))
-		(line (pt 0 32)(pt 16 32))
-	)
-	(port
-		(pt 168 32)
-		(output)
-		(text "oOut[23..0]" (rect 0 0 90 11)(font "Arial" ))
-		(text "oOut[23..0]" (rect 71 27 161 38)(font "Arial" ))
-		(line (pt 168 32)(pt 152 32)(line_width 3))
-	)
-	(drawing
-		(rectangle (rect 16 16 152 64))
-	)
-)
 (connector
 	(pt 496 280)
 	(pt 504 280)
@@ -411,20 +389,6 @@ agreement for further details.
 (connector
 	(pt 912 144)
 	(pt 928 144)
-)
-(connector
-	(pt 784 -16)
-	(pt 784 16)
-	(bus)
-)
-(connector
-	(pt 784 16)
-	(pt 776 16)
-	(bus)
-)
-(connector
-	(pt 608 16)
-	(pt 336 16)
 )
 (connector
 	(pt 912 -16)

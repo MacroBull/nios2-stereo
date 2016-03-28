@@ -187,7 +187,8 @@ ELF_PATCH_FLAG  += --timestamp 1459099844
 # multiple inheritance and exceptions are not supported. If false, adds 
 # -DALT_NO_C_PLUS_PLUS to ALT_CPPFLAGS in public.mk, and reduces code 
 # footprint. none 
-# setting hal.enable_c_plus_plus is true
+# setting hal.enable_c_plus_plus is false
+ALT_CPPFLAGS += -DALT_NO_C_PLUS_PLUS
 
 # When your application exits, close file descriptors, call C++ destructors, 
 # etc. Code footprint can be reduced by disabling clean exit. If disabled, adds 
@@ -197,7 +198,8 @@ ELF_PATCH_FLAG  += --timestamp 1459099844
 # Add exit() support. This option increases code footprint if your "main()" 
 # routine does "return" or call "exit()". If false, adds -DALT_NO_EXIT to 
 # ALT_CPPFLAGS in public.mk, and reduces footprint none 
-# setting hal.enable_exit is true
+# setting hal.enable_exit is false
+ALT_CPPFLAGS += -DALT_NO_EXIT
 
 # Causes code to be compiled with gprof profiling enabled and the application 
 # ELF to be linked with the GPROF library. If true, adds -DALT_PROVIDE_GMON to 
@@ -212,7 +214,8 @@ ELF_PATCH_FLAG  += --timestamp 1459099844
 # devices. If true, adds -DALT_USE_DIRECT_DRIVERS to ALT_CPPFLAGS in public.mk. 
 # The Altera Host and read-only ZIP file systems can't be used if 
 # hal.enable_lightweight_device_driver_api is true. 
-# setting hal.enable_lightweight_device_driver_api is false
+# setting hal.enable_lightweight_device_driver_api is true
+ALT_CPPFLAGS += -DALT_USE_DIRECT_DRIVERS
 
 # Adds code to emulate multiply and divide instructions in case they are 
 # executed but aren't present in the CPU. Normally this isn't required because 
@@ -231,7 +234,8 @@ ALT_CPPFLAGS += -DALT_NO_INSTRUCTION_EMULATION
 # access routines) to fail. You can define a symbol provided by each driver to 
 # prevent it from being removed. If true, adds -DALT_USE_SMALL_DRIVERS to 
 # ALT_CPPFLAGS in public.mk. none 
-# setting hal.enable_reduced_device_drivers is false
+# setting hal.enable_reduced_device_drivers is true
+ALT_CPPFLAGS += -DALT_USE_SMALL_DRIVERS
 
 # Turns on HAL runtime stack checking feature. Enabling this setting causes 
 # additional code to be placed into each subroutine call to generate an 
