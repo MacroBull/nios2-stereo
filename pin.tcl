@@ -23,16 +23,16 @@ set_location_assignment	PIN_M7	-to SEL[2]
 set_location_assignment	PIN_P8	-to SEL[1] 
 set_location_assignment	PIN_N8	-to SEL[0]
 
-
-# set_location_assignment	PIN_A9	-to CLOCK_40M
-
-#EPCS引脚
-set_location_assignment	PIN_H2	-to DATA0
-set_location_assignment	PIN_H1	-to DCLK
-set_location_assignment	PIN_D2	-to SCE
-set_location_assignment	PIN_C1	-to SDO
-
-#SDRAM引脚
+set_location_assignment	PIN_A3	-to S_CLK
+set_location_assignment	PIN_C16	-to S_BA[0]
+set_location_assignment	PIN_D15	-to S_BA[1]
+set_location_assignment	PIN_A15	-to S_NCAS
+set_location_assignment	PIN_B4	-to S_CKE
+set_location_assignment	PIN_B16	-to S_NRAS
+set_location_assignment	PIN_B14	-to S_NWE
+set_location_assignment	PIN_C15	-to S_NCS
+set_location_assignment	PIN_B3	-to S_DQM[1]
+set_location_assignment	PIN_A14	-to S_DQM[0]
 set_location_assignment	PIN_A10	-to S_DB[0]
 set_location_assignment	PIN_B10	-to S_DB[1]
 set_location_assignment	PIN_A11 -to S_DB[2]
@@ -49,7 +49,6 @@ set_location_assignment	PIN_F2	-to S_DB[12]
 set_location_assignment	PIN_F1	-to S_DB[13]
 set_location_assignment	PIN_G2	-to S_DB[14]
 set_location_assignment	PIN_G1	-to S_DB[15]
-
 set_location_assignment	PIN_F15	-to S_A[0]
 set_location_assignment	PIN_F16	-to S_A[1]
 set_location_assignment	PIN_G15	-to S_A[2]
@@ -64,16 +63,15 @@ set_location_assignment	PIN_D16	-to S_A[10]
 set_location_assignment	PIN_B5	-to S_A[11]
 set_location_assignment	PIN_A4	-to S_A[12]
 
-set_location_assignment	PIN_A3	-to S_CLK
-set_location_assignment	PIN_C16	-to S_BA[0]
-set_location_assignment	PIN_D15	-to S_BA[1]
-set_location_assignment	PIN_A15	-to S_NCAS
-set_location_assignment	PIN_B4	-to S_CKE
-set_location_assignment	PIN_B16	-to S_NRAS
-set_location_assignment	PIN_B14	-to S_NWE
-set_location_assignment	PIN_C15	-to S_NCS
-set_location_assignment	PIN_B3	-to S_DQM[1]
-set_location_assignment	PIN_A14	-to S_DQM[0]
+# set_location_assignment	PIN_A9	-to CLOCK_40M
+
+#EPCS引脚
+set_location_assignment	PIN_H2	-to DATA0
+set_location_assignment	PIN_H1	-to DCLK
+set_location_assignment	PIN_D2	-to SCE
+set_location_assignment	PIN_C1	-to SDO
+
+
 
 #并行FLASH引脚
 #set_location_assignment	PIN_P16	-to F_DB[0]

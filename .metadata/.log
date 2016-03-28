@@ -3059,3 +3059,208 @@ java.io.FileNotFoundException: ELF file 't0.elf' not found.
 
 !ENTRY com.altera.sbtgui.launch 1 0 2016-03-28 09:06:44.090
 !MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [1-1.2]' --device=1 --instance=0 --go --accept-bad-sysid --sidp=0x21070 /home/macrobull/Workspace/Stereo/software/t0/t0.elf]
+!SESSION 2016-03-28 09:07:43.145 -----------------------------------------------
+eclipse.buildId=4.3.2.M20140221-1700
+java.version=1.8.0_05
+java.vendor=Oracle Corporation
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.cpp.product -pluginCustomization /opt/Altera/QuartusPrime-15.1/nios2eds/bin/eclipse_nios2/plugin_customization.ini
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -product org.eclipse.epp.package.cpp.product -pluginCustomization /opt/Altera/QuartusPrime-15.1/nios2eds/bin/eclipse_nios2/plugin_customization.ini
+
+!ENTRY org.eclipse.ui 2 0 2016-03-28 09:07:45.814
+!MESSAGE Warnings while parsing the commands from the 'org.eclipse.ui.commands' and 'org.eclipse.ui.actionDefinitions' extension points.
+!SUBENTRY 1 org.eclipse.ui 2 0 2016-03-28 09:07:45.815
+!MESSAGE Commands should really have a category: plug-in='org.eclipse.linuxtools.systemtap.ui.graphing', id='org.eclipse.linuxtools.systemtap.ui.graphing.commands.SaveGraphImage', categoryId='org.eclipse.linuxtools.systemtap.ui.graphing.category.file'
+
+!ENTRY org.eclipse.ui 2 0 2016-03-28 09:07:46.322
+!MESSAGE Warnings while parsing the commands from the 'org.eclipse.ui.commands' and 'org.eclipse.ui.actionDefinitions' extension points.
+!SUBENTRY 1 org.eclipse.ui 2 0 2016-03-28 09:07:46.322
+!MESSAGE Commands should really have a category: plug-in='org.eclipse.linuxtools.systemtap.ui.graphing', id='org.eclipse.linuxtools.systemtap.ui.graphing.commands.SaveGraphImage', categoryId='org.eclipse.linuxtools.systemtap.ui.graphing.category.file'
+
+!ENTRY org.eclipse.rse.core 4 0 2016-03-28 09:07:55.293
+!MESSAGE Unexpected Exception
+!STACK 0
+java.net.UnknownHostException: Macrobull-x230.orz: Macrobull-x230.orz: unknown error
+	at java.net.InetAddress.getLocalHost(Unknown Source)
+	at org.eclipse.rse.core.RSECorePlugin.getLocalMachineName(RSECorePlugin.java:265)
+	at org.eclipse.rse.core.RSEPreferencesManager.getDefaultPrivateSystemProfileName(RSEPreferencesManager.java:358)
+	at org.eclipse.rse.core.RSEPreferencesManager.initDefaults(RSEPreferencesManager.java:337)
+	at org.eclipse.rse.internal.core.RSEPreferenceInitializer.initializeDefaultPreferences(RSEPreferenceInitializer.java:23)
+	at org.eclipse.core.internal.preferences.PreferenceServiceRegistryHelper$1.run(PreferenceServiceRegistryHelper.java:300)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.preferences.PreferenceServiceRegistryHelper.runInitializer(PreferenceServiceRegistryHelper.java:303)
+	at org.eclipse.core.internal.preferences.PreferenceServiceRegistryHelper.applyRuntimeDefaults(PreferenceServiceRegistryHelper.java:131)
+	at org.eclipse.core.internal.preferences.PreferencesService.applyRuntimeDefaults(PreferencesService.java:368)
+	at org.eclipse.core.internal.preferences.DefaultPreferences.applyRuntimeDefaults(DefaultPreferences.java:221)
+	at org.eclipse.core.internal.preferences.DefaultPreferences.load(DefaultPreferences.java:274)
+	at org.eclipse.core.internal.preferences.EclipsePreferences.create(EclipsePreferences.java:409)
+	at org.eclipse.core.internal.preferences.EclipsePreferences.internalNode(EclipsePreferences.java:670)
+	at org.eclipse.core.internal.preferences.DefaultPreferences.node(DefaultPreferences.java:147)
+	at org.eclipse.core.internal.preferences.legacy.PreferenceForwarder.getDefaultPreferences(PreferenceForwarder.java:130)
+	at org.eclipse.core.internal.preferences.legacy.PreferenceForwarder.getInt(PreferenceForwarder.java:469)
+	at org.eclipse.rse.logging.Logger.initialize(Logger.java:249)
+	at org.eclipse.rse.logging.Logger.<init>(Logger.java:135)
+	at org.eclipse.rse.logging.LoggerFactory.getLogger(LoggerFactory.java:45)
+	at org.eclipse.rse.core.RSECorePlugin.getLogger(RSECorePlugin.java:392)
+	at org.eclipse.rse.internal.core.RSEInitJob.<init>(RSEInitJob.java:130)
+	at org.eclipse.rse.internal.core.RSEInitJob.<clinit>(RSEInitJob.java:62)
+	at org.eclipse.rse.internal.ui.RSEUIStartup.earlyStartup(RSEUIStartup.java:19)
+	at org.eclipse.ui.internal.EarlyStartupRunnable.runEarlyStartup(EarlyStartupRunnable.java:87)
+	at org.eclipse.ui.internal.EarlyStartupRunnable.run(EarlyStartupRunnable.java:66)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.Workbench$55.run(Workbench.java:2555)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
+Caused by: java.net.UnknownHostException: Macrobull-x230.orz: unknown error
+	at java.net.Inet6AddressImpl.lookupAllHostAddr(Native Method)
+	at java.net.InetAddress$2.lookupAllHostAddr(Unknown Source)
+	at java.net.InetAddress.getAddressesFromNameService(Unknown Source)
+	... 29 more
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-28 09:09:08.574
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [1-1.2]' --device=1 --instance=0 --stop --accept-bad-sysid --sidp=0x21070]
+
+!ENTRY com.altera.sbtgui.launch 4 0 2016-03-28 09:09:09.790
+!MESSAGE Failed Executing: [nios2-download, '--cable=USB-Blaster on localhost [1-1.2]', --device=1, --instance=0, --stop, --accept-bad-sysid, --sidp=0x21070] return code: 2, no processors found
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-28 09:09:09.862
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [1-1.2]' --device=1 --instance=0 --go --accept-bad-sysid --sidp=0x21070 /home/macrobull/Workspace/Stereo/software/t0/t0.elf]
+
+!ENTRY com.altera.sbtgui.launch 4 0 2016-03-28 09:09:11.069
+!MESSAGE Failed Executing: [nios2-download, '--cable=USB-Blaster on localhost [1-1.2]', --device=1, --instance=0, --go, --accept-bad-sysid, --sidp=0x21070, /home/macrobull/Workspace/Stereo/software/t0/t0.elf] return code: 2, no processors found
+
+!ENTRY com.altera.sbtgui.launch 4 0 2016-03-28 09:09:11.073
+!MESSAGE Downloading ELF Process failed
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-28 09:09:24.631
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [1-1.2]' --device=1 --instance=0 --stop --accept-bad-sysid --sidp=0x21070]
+
+!ENTRY com.altera.sbtgui.launch 4 0 2016-03-28 09:09:25.827
+!MESSAGE Failed Executing: [nios2-download, '--cable=USB-Blaster on localhost [1-1.2]', --device=1, --instance=0, --stop, --accept-bad-sysid, --sidp=0x21070] return code: 2, no processors found
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-28 09:09:25.893
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [1-1.2]' --device=1 --instance=0 --go --accept-bad-sysid --sidp=0x21070 /home/macrobull/Workspace/Stereo/software/t0/t0.elf]
+
+!ENTRY org.eclipse.jface 2 0 2016-03-28 09:09:26.038
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2016-03-28 09:09:26.038
+!MESSAGE A conflict occurred for CTRL+D:
+Binding(CTRL+D,
+	ParameterizedCommand(Command(org.eclipse.debug.ui.commands.eof,EOF,
+		Send end of file,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@6d0a4a22,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.debug.ui.console,,,system)
+Binding(CTRL+D,
+	ParameterizedCommand(Command(org.eclipse.ui.edit.text.delete.line,Delete Line,
+		Delete a line of text,
+		Category(org.eclipse.ui.category.textEditor,Text Editing,Text Editing Commands,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@1999e1f5,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.textEditorScope,,,system)
+
+!ENTRY com.altera.sbtgui.launch 4 0 2016-03-28 09:09:27.105
+!MESSAGE Failed Executing: [nios2-download, '--cable=USB-Blaster on localhost [1-1.2]', --device=1, --instance=0, --go, --accept-bad-sysid, --sidp=0x21070, /home/macrobull/Workspace/Stereo/software/t0/t0.elf] return code: 2, no processors found
+
+!ENTRY com.altera.sbtgui.launch 4 0 2016-03-28 09:09:27.107
+!MESSAGE Downloading ELF Process failed
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-28 09:09:45.094
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [1-1.2]' --device=1 --instance=0 --stop --accept-bad-sysid --sidp=0x21070]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-28 09:09:47.465
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [1-1.2]' --device=1 --instance=0 --go --accept-bad-sysid --sidp=0x21070 /home/macrobull/Workspace/Stereo/software/t0/t0.elf]
+!SESSION 2016-03-28 09:15:57.703 -----------------------------------------------
+eclipse.buildId=4.3.2.M20140221-1700
+java.version=1.8.0_05
+java.vendor=Oracle Corporation
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.cpp.product -pluginCustomization /opt/Altera/QuartusPrime-15.1/nios2eds/bin/eclipse_nios2/plugin_customization.ini
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -product org.eclipse.epp.package.cpp.product -pluginCustomization /opt/Altera/QuartusPrime-15.1/nios2eds/bin/eclipse_nios2/plugin_customization.ini
+
+!ENTRY org.eclipse.ui 2 0 2016-03-28 09:16:00.353
+!MESSAGE Warnings while parsing the commands from the 'org.eclipse.ui.commands' and 'org.eclipse.ui.actionDefinitions' extension points.
+!SUBENTRY 1 org.eclipse.ui 2 0 2016-03-28 09:16:00.353
+!MESSAGE Commands should really have a category: plug-in='org.eclipse.linuxtools.systemtap.ui.graphing', id='org.eclipse.linuxtools.systemtap.ui.graphing.commands.SaveGraphImage', categoryId='org.eclipse.linuxtools.systemtap.ui.graphing.category.file'
+
+!ENTRY org.eclipse.ui 2 0 2016-03-28 09:16:00.814
+!MESSAGE Warnings while parsing the commands from the 'org.eclipse.ui.commands' and 'org.eclipse.ui.actionDefinitions' extension points.
+!SUBENTRY 1 org.eclipse.ui 2 0 2016-03-28 09:16:00.814
+!MESSAGE Commands should really have a category: plug-in='org.eclipse.linuxtools.systemtap.ui.graphing', id='org.eclipse.linuxtools.systemtap.ui.graphing.commands.SaveGraphImage', categoryId='org.eclipse.linuxtools.systemtap.ui.graphing.category.file'
+
+!ENTRY org.eclipse.rse.core 4 0 2016-03-28 09:16:08.234
+!MESSAGE Unexpected Exception
+!STACK 0
+java.net.UnknownHostException: Macrobull-x230.orz: Macrobull-x230.orz: unknown error
+	at java.net.InetAddress.getLocalHost(Unknown Source)
+	at org.eclipse.rse.core.RSECorePlugin.getLocalMachineName(RSECorePlugin.java:265)
+	at org.eclipse.rse.core.RSEPreferencesManager.getDefaultPrivateSystemProfileName(RSEPreferencesManager.java:358)
+	at org.eclipse.rse.core.RSEPreferencesManager.initDefaults(RSEPreferencesManager.java:337)
+	at org.eclipse.rse.internal.core.RSEPreferenceInitializer.initializeDefaultPreferences(RSEPreferenceInitializer.java:23)
+	at org.eclipse.core.internal.preferences.PreferenceServiceRegistryHelper$1.run(PreferenceServiceRegistryHelper.java:300)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.preferences.PreferenceServiceRegistryHelper.runInitializer(PreferenceServiceRegistryHelper.java:303)
+	at org.eclipse.core.internal.preferences.PreferenceServiceRegistryHelper.applyRuntimeDefaults(PreferenceServiceRegistryHelper.java:131)
+	at org.eclipse.core.internal.preferences.PreferencesService.applyRuntimeDefaults(PreferencesService.java:368)
+	at org.eclipse.core.internal.preferences.DefaultPreferences.applyRuntimeDefaults(DefaultPreferences.java:221)
+	at org.eclipse.core.internal.preferences.DefaultPreferences.load(DefaultPreferences.java:274)
+	at org.eclipse.core.internal.preferences.EclipsePreferences.create(EclipsePreferences.java:409)
+	at org.eclipse.core.internal.preferences.EclipsePreferences.internalNode(EclipsePreferences.java:670)
+	at org.eclipse.core.internal.preferences.DefaultPreferences.node(DefaultPreferences.java:147)
+	at org.eclipse.core.internal.preferences.legacy.PreferenceForwarder.getDefaultPreferences(PreferenceForwarder.java:130)
+	at org.eclipse.core.internal.preferences.legacy.PreferenceForwarder.getInt(PreferenceForwarder.java:469)
+	at org.eclipse.rse.logging.Logger.initialize(Logger.java:249)
+	at org.eclipse.rse.logging.Logger.<init>(Logger.java:135)
+	at org.eclipse.rse.logging.LoggerFactory.getLogger(LoggerFactory.java:45)
+	at org.eclipse.rse.core.RSECorePlugin.getLogger(RSECorePlugin.java:392)
+	at org.eclipse.rse.internal.core.RSEInitJob.<init>(RSEInitJob.java:130)
+	at org.eclipse.rse.internal.core.RSEInitJob.<clinit>(RSEInitJob.java:62)
+	at org.eclipse.rse.internal.ui.RSEUIStartup.earlyStartup(RSEUIStartup.java:19)
+	at org.eclipse.ui.internal.EarlyStartupRunnable.runEarlyStartup(EarlyStartupRunnable.java:87)
+	at org.eclipse.ui.internal.EarlyStartupRunnable.run(EarlyStartupRunnable.java:66)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.Workbench$55.run(Workbench.java:2555)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
+Caused by: java.net.UnknownHostException: Macrobull-x230.orz: unknown error
+	at java.net.Inet6AddressImpl.lookupAllHostAddr(Native Method)
+	at java.net.InetAddress$2.lookupAllHostAddr(Unknown Source)
+	at java.net.InetAddress.getAddressesFromNameService(Unknown Source)
+	... 29 more
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-28 09:16:14.605
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [1-1.2]' --device=1 --instance=0 --stop --accept-bad-sysid --sidp=0x21070]
+
+!ENTRY com.altera.sbtgui.launch 4 0 2016-03-28 09:16:15.803
+!MESSAGE Failed Executing: [nios2-download, '--cable=USB-Blaster on localhost [1-1.2]', --device=1, --instance=0, --stop, --accept-bad-sysid, --sidp=0x21070] return code: 2, no processors found
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-28 09:16:15.862
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [1-1.2]' --device=1 --instance=0 --go --accept-bad-sysid --sidp=0x21070 /home/macrobull/Workspace/Stereo/software/t0/t0.elf]
+
+!ENTRY com.altera.sbtgui.launch 4 0 2016-03-28 09:16:17.088
+!MESSAGE Failed Executing: [nios2-download, '--cable=USB-Blaster on localhost [1-1.2]', --device=1, --instance=0, --go, --accept-bad-sysid, --sidp=0x21070, /home/macrobull/Workspace/Stereo/software/t0/t0.elf] return code: 2, no processors found
+
+!ENTRY com.altera.sbtgui.launch 4 0 2016-03-28 09:16:17.090
+!MESSAGE Downloading ELF Process failed
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-28 09:16:41.988
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [1-1.2]' --device=1 --instance=0 --stop --accept-bad-sysid --sidp=0x21070]
+
+!ENTRY com.altera.sbtgui.launch 4 0 2016-03-28 09:16:43.198
+!MESSAGE Failed Executing: [nios2-download, '--cable=USB-Blaster on localhost [1-1.2]', --device=1, --instance=0, --stop, --accept-bad-sysid, --sidp=0x21070] return code: 2, no processors found
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-28 09:16:43.256
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [1-1.2]' --device=1 --instance=0 --go --accept-bad-sysid --sidp=0x21070 /home/macrobull/Workspace/Stereo/software/t0/t0.elf]
+
+!ENTRY com.altera.sbtgui.launch 4 0 2016-03-28 09:16:44.508
+!MESSAGE Failed Executing: [nios2-download, '--cable=USB-Blaster on localhost [1-1.2]', --device=1, --instance=0, --go, --accept-bad-sysid, --sidp=0x21070, /home/macrobull/Workspace/Stereo/software/t0/t0.elf] return code: 2, no processors found
+
+!ENTRY com.altera.sbtgui.launch 4 0 2016-03-28 09:16:44.509
+!MESSAGE Downloading ELF Process failed
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-28 09:16:58.423
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [1-1.2]' --device=1 --instance=0 --stop --accept-bad-sysid --sidp=0x21070]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-28 09:17:00.782
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [1-1.2]' --device=1 --instance=0 --go --accept-bad-sysid --sidp=0x21070 /home/macrobull/Workspace/Stereo/software/t0/t0.elf]
