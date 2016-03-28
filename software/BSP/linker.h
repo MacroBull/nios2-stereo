@@ -4,7 +4,7 @@
  * Machine generated for CPU 'cpu' in SOPC Builder design 'soc'
  * SOPC Builder design path: ../../soc.sopcinfo
  *
- * Generated: Mon Mar 28 09:28:42 CST 2016
+ * Generated: Mon Mar 28 09:40:03 CST 2016
  */
 
 /*
@@ -65,12 +65,12 @@
  *
  */
 
-#define RAM_REGION_BASE 0x4010020
-#define RAM_REGION_SPAN 40928
-#define RESET_REGION_BASE 0x4010000
+#define RAM_REGION_BASE 0x4010000
+#define RAM_REGION_SPAN 40960
+#define RESET_REGION_BASE 0x2000000
 #define RESET_REGION_SPAN 32
-#define SDRAM_REGION_BASE 0x2000000
-#define SDRAM_REGION_SPAN 33554432
+#define SDRAM_REGION_BASE 0x2000020
+#define SDRAM_REGION_SPAN 33554400
 
 
 /*
@@ -78,11 +78,11 @@
  *
  */
 
-#define ALT_EXCEPTIONS_DEVICE RAM
-#define ALT_RESET_DEVICE RAM
-#define ALT_RODATA_DEVICE RAM
-#define ALT_RWDATA_DEVICE RAM
-#define ALT_TEXT_DEVICE RAM
+#define ALT_EXCEPTIONS_DEVICE SDRAM
+#define ALT_RESET_DEVICE SDRAM
+#define ALT_RODATA_DEVICE SDRAM
+#define ALT_RWDATA_DEVICE SDRAM
+#define ALT_TEXT_DEVICE SDRAM
 
 
 /*
