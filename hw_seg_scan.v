@@ -9,8 +9,6 @@ module displayScanner(oSel,
 	reg [5:0] rSel;
 	reg [15:0] rCnt;
 	
-	parameter DIV = 120*1000000;
-	
 	assign oSel = rSel;
 	
 	always@(posedge iCLK) begin
