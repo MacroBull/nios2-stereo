@@ -4,7 +4,7 @@
  * Machine generated for CPU 'cpu' in SOPC Builder design 'soc'
  * SOPC Builder design path: ../../soc.sopcinfo
  *
- * Generated: Mon Mar 28 08:45:56 CST 2016
+ * Generated: Mon Mar 28 09:28:42 CST 2016
  */
 
 /*
@@ -50,12 +50,14 @@
 
 MEMORY
 {
-    reset : ORIGIN = 0x10000, LENGTH = 32
-    ram : ORIGIN = 0x10020, LENGTH = 40928
+    sdram : ORIGIN = 0x2000000, LENGTH = 33554432
+    reset : ORIGIN = 0x4010000, LENGTH = 32
+    ram : ORIGIN = 0x4010020, LENGTH = 40928
 }
 
 /* Define symbols for each memory base-address */
-__alt_mem_ram = 0x10000;
+__alt_mem_sdram = 0x2000000;
+__alt_mem_ram = 0x4010000;
 
 OUTPUT_FORMAT( "elf32-littlenios2",
                "elf32-littlenios2",
@@ -307,7 +309,24 @@ SECTIONS
      *
      */
 
-    .ram LOADADDR (.bss) + SIZEOF (.bss) : AT ( LOADADDR (.bss) + SIZEOF (.bss) )
+    .sdram : AT ( LOADADDR (.bss) + SIZEOF (.bss) )
+    {
+        PROVIDE (_alt_partition_sdram_start = ABSOLUTE(.));
+        *(.sdram .sdram. sdram.*)
+        . = ALIGN(4);
+        PROVIDE (_alt_partition_sdram_end = ABSOLUTE(.));
+    } > sdram
+
+    PROVIDE (_alt_partition_sdram_load_addr = LOADADDR(.sdram));
+
+    /*
+     *
+     * This section's LMA is set to the .text region.
+     * crt0 will copy to this section's specified mapped region virtual memory address (VMA)
+     *
+     */
+
+    .ram LOADADDR (.sdram) + SIZEOF (.sdram) : AT ( LOADADDR (.sdram) + SIZEOF (.sdram) )
     {
         PROVIDE (_alt_partition_ram_start = ABSOLUTE(.));
         *(.ram .ram. ram.*)
@@ -367,7 +386,7 @@ SECTIONS
 /*
  * Don't override this, override the __alt_stack_* symbols instead.
  */
-__alt_data_end = 0x1a000;
+__alt_data_end = 0x401a000;
 
 /*
  * The next two symbols define the location of the default stack.  You can
@@ -383,4 +402,4 @@ PROVIDE( __alt_stack_limit   = __alt_stack_base );
  * Override this symbol to put the heap in a different memory.
  */
 PROVIDE( __alt_heap_start    = end );
-PROVIDE( __alt_heap_limit    = 0x1a000 );
+PROVIDE( __alt_heap_limit    = 0x401a000 );

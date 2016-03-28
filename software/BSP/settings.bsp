@@ -2,8 +2,8 @@
 <sch:Settings xmlns:sch="http://www.altera.com/embeddedsw/bsp/schema">
         <BspType>hal</BspType>
         <BspVersion>default</BspVersion>
-        <BspGeneratedTimeStamp>Mar 28, 2016 9:16:33 AM</BspGeneratedTimeStamp>
-        <BspGeneratedUnixTimeStamp>1459127793354</BspGeneratedUnixTimeStamp>
+        <BspGeneratedTimeStamp>Mar 28, 2016 9:28:41 AM</BspGeneratedTimeStamp>
+        <BspGeneratedUnixTimeStamp>1459128521385</BspGeneratedUnixTimeStamp>
         <BspGeneratedLocation>/home/macrobull/Workspace/Stereo/software/BSP</BspGeneratedLocation>
         <BspSettingsFile>settings.bsp</BspSettingsFile>
         <SopcDesignFile>../../soc.sopcinfo</SopcDesignFile>
@@ -911,32 +911,38 @@
                 <Group xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
         </Setting>
         <MemoryMap>
+                <slaveDescriptor>sdram</slaveDescriptor>
+                <addressRange>0x02000000 - 0x03FFFFFF</addressRange>
+                <addressSpan>33554432</addressSpan>
+                <attributes>memory</attributes>
+        </MemoryMap>
+        <MemoryMap>
                 <slaveDescriptor>ram</slaveDescriptor>
-                <addressRange>0x00010000 - 0x00019FFF</addressRange>
+                <addressRange>0x04010000 - 0x04019FFF</addressRange>
                 <addressSpan>40960</addressSpan>
                 <attributes>memory</attributes>
         </MemoryMap>
         <MemoryMap>
                 <slaveDescriptor>uart</slaveDescriptor>
-                <addressRange>0x00021020 - 0x0002103F</addressRange>
+                <addressRange>0x04021020 - 0x0402103F</addressRange>
                 <addressSpan>32</addressSpan>
                 <attributes>printable</attributes>
         </MemoryMap>
         <MemoryMap>
                 <slaveDescriptor>seg6</slaveDescriptor>
-                <addressRange>0x00021050 - 0x0002105F</addressRange>
+                <addressRange>0x04021050 - 0x0402105F</addressRange>
                 <addressSpan>16</addressSpan>
                 <attributes/>
         </MemoryMap>
         <MemoryMap>
                 <slaveDescriptor>sysid</slaveDescriptor>
-                <addressRange>0x00021070 - 0x00021077</addressRange>
+                <addressRange>0x04021070 - 0x04021077</addressRange>
                 <addressSpan>8</addressSpan>
                 <attributes/>
         </MemoryMap>
         <MemoryMap>
                 <slaveDescriptor>jtag_uart</slaveDescriptor>
-                <addressRange>0x00021078 - 0x0002107F</addressRange>
+                <addressRange>0x04021078 - 0x0402107F</addressRange>
                 <addressSpan>8</addressSpan>
                 <attributes>printable</attributes>
         </MemoryMap>

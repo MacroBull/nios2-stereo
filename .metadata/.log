@@ -3264,3 +3264,15 @@ Caused by: java.net.UnknownHostException: Macrobull-x230.orz: unknown error
 
 !ENTRY com.altera.sbtgui.launch 1 0 2016-03-28 09:17:00.782
 !MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [1-1.2]' --device=1 --instance=0 --go --accept-bad-sysid --sidp=0x21070 /home/macrobull/Workspace/Stereo/software/t0/t0.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-28 09:29:12.454
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [1-1.2]' --device=1 --instance=0 --stop --accept-bad-sysid --sidp=0x21070]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-28 09:29:14.885
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [1-1.2]' --device=1 --instance=0 --go --accept-bad-sysid --sidp=0x21070 /home/macrobull/Workspace/Stereo/software/t0/t0.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-28 09:29:34.728
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [1-1.2]' --device=1 --instance=0 --stop --accept-bad-sysid --sidp=0x21070]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-28 09:29:37.062
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [1-1.2]' --device=1 --instance=0 --go --accept-bad-sysid --sidp=0x21070 /home/macrobull/Workspace/Stereo/software/t0/t0.elf]
