@@ -146,6 +146,7 @@ C_SRCS += crc32.c
 C_SRCS += data.c
 C_SRCS += main.c
 C_SRCS += seg6.c
+C_SRCS += stereo.c
 CXX_SRCS :=
 ASM_SRCS :=
 

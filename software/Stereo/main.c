@@ -8,23 +8,35 @@
  */
 
 #include <stdlib.h>
+#include <unistd.h>
 
 #include "data.h"
 #include "soc.h"
 #include "seg6.h"
+#include "stereo.h"
 
-image left, right, tof;
+image left, right, tof, disp;
 
-uint16_t height, width;
+uint16_t g_height, g_width;
 
 void validate() {
-	height = left.height;
-	width = left.width;
-	assert((width == right.width) && (height == right.height));
-	assert((width == tof.width) && (height == tof.height));
+	g_height = left.height;
+	g_width = left.width;
+	assert((g_width == right.width) && (g_height == right.height));
+	assert((g_width == tof.width) && (g_height == tof.height));
 }
 
 int main() {
+
+//	uint32_t i = 0;
+//	while (1){
+//		fprintf(stderr, "%lu %u\n", i, ALT_CI_HAMMINGP(i-1, i));
+//		i+=1;
+//		usleep(1000*1000);
+//
+//	}
+
+
 	while (1) {
 		waitfor(FLAG0);
 		waitfor(FLAG1);
@@ -32,9 +44,12 @@ int main() {
 		readImage(&right);
 		readImage(&tof);
 		validate();
+		stereoMatch(&disp,
+				left, right, tof,
+				100, (int32_t)(146.316*3646.308), 100);
 		puts(FLAG1);
 		waitfor(ACK);
-		writeImage(tof);
+		writeImage(disp);
 	}
 	return 0;
 }

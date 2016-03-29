@@ -13,12 +13,15 @@ FLAG1="BOOM\n"
 ACK="ACK\n"
 NAK="NAK\n"
 
+import sys
 
-import os
-
-f = os.popen("cd ../Stereo && /opt/Altera/QuartusPrime-15.1/nios2eds/nios2_command_shell.sh make download-elf")
-for l in f:
-	print(l, end="")
+if len(sys.argv)>1 and sys.argv[1] == '-d':
+	pass
+else:
+	import os
+	f = os.popen("cd ../Stereo && /opt/Altera/QuartusPrime-15.1/nios2eds/nios2_command_shell.sh make -j6 download-elf")
+	for l in f:
+		print(l, end="")
 
 import PIL.Image as Image
 import time
@@ -40,7 +43,7 @@ def getResp(ser):
 	except UnicodeDecodeError:
 		resp = ""
 		
-	print(resp.rstrip())
+	print("getResp:<-" + resp.rstrip())
 	return resp
 
 def crc32(data, crc = 0): #The internal crc32 polynomial sucks
@@ -55,6 +58,7 @@ def watiFor(ser, myFlag = ACK, target = ACK):
 	resp = ""
 	while resp!=target: 
 		ser.write(myFlag.encode("utf-8"))
+		print("watiFor:->" + myFlag.rstrip())
 		resp = getResp(ser)
 
 def transfer():
@@ -118,7 +122,7 @@ def transfer():
 		checksum = "{0:08x}".format(crc32(data))
 		checksum += "\n"
 		ser.write(checksum.encode('utf-8'))
-		resp = getResp(ser)	
+		resp = getResp(ser)
 	
 	print("Receiving finished.")
 	ts3 = time.time()

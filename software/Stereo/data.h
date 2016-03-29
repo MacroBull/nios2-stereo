@@ -19,6 +19,9 @@
 
 #define POS(row, col) (row*width+col)
 
+
+#define DEBUG(x) fprintf(stderr, "DEBUG/%s:%d:%s\n", __FILE__, __LINE__, x)
+
 typedef struct {
 	uint16_t width, height, white;
 	uint8_t *data;

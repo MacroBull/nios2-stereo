@@ -15,14 +15,13 @@
 #include "crc32.h"
 #include "seg6.h"
 
-#define debug(x) fprintf(stderr, "DEBUG/%s:%d:%s\n", __FILE__, __LINE__, x)
-
 void waitfor(const char target[]){
 	char s[9];
 	s[0] = '\0';
 	while (strcmp(s, target)) {
 		gets(s);
-		debug(s);
+		DEBUG(s);
+		s[9] = '\0';
 	}
 
 	puts(ACK);
@@ -33,6 +32,7 @@ void readImage(image *img){
 	ack[0] = '\0';
 	while (strcmp(ack, ACK)) {
 		gets(magic);
+		magic[9] = '\0';
 		assert(strcmp(magic, PGM_MAGIC) == 0);
 
 		uint16_t width, height;
@@ -48,7 +48,7 @@ void readImage(image *img){
 			img->width = width;
 			img->height = height;
 			if (img->data) free(img->data);
-			img->data =  (uint8_t *)malloc(img->width * img->height);
+			img->data =  (uint8_t *)malloc(img->width * img->height * sizeof(uint8_t));
 			assert(img->data != NULL);
 		}
 		uint16_t i, j;
@@ -58,12 +58,13 @@ void readImage(image *img){
 		}
 
 		uint32_t checksum = crc32(0, img->data, width * height);
-		fprintf(stderr, "CRC:%08lx/%lu\n", checksum, checksum);
+		fprintf(stderr, "CRC:%08lx\n", checksum);
+//		fprintf(stderr, "CRC:%08lx/%lu\n", checksum, checksum);
 		printf("%08lx\n", checksum);
 
-		fputs("GGG", stderr);
 		gets(ack);
-		debug(ack);
+		ack[9] = '\0';
+		DEBUG(ack);
 	}
 
 }
@@ -80,6 +81,8 @@ void writeImage(const image img){
 
 		checksum = crc32(0, img.data, img.width * img.height);
 		scanf("%lx", &resp_cs);
+		char c = '\0';
+		while (c != '\n') c = getchar();
 		if (checksum != resp_cs) {
 			fprintf(stderr, "CRC mismatch, expected:%08lx, response:%08lx\n", checksum, resp_cs);
 			puts(NAK);

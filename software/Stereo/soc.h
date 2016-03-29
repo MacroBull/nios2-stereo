@@ -14,5 +14,7 @@
 #include "system.h"
 #include "../BSP/drivers/inc/altera_avalon_pio_regs.h"
 
+#define hamming(a,b)	(uint8_t)(ALT_CI_HAMMING(a, b))
+
 
 #endif /* SOC_H_ */

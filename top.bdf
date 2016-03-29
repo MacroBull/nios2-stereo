@@ -463,7 +463,7 @@ agreement for further details.
 (symbol
 	(rect 928 72 1216 480)
 	(text "soc" (rect 134 -1 172 16)(font "Arial" (font_size 10)))
-	(text "inst10" (rect 8 392 57 403)(font "Liberation Sans" ))
+	(text "inst3" (rect 8 392 49 403)(font "Liberation Sans" ))
 	(port
 		(pt 0 72)
 		(input)
@@ -601,28 +601,6 @@ agreement for further details.
 		(line (pt 288 0)(pt 288 408))
 		(line (pt 0 408)(pt 288 408))
 		(line (pt 0 0)(pt 0 408))
-	)
-)
-(symbol
-	(rect 552 -32 736 48)
-	(text "census_inc" (rect 5 0 87 11)(font "Arial" ))
-	(text "inst2" (rect 8 64 49 75)(font "Liberation Sans" ))
-	(port
-		(pt 0 32)
-		(input)
-		(text "iIn[127..0]" (rect 0 0 90 11)(font "Arial" ))
-		(text "iIn[127..0]" (rect 21 27 111 38)(font "Arial" ))
-		(line (pt 0 32)(pt 16 32)(line_width 3))
-	)
-	(port
-		(pt 184 32)
-		(output)
-		(text "oOut[127..0]" (rect 0 0 99 11)(font "Arial" ))
-		(text "oOut[127..0]" (rect 80 27 179 38)(font "Arial" ))
-		(line (pt 184 32)(pt 168 32)(line_width 3))
-	)
-	(drawing
-		(rectangle (rect 16 16 168 64))
 	)
 )
 (connector
