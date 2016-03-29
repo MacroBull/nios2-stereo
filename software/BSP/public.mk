@@ -157,9 +157,9 @@ SOPC_SYSID_FLAG += --sidp=0x4021070
 ELF_PATCH_FLAG  += --sidp 0x4021070
 
 # The SOPC Timestamp 
-# setting SOPC_TIMESTAMP is 1459130980
-SOPC_SYSID_FLAG += --timestamp=1459130980
-ELF_PATCH_FLAG  += --timestamp 1459130980
+# setting SOPC_TIMESTAMP is 1459137133
+SOPC_SYSID_FLAG += --timestamp=1459137133
+ELF_PATCH_FLAG  += --timestamp 1459137133
 
 # Enable JTAG UART driver to recover when host is inactive causing buffer to 
 # full without returning error. Printf will not fail with this recovery. none 
@@ -187,7 +187,8 @@ ELF_PATCH_FLAG  += --timestamp 1459130980
 # multiple inheritance and exceptions are not supported. If false, adds 
 # -DALT_NO_C_PLUS_PLUS to ALT_CPPFLAGS in public.mk, and reduces code 
 # footprint. none 
-# setting hal.enable_c_plus_plus is true
+# setting hal.enable_c_plus_plus is false
+ALT_CPPFLAGS += -DALT_NO_C_PLUS_PLUS
 
 # When your application exits, close file descriptors, call C++ destructors, 
 # etc. Code footprint can be reduced by disabling clean exit. If disabled, adds 
@@ -197,7 +198,8 @@ ELF_PATCH_FLAG  += --timestamp 1459130980
 # Add exit() support. This option increases code footprint if your "main()" 
 # routine does "return" or call "exit()". If false, adds -DALT_NO_EXIT to 
 # ALT_CPPFLAGS in public.mk, and reduces footprint none 
-# setting hal.enable_exit is true
+# setting hal.enable_exit is false
+ALT_CPPFLAGS += -DALT_NO_EXIT
 
 # Causes code to be compiled with gprof profiling enabled and the application 
 # ELF to be linked with the GPROF library. If true, adds -DALT_PROVIDE_GMON to 
@@ -264,6 +266,18 @@ ALT_CPPFLAGS += -DALT_NO_INSTRUCTION_EMULATION
 # hardware design on the target. If false, adds --accept-bad-sysid to 
 # SOPC_SYSID_FLAG in public.mk. none 
 # setting hal.enable_sopc_sysid_check is true
+
+# The value is assigned to ALT_LOG_FLAGS in the generated public.mk. See 
+# hal.log_port setting description. Values can be -1 through 3. hal.log_port 
+# must be set for this to be used. 
+# setting hal.log_flags is 0
+ALT_CPPFLAGS += -DALT_LOG_FLAGS=0
+
+# Slave descriptor of debug logging character-mode device. If defined, it 
+# enables extra debug messages in the HAL source. This setting is used by the 
+# ALT_LOG_PORT family of defines in system.h. none 
+# setting hal.log_port is jtag_uart
+ALT_CPPFLAGS += -DALT_LOG_ENABLE
 
 # Enable BSP generation to query if SOPC system is big endian. If true ignores 
 # export of 'ALT_CFLAGS += -meb' to public.mk if big endian system. none 

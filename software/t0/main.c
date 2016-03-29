@@ -15,8 +15,12 @@ int dude(int n){
 }
 
 int main() {
+	char s[80];
 	while (1) {
-		printf("SB Altera%d!@%d\n", i, NIOS2_CPU_FREQ);
+		gets(s);
+		puts("Echo:");
+		puts(s);
+		printf("SB%d@%dHz!\n", i, NIOS2_CPU_FREQ);
 		i++;
 		for (j=0;j<1000;j++){
 			IOWR_ALTERA_AVALON_PIO_DATA(SEG6_BASE, i*1000+i);
