@@ -176,6 +176,55 @@ void avgFilter(const uint8_t input[], uint8_t output[], uint8_t ws) {
 #undef height
 }
 
+void avgFilter1(const uint8_t input[], uint8_t output[], uint8_t ws) {
+
+#define width (g_width)
+#define height (g_height)
+
+	uint8_t i, j;
+	int8_t x, y, sx, sy;
+	uint16_t sum, cnt;
+	uint16_t fCnt = (ws * 2 + 1) * (ws * 2 + 1);
+	uint16_t hCnt = fCnt / 2;
+	uint16_t *colSum;
+
+	assert(output != NULL);
+	colSum = (uint16_t*) malloc(width * sizeof(uint16_t));
+	assert(colSum != NULL);
+	for (j = 0; j < width; j++) {
+		colSum[j] = 0;
+		for (i = 0; i <= ws * 2; i++)
+			colSum[j] += input[POS(i, j)];
+	}
+
+	for (i = 0; i < height; i++) {
+		if ((i > ws) && (i + ws < height))
+			for (j = 0; j < width; j++)
+				colSum[j] = colSum[j] + input[POS(i + ws, j)]
+						- input[POS(i - ws - 1, j)];
+		for (j = 0; j < width; j++) {
+			if ((i - ws < 1) || (i + ws + 1 >= height) || (j - ws < 1)
+					|| (j + ws + 1 >= width)) {
+				sum = 0;
+				sx = MIN(MIN(i, height-i), ws);
+				sy = MIN(MIN(j, width-j), ws);
+				for (x = -sx; x <= sx; x++)
+					for (y = -sy; y <= sy; y++)
+						sum += input[POS(i + x, j + y)];
+				cnt = (sx * 2 + 1) * (sy * 2 + 1);
+				output[POS(i, j)] = (sum + cnt / 2) / cnt;
+			} else {
+				sum = sum + colSum[j + ws] - colSum[j - ws - 1];
+				output[POS(i, j)] = (sum + hCnt) / fCnt;
+			}
+			disp33(i, j);
+		}
+	}
+
+#undef width
+#undef height
+}
+
 void calcAverage() {
 	g_avgLeft = (uint8_t*) malloc(g_totalSize * sizeof(uint8_t));
 	assert(g_avgLeft!=NULL);
@@ -183,9 +232,9 @@ void calcAverage() {
 	assert(g_avgRight!=NULL);
 
 	setDot(3);
-	avgFilter(g_left, g_avgLeft, 5);
+	avgFilter1(g_left, g_avgLeft, 5);
 	setDot(0);
-	avgFilter(g_right, g_avgRight, 5);
+	avgFilter1(g_right, g_avgRight, 5);
 }
 
 void calcCStr(const uint8_t img[], const uint8_t avgImg[], cStr output[]) {
@@ -379,7 +428,7 @@ void calcDisparity() {
 								x <= MIN(cbRegion[POS(i, j)].r, width-1-dx);
 								x++) {
 							cost += cStrHamming(cStrLeft[POS(y, x + dx)],
-									cStrRight[POS(y, x)]);
+							cStrRight[POS(y, x)]);
 							cnt++;
 						}
 					cost = (cost + cnt / 2) / cnt;
@@ -425,16 +474,17 @@ void stereoMatch(image *disp, image left, image right, image tof,
 	g_disp = disp->data;
 
 	validate(left, right);
-	calcRange(offset, bf, deta); // standalone
-	calcAverage(); // 3.6s@150p // standalone
-	calcCrossBasedRegion(); //1.4s@150p // standalone
-	calcCensusString(); //6.6s@150p // depend on average
-
-	calcDisparity();
+//	calcRange(offset, bf, deta); // standalone
+//	calcAverage(); // 3.6s@150p // standalone
+	calcAverage(); // 0.7s@150p // standalone
+//	calcCrossBasedRegion(); //1.4s@150p // standalone
+//	calcCensusString(); //6.6s@150p // depend on average
+//
+//	calcDisparity();
 
 //////////////////////////////////
 
-//	memcpy(g_disp, g_avgLeft, g_totalSize);
+	memcpy(g_disp, g_avgLeft, g_totalSize);
 
 //	dump16((uint16_t*)g_dispRange, 20); // 95	111	22	27	112	130	121	141	60	70	57	66	27	32	88	101	119	137	48	55
 
