@@ -13,16 +13,19 @@
 #include "soc.h"
 #include "seg6.h"
 #include "stereo.h"
+#include "cesus.h"
 
 image left, right, tof, disp;
 
 int main() {
 	DEBUG("Booted.");
 
-//	while(1){
-//		setDot(3);
-//		disp33(333,333);
-//	}
+	cStr a = {.a=1,.b=0,.c=0,.d=0}, b={.a=0,.b=0,.c=0,.d=0};
+	while(1){
+//		fprintf(stderr, "%lu\n", cesus_hamming(a, b));
+		fprintf(stdout, "res=%lu\n", cesus_hamming(a, b));
+		usleep(1000*100);
+	}
 
 	int32_t *p;
 

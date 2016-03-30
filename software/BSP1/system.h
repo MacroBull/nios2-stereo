@@ -4,7 +4,7 @@
  * Machine generated for CPU 'cpu' in SOPC Builder design 'soc'
  * SOPC Builder design path: ../../soc.sopcinfo
  *
- * Generated: Wed Mar 30 09:49:05 CST 2016
+ * Generated: Thu Mar 31 03:39:04 CST 2016
  */
 
 /*
@@ -141,8 +141,11 @@
  *
  */
 
+#define ALT_CI_CESUS(n,A,B) __builtin_custom_inii(ALT_CI_CESUS_N+(n&ALT_CI_CESUS_N_MASK),(A),(B))
+#define ALT_CI_CESUS_N 0x0
+#define ALT_CI_CESUS_N_MASK ((1<<4)-1)
 #define ALT_CI_HAMMING(A,B) __builtin_custom_inii(ALT_CI_HAMMING_N,(A),(B))
-#define ALT_CI_HAMMING_N 0x0
+#define ALT_CI_HAMMING_N 0x10
 
 
 /*
@@ -157,6 +160,7 @@
 #define __ALTERA_AVALON_SYSID_QSYS
 #define __ALTERA_AVALON_UART
 #define __ALTERA_NIOS2_GEN2
+#define __CESUS
 #define __HAMMING
 
 
@@ -332,7 +336,7 @@
 #define SYSID_IRQ_INTERRUPT_CONTROLLER_ID -1
 #define SYSID_NAME "/dev/sysid"
 #define SYSID_SPAN 8
-#define SYSID_TIMESTAMP 1459301577
+#define SYSID_TIMESTAMP 1459366272
 #define SYSID_TYPE "altera_avalon_sysid_qsys"
 
 

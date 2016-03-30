@@ -10,7 +10,7 @@
 
 #include "stereo.h"
 #include "seg6.h"
-#include "soc.h"
+#include "cesus.h"
 
 uint16_t g_height, g_width;
 #define g_totalSize (g_height * g_width)
@@ -28,16 +28,7 @@ typedef union {
 
 hRange *g_dispRange;
 
-typedef struct cStrStruct {
-	uint32_t a, b, c, d;
-} cStr;
-
 cStr *g_cStrLeft, *g_cStrRight;
-
-uint8_t cStrHamming(cStr x, cStr y) {
-	return hamming(x.a, y.a) + hamming(x.b, y.b) + hamming(x.c, y.c)
-			+ hamming(x.d, y.d);
-}
 
 typedef struct regionStruct {
 	uint16_t u, d, l, r;
@@ -472,7 +463,7 @@ void calcDisparity() {
 						for (x = cbRegion[POS(i, j)].l;
 								x <= MIN(cbRegion[POS(i, j)].r, width-1-dx);
 								x++) {
-							cost += cStrHamming(cStrLeft[POS(y, x + dx)],
+							cost += cesus_hamming(cStrLeft[POS(y, x + dx)],
 							cStrRight[POS(y, x)]);
 							cnt++;
 						}
@@ -519,14 +510,14 @@ void stereoMatch(image *disp, image left, image right, image tof,
 	g_disp = disp->data;
 
 	validate(left, right);
-//	calcRange(offset, bf, deta); // standalone
+	calcRange(offset, bf, deta); // standalone
 //	calcAverage(); // 3.6s@150p // standalone
-//	calcAverage(); // 0.7s@150p // standalone
-//	calcCrossBasedRegion(); //1.4s@150p // standalone
+	calcAverage(); // 0.7s@150p // standalone
+	calcCrossBasedRegion(); //1.4s@150p // standalone
 //	calcCensusString(); //6.4s@150p // depend on average
 	calcCensusString(); //6.6s@150p // depend on average
 //
-//	calcDisparity();
+	calcDisparity();
 
 //////////////////////////////////
 

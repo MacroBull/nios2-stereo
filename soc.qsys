@@ -9,6 +9,19 @@
    categories="System" />
  <parameter name="bonusData"><![CDATA[bonusData 
 {
+   element cesus
+   {
+      datum _sortIndex
+      {
+         value = "9";
+         type = "int";
+      }
+      datum sopceditor_expanded
+      {
+         value = "1";
+         type = "boolean";
+      }
+   }
    element clk
    {
       datum _sortIndex
@@ -105,6 +118,22 @@
          type = "String";
       }
    }
+   element soc
+   {
+      datum _originalDeviceFamily
+      {
+         value = "Cyclone IV E";
+         type = "String";
+      }
+   }
+   element soc
+   {
+      datum _originalDeviceFamily
+      {
+         value = "Cyclone IV E";
+         type = "String";
+      }
+   }
    element sysid
    {
       datum _sortIndex
@@ -171,6 +200,7 @@
    internal="uart.external_connection"
    type="conduit"
    dir="end" />
+ <module name="cesus" kind="cesus" version="1.0" enabled="1" />
  <module name="clk" kind="clock_source" version="15.1" enabled="1">
   <parameter name="clockFrequency" value="100000000" />
   <parameter name="clockFrequencyKnown" value="true" />
@@ -190,7 +220,7 @@
   <parameter name="cpuArchRev" value="1" />
   <parameter name="cpuID" value="0" />
   <parameter name="cpuReset" value="false" />
-  <parameter name="customInstSlavesSystemInfo"><![CDATA[<info><slave name="hamming" baseAddress="0" addressSpan="1" clockCycleType="COMBINATORIAL" /></info>]]></parameter>
+  <parameter name="customInstSlavesSystemInfo"><![CDATA[<info><slave name="cesus" baseAddress="0" addressSpan="16" clockCycleType="VARIABLE" /><slave name="hamming" baseAddress="16" addressSpan="1" clockCycleType="COMBINATORIAL" /></info>]]></parameter>
   <parameter name="customInstSlavesSystemInfo_nios_a" value="&lt;info/&gt;" />
   <parameter name="customInstSlavesSystemInfo_nios_b" value="&lt;info/&gt;" />
   <parameter name="customInstSlavesSystemInfo_nios_c" value="&lt;info/&gt;" />
@@ -596,10 +626,19 @@
    kind="nios_custom_instruction"
    version="15.1"
    start="cpu.custom_instruction_master"
+   end="cesus.ins_cesus">
+  <parameter name="CIName" value="cesus" />
+  <parameter name="arbitrationPriority" value="1" />
+  <parameter name="baseAddress" value="0" />
+ </connection>
+ <connection
+   kind="nios_custom_instruction"
+   version="15.1"
+   start="cpu.custom_instruction_master"
    end="hamming.ins_hamming">
   <parameter name="CIName" value="hamming" />
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0" />
+  <parameter name="baseAddress" value="16" />
  </connection>
  <connection
    kind="reset"
