@@ -3,6 +3,7 @@
  *
  *  Created on: Mar 28, 2016
  *      Author: macrobull
+ * 固化函数:
  */
 
 #ifndef SOC_H_

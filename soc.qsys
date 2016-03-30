@@ -9,14 +9,6 @@
    categories="System" />
  <parameter name="bonusData"><![CDATA[bonusData 
 {
-   element HammingPlus
-   {
-      datum _sortIndex
-      {
-         value = "9";
-         type = "int";
-      }
-   }
    element clk
    {
       datum _sortIndex
@@ -179,7 +171,6 @@
    internal="uart.external_connection"
    type="conduit"
    dir="end" />
- <module name="HammingPlus" kind="HammingPlus" version="1.0" enabled="1" />
  <module name="clk" kind="clock_source" version="15.1" enabled="1">
   <parameter name="clockFrequency" value="100000000" />
   <parameter name="clockFrequencyKnown" value="true" />
@@ -199,7 +190,7 @@
   <parameter name="cpuArchRev" value="1" />
   <parameter name="cpuID" value="0" />
   <parameter name="cpuReset" value="false" />
-  <parameter name="customInstSlavesSystemInfo"><![CDATA[<info><slave name="hamming" baseAddress="0" addressSpan="1" clockCycleType="COMBINATORIAL" /><slave name="hammingp" baseAddress="1" addressSpan="1" clockCycleType="MULTICYCLE" /></info>]]></parameter>
+  <parameter name="customInstSlavesSystemInfo"><![CDATA[<info><slave name="hamming" baseAddress="0" addressSpan="1" clockCycleType="COMBINATORIAL" /></info>]]></parameter>
   <parameter name="customInstSlavesSystemInfo_nios_a" value="&lt;info/&gt;" />
   <parameter name="customInstSlavesSystemInfo_nios_b" value="&lt;info/&gt;" />
   <parameter name="customInstSlavesSystemInfo_nios_c" value="&lt;info/&gt;" />
@@ -460,7 +451,7 @@
    version="15.1"
    enabled="1">
   <parameter name="AUTO_DEVICE_FAMILY" value="Cyclone IV E" />
-  <parameter name="id" value="136" />
+  <parameter name="id" value="563" />
  </module>
  <module name="uart" kind="altera_avalon_uart" version="15.1" enabled="1">
   <parameter name="baud" value="115200" />
@@ -600,15 +591,6 @@
  </connection>
  <connection kind="interrupt" version="15.1" start="cpu.irq" end="uart.irq">
   <parameter name="irqNumber" value="1" />
- </connection>
- <connection
-   kind="nios_custom_instruction"
-   version="15.1"
-   start="cpu.custom_instruction_master"
-   end="HammingPlus.hammingPlus">
-  <parameter name="CIName" value="hammingp" />
-  <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="1" />
  </connection>
  <connection
    kind="nios_custom_instruction"

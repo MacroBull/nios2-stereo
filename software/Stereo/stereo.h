@@ -4,13 +4,6 @@
 
 #include "data.h"
 
-
-
-#define MIN(a, b)	(a<b?a:b)
-#define MAX(a, b)	(a>b?a:b)
-#define	MAXINT	(~0)
-#define ABS(x,y) (x>y?x-y: y-x)
-
 #define CensusWin_Left -5 //census transfor window size
 #define CensusWin_Right 5
 #define CensusWin_Up -5
@@ -25,7 +18,7 @@
 extern void stereoMatch(image *disp,
 				image left, image right, image tof,
 				int16_t	offset,
-				int32_t bf, int32_t deta); // BF and DETA has same unit
+				int32_t deta, int32_t bf); // BF and DETA has same unit
 				
 				
 				

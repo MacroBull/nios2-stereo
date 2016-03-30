@@ -15,6 +15,7 @@
 extern void disp6(uint32_t n);
 
 extern void disp33(uint16_t a, uint16_t b);
+extern void setDot(uint8_t p);
 
 
 #endif /* SEG6_H_ */

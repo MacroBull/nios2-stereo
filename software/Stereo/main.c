@@ -4,7 +4,6 @@
  *  Created on: Mar 28, 2016
  *      Author: macrobull
  * 
- * 固化函数: 
  */
 
 #include <stdlib.h>
@@ -17,38 +16,27 @@
 
 image left, right, tof, disp;
 
-uint16_t g_height, g_width;
-
-void validate() {
-	g_height = left.height;
-	g_width = left.width;
-	assert((g_width == right.width) && (g_height == right.height));
-	assert((g_width == tof.width) && (g_height == tof.height));
-}
-
 int main() {
+	DEBUG("Booted.");
 
-//	uint32_t i = 0;
-//	while (1){
-//		fprintf(stderr, "%lu %u\n", i, ALT_CI_HAMMINGP(i-1, i));
-//		i+=1;
-//		usleep(1000*1000);
-//
-//	}
-
+	int32_t *p;
 
 	while (1) {
-		waitfor(FLAG0);
-		waitfor(FLAG1);
+		listen(FLAG0, ACK);
+		p = readParams();
+		listen(FLAG1, ACK);
+		setDot(3);
 		readImage(&left);
+		setDot(0);
 		readImage(&right);
+		setDot(7);
 		readImage(&tof);
-		validate();
+		DEBUG("Started.");
 		stereoMatch(&disp,
 				left, right, tof,
-				100, (int32_t)(146.316*3646.308), 100);
-		puts(FLAG1);
-		waitfor(ACK);
+				(int16_t)p[0], p[1], p[2]);
+		DEBUG("Done.");
+		request(ACK, FLAG1);
 		writeImage(disp);
 	}
 	return 0;

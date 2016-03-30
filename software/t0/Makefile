@@ -142,7 +142,7 @@ ACDS_VERSION := 15.1
 ELF := t0.elf
 
 # Paths to C, C++, and assembly source files.
-C_SRCS := main.c
+C_SRCS := hello_world.c
 CXX_SRCS :=
 ASM_SRCS :=
 
@@ -177,7 +177,7 @@ CRT0 :=
 SYS_LIB :=
 
 # Define path to the root of the BSP.
-BSP_ROOT_DIR := ../BSP/
+BSP_ROOT_DIR := ../t0_bsp/
 
 # List of application specific include directories, library directories and library names
 APP_INCLUDE_DIRS :=
