@@ -15,7 +15,7 @@ void disp6(uint32_t n){
 }
 
 void disp33(uint16_t a, uint16_t b){
-	disp6(a*1000 + b + (dot<<20));
+	disp6( (a*1000 + b) | (dot<<20));
 }
 
 void setDot(uint8_t p){

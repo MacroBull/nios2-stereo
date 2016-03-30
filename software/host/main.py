@@ -52,12 +52,17 @@ def request(ser, r, e=ACK, poll = False):
 		print("request	rx<-:" + resp)
 	return resp
 
-def listen(ser, e="", r=""):
+def listen(ser, e="", r="", timeout = 0):
 	r = r.rstrip()
 	e = e.rstrip()
 	req = ""
 	while (req != e) ^ (e==""):
-		while not ser.inWaiting(): time.sleep(ser.timeout)
+		tStart = time.time()
+		while not ser.inWaiting(): 
+			time.sleep(ser.timeout)
+			if timeout and time.time()-tStart>timeout:
+				print("listen timeout")
+				return ''
 		try:
 			req = ser.readline().decode('utf-8').rstrip()
 		except UnicodeDecodeError:
@@ -100,11 +105,18 @@ def transfer():
 			f.close()
 			
 			ser.write(data)
+			#ser.flush()
 			
 			for i in range(3): data = data[data.index(b'\n')+1:]
 			checksum = "{0:08x}".format(crc32(data))
 			
-			checksum_r = listen(ser)
+			checksum_r = listen(ser, timeout = len(data)/11520)
+			
+			if not checksum_r: 
+				while not ser.inWaiting(): 
+					ser.write(b'\n')
+					time.sleep(ser.timeout)
+				checksum_r = ser.readline().decode('utf-8').rstrip()
 			if checksum_r!= checksum:
 				print("CRC mismatch, expected:{}, response:{}".format(checksum, checksum_r))
 				ser.write((NAK+"\n").encode("utf-8"))

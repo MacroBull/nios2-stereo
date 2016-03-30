@@ -19,6 +19,11 @@ image left, right, tof, disp;
 int main() {
 	DEBUG("Booted.");
 
+//	while(1){
+//		setDot(3);
+//		disp33(333,333);
+//	}
+
 	int32_t *p;
 
 	while (1) {
