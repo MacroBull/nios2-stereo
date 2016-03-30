@@ -160,7 +160,7 @@ void avgFilter(const uint8_t input[], uint8_t output[], uint8_t ws) {
 	uint16_t sum, t;
 	assert(output != NULL);
 	for (i = 0; i < height; i++)
-		for (j = 0; j < width; j++) { // #TODO 优化:差量，HDL
+		for (j = 0; j < width; j++) { // #TODO 优化:差量v，HDL
 			sum = 0;
 			sx = MIN(MIN(i, height-i), ws);
 			sy = MIN(MIN(j, width-j), ws);
@@ -250,21 +250,18 @@ void calcCStr(const uint8_t img[], const uint8_t avgImg[], cStr output[]) {
 			uint8_t avg = avgImg[POS(i, j)];
 			cStr cs = { .a = 0, .b = 0, .c = 0, .d = 0 };
 			uint8_t shift = 0;
-//			uint8_t shift = 120;
 
 			int8_t x, y;
 			uint16_t iy, jx;
 
-			for (y = CensusWin_Up; y <= CensusWin_Down; y++) {
+			for (y = CensusWin_Up; y <= CensusWin_Down; y++) { //#TODO 并行比较，１１更新
 				iy = i + y;
 				if ((iy < 0) || (iy >= height))
 					shift += CensusWin_Right - CensusWin_Left + 1;
-//					shift -= CensusWin_Right - CensusWin_Left + 1;
 				else
 					for (x = CensusWin_Left; x <= CensusWin_Right; x++)
 						if (x || y) {
 							shift += 1;
-//							shift -= 1;
 
 							jx = j + x;
 							if ((jx > 0) && (jx < width)
@@ -272,6 +269,54 @@ void calcCStr(const uint8_t img[], const uint8_t avgImg[], cStr output[]) {
 								/*cs |= 1 << shift;*/
 								*(((uint32_t*) &cs) + (shift >> 5)) |= 1
 										<< (shift & 0x1f);
+//								*(((uint32_t*) &cs) + ((120-shift) >> 5)) |= 1
+//										<< ((120-shift) & 0x1f);
+						}
+
+			}
+			output[POS(i, j)] = cs;
+			disp33(i, j);
+		}
+
+#undef width
+#undef height
+
+}
+
+void calcCStr1(const uint8_t img[], const uint8_t avgImg[], cStr output[]) {
+
+#define width (g_width)
+#define height (g_height)
+
+	uint16_t i, j;
+
+	for (j = 0; j < width; j++)
+		for (i = 0; i < height; i++) {  // #TODO HDL操作类
+
+			uint8_t avg = avgImg[POS(i, j)];
+			cStr cs = { .a = 0, .b = 0, .c = 0, .d = 0 };
+			uint8_t shift = 0;
+
+			int8_t x, y;
+			uint16_t iy, jx;
+
+			for (y = CensusWin_Up; y <= CensusWin_Down; y++) { //#TODO 并行比较，１１更新
+				iy = i + y;
+				if ((iy < 0) || (iy >= height))
+					shift += CensusWin_Right - CensusWin_Left + 1;
+				else
+					for (x = CensusWin_Left; x <= CensusWin_Right; x++)
+						if (x || y) {
+							shift += 1;
+
+							jx = j + x;
+							if ((jx > 0) && (jx < width)
+									&& (img[POS(iy, jx)] < avg))
+								/*cs |= 1 << shift;*/
+								*(((uint32_t*) &cs) + (shift >> 5)) |= 1
+										<< (shift & 0x1f);
+//								*(((uint32_t*) &cs) + ((120-shift) >> 5)) |= 1
+//										<< ((120-shift) & 0x1f);
 						}
 
 			}
@@ -292,9 +337,9 @@ void calcCensusString() {
 	assert(g_cStrRight!=NULL);
 
 	setDot(3);
-	calcCStr(g_left, g_avgLeft, g_cStrLeft);
+	calcCStr1(g_left, g_avgLeft, g_cStrLeft);
 	setDot(0);
-	calcCStr(g_right, g_avgRight, g_cStrRight);
+	calcCStr1(g_right, g_avgRight, g_cStrRight);
 
 }
 
@@ -476,15 +521,16 @@ void stereoMatch(image *disp, image left, image right, image tof,
 	validate(left, right);
 //	calcRange(offset, bf, deta); // standalone
 //	calcAverage(); // 3.6s@150p // standalone
-	calcAverage(); // 0.7s@150p // standalone
+//	calcAverage(); // 0.7s@150p // standalone
 //	calcCrossBasedRegion(); //1.4s@150p // standalone
-//	calcCensusString(); //6.6s@150p // depend on average
+//	calcCensusString(); //6.4s@150p // depend on average
+	calcCensusString(); //6.6s@150p // depend on average
 //
 //	calcDisparity();
 
 //////////////////////////////////
 
-	memcpy(g_disp, g_avgLeft, g_totalSize);
+//	memcpy(g_disp, g_avgLeft, g_totalSize);
 
 //	dump16((uint16_t*)g_dispRange, 20); // 95	111	22	27	112	130	121	141	60	70	57	66	27	32	88	101	119	137	48	55
 
