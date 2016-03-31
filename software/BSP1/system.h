@@ -4,7 +4,7 @@
  * Machine generated for CPU 'cpu' in SOPC Builder design 'soc'
  * SOPC Builder design path: ../../soc.sopcinfo
  *
- * Generated: Thu Mar 31 17:54:27 CST 2016
+ * Generated: Thu Mar 31 22:41:14 CST 2016
  */
 
 /*
@@ -141,17 +141,14 @@
  *
  */
 
-#define ALT_CI_CESUS(n,A,B) __builtin_custom_inii(ALT_CI_CESUS_N+(n&ALT_CI_CESUS_N_MASK),(A),(B))
-#define ALT_CI_CESUS_N 0x0
-#define ALT_CI_CESUS_N_MASK ((1<<4)-1)
+#define ALT_CI_CENSUS(n,A) __builtin_custom_ini(ALT_CI_CENSUS_N+(n&ALT_CI_CENSUS_N_MASK),(A))
+#define ALT_CI_CENSUS_N 0x0
+#define ALT_CI_CENSUS_N_MASK ((1<<4)-1)
 #define ALT_CI_HAMMING(A,B) __builtin_custom_inii(ALT_CI_HAMMING_N,(A),(B))
 #define ALT_CI_HAMMINGAVG4(n,A,B) __builtin_custom_inii(ALT_CI_HAMMINGAVG4_N+(n&ALT_CI_HAMMINGAVG4_N_MASK),(A),(B))
-#define ALT_CI_HAMMINGAVG4_N 0x14
+#define ALT_CI_HAMMINGAVG4_N 0x20
 #define ALT_CI_HAMMINGAVG4_N_MASK ((1<<1)-1)
-#define ALT_CI_HAMMINGPLUS(n,A,B) __builtin_custom_inii(ALT_CI_HAMMINGPLUS_N+(n&ALT_CI_HAMMINGPLUS_N_MASK),(A),(B))
-#define ALT_CI_HAMMINGPLUS_N 0x10
-#define ALT_CI_HAMMINGPLUS_N_MASK ((1<<1)-1)
-#define ALT_CI_HAMMING_N 0x12
+#define ALT_CI_HAMMING_N 0x22
 
 
 /*
@@ -166,10 +163,9 @@
 #define __ALTERA_AVALON_SYSID_QSYS
 #define __ALTERA_AVALON_UART
 #define __ALTERA_NIOS2_GEN2
-#define __CESUS
+#define __CENSUS
 #define __HAMMING
 #define __HAMMINGAVG4
-#define __HAMMINGPLUS
 
 
 /*
@@ -344,7 +340,7 @@
 #define SYSID_IRQ_INTERRUPT_CONTROLLER_ID -1
 #define SYSID_NAME "/dev/sysid"
 #define SYSID_SPAN 8
-#define SYSID_TIMESTAMP 1459417780
+#define SYSID_TIMESTAMP 1459433566
 #define SYSID_TYPE "altera_avalon_sysid_qsys"
 
 

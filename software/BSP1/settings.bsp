@@ -2,8 +2,8 @@
 <sch:Settings xmlns:sch="http://www.altera.com/embeddedsw/bsp/schema">
         <BspType>hal</BspType>
         <BspVersion>default</BspVersion>
-        <BspGeneratedTimeStamp>Mar 31, 2016 5:58:45 PM</BspGeneratedTimeStamp>
-        <BspGeneratedUnixTimeStamp>1459418326067</BspGeneratedUnixTimeStamp>
+        <BspGeneratedTimeStamp>Mar 31, 2016 10:41:14 PM</BspGeneratedTimeStamp>
+        <BspGeneratedUnixTimeStamp>1459435274349</BspGeneratedUnixTimeStamp>
         <BspGeneratedLocation>/home/macrobull/Workspace/Stereo/software/BSP1</BspGeneratedLocation>
         <BspSettingsFile>settings.bsp</BspSettingsFile>
         <SopcDesignFile>../../soc.sopcinfo</SopcDesignFile>

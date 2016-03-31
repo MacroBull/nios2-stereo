@@ -1,5 +1,5 @@
  
-SRC = ins_cesus.v ins_cesus_tb.v
+SRC = ins_census.v ins_census_tb.v
 #fixPoint.v complex.v fractal_i.v
 # top.sv hexTest.v svTest.sv
 

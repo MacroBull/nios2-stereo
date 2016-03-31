@@ -10,7 +10,7 @@
 
 #include "stereo.h"
 #include "seg6.h"
-#include "cesus.h"
+#include "census.h"
 
 uint16_t g_height, g_width;
 #define g_totalSize (g_height * g_width)
@@ -151,7 +151,7 @@ void avgFilter(const uint8_t input[], uint8_t output[], uint8_t ws) {
 	uint16_t sum, t;
 	assert(output != NULL);
 	for (i = 0; i < height; i++)
-		for (j = 0; j < width; j++) { // #TODO 优化:差量v，HDL
+		for (j = 0; j < width; j++) {
 			sum = 0;
 			sx = MIN(MIN(i, height-i), ws);
 			sy = MIN(MIN(j, width-j), ws);
@@ -236,7 +236,7 @@ void calcCStr(const uint8_t img[], const uint8_t avgImg[], cStr output[]) {
 	uint16_t i, j;
 
 	for (i = 0; i < height; i++)
-		for (j = 0; j < width; j++) {  // #TODO HDL操作类
+		for (j = 0; j < width; j++) {
 
 			uint8_t avg = avgImg[POS(i, j)];
 			cStr cs = { .a = 0, .b = 0, .c = 0, .d = 0 };
@@ -245,7 +245,7 @@ void calcCStr(const uint8_t img[], const uint8_t avgImg[], cStr output[]) {
 			int8_t x, y;
 			uint16_t iy, jx;
 
-			for (y = CensusWin_Up; y <= CensusWin_Down; y++) { //#TODO 并行比较，１１更新
+			for (y = CensusWin_Up; y <= CensusWin_Down; y++) {
 				iy = i + y;
 				if ((iy < 0) || (iy >= height))
 					shift += CensusWin_Right - CensusWin_Left + 1;
@@ -279,41 +279,63 @@ void calcCStr1(const uint8_t img[], const uint8_t avgImg[], cStr output[]) {
 #define width (g_width)
 #define height (g_height)
 
-	uint16_t i, j;
+	uint16_t i, j, x, y, top, bottom, front, back;
+	cStr cs;
 
-	for (j = 0; j < width; j++)
-		for (i = 0; i < height; i++) {  // #TODO HDL操作类
+	census_setCounter(0);
 
-			uint8_t avg = avgImg[POS(i, j)];
-			cStr cs = { .a = 0, .b = 0, .c = 0, .d = 0 };
-			uint8_t shift = 0;
-
-			int8_t x, y;
-			uint16_t iy, jx;
-
-			for (y = CensusWin_Up; y <= CensusWin_Down; y++) { //#TODO 并行比较，１１更新
-				iy = i + y;
-				if ((iy < 0) || (iy >= height))
-					shift += CensusWin_Right - CensusWin_Left + 1;
-				else
-					for (x = CensusWin_Left; x <= CensusWin_Right; x++)
-						if (x || y) {
-							shift += 1;
-
-							jx = j + x;
-							if ((jx > 0) && (jx < width)
-									&& (img[POS(iy, jx)] < avg))
-								/*cs |= 1 << shift;*/
-								*(((uint32_t*) &cs) + (shift >> 5)) |= 1
-										<< (shift & 0x1f);
-//								*(((uint32_t*) &cs) + ((120-shift) >> 5)) |= 1
-//										<< ((120-shift) & 0x1f);
-						}
-
-			}
-			output[POS(i, j)] = cs;
-			disp33(i, j);
+	for (i = 0; i < height; i++) {
+		//census_matrixFillWithMax();
+		for (j = 0; j < 5; j++) {
+			census_matrixAddMax(6);
+			census_matrixAddMax(5);
 		}
+
+		top = MAX(0, i - 5);
+		bottom = MIN(height-1, i + 5);
+		front = top+5-i;
+		back = i+5-bottom;
+		for (x = 0; x <= 5; x++) {
+			if(front)census_matrixAddMax(front);
+			for (y = top; y <= bottom; y++)
+				census_matrixAdd(img[POS(y, x)]);
+			if(back)census_matrixAddMax(back);
+		}
+
+		cs.a = census_setCmp_getCodecLL(avgImg[POS(i, 0)]);
+		cs.b = census_getCodecLH();
+		cs.c = census_getCodecHL();
+		cs.d = census_getCodecHH();
+		output[POS(i, 0)] = cs;
+
+		for (j = 1; j <= width - 5; j++) {
+			if(front)census_matrixAddMax(front);
+			for (y = top; y <= bottom; y++)
+				census_matrixAdd(img[POS(y, j + 5)]);
+			if(back)census_matrixAddMax(back);
+
+			cs.a = census_setCmp_getCodecLL(avgImg[POS(i, j)]);
+			cs.b = census_getCodecLH();
+			cs.c = census_getCodecHL();
+			cs.d = census_getCodecHH();
+			output[POS(i, j)] = cs;
+
+		}
+
+		for (; j < width; j++) {
+			census_matrixAddMax(6);
+			census_matrixAddMax(5);
+			cs.a = census_setCmp_getCodecLL(avgImg[POS(i, j)]);
+			cs.b = census_getCodecLH();
+			cs.c = census_getCodecHL();
+			cs.d = census_getCodecHH();
+			output[POS(i, j)] = cs;
+		}
+		disp33(i, j);
+	}
+
+	fprintf(stderr, "Census instructions invoked %lu times.\n",
+	census_getCounter());
 
 #undef width
 #undef height
@@ -446,10 +468,10 @@ void calcDisparity() {
 	uint16_t i, j;
 	uint16_t x, y;
 	int16_t dx, edx;
-	uint16_t p, cnt;
+	uint16_t p;
 	uint32_t cost, minCost;
 
-	cesus_hammingAC();
+	census_hammingAC();
 	for (i = 0; i < height; i++)
 		for (j = 0; j < width; j++) {
 			if (dispRange[POS(i, j)].p == MAXINT) { //pixels can't be matched
@@ -463,10 +485,10 @@ void calcDisparity() {
 						for (x = cbRegion[POS(i, j)].l;
 								x <= MIN(cbRegion[POS(i, j)].r, width-1-dx);
 								x++) {
-							cesus_hammingAvg(cStrLeft[POS(y, x + dx)],
+							census_hammingAvg(cStrLeft[POS(y, x + dx)],
 							cStrRight[POS(y, x)]);
 						}
-					cost = cesus_hammingAC();
+					cost = census_hammingAC();
 					if (cost < minCost) {
 						minCost = cost;
 						p = j + dx;
@@ -514,7 +536,7 @@ void stereoMatch(image *disp, image left, image right, image tof,
 	calcAverage(); // 0.7s@150p // standalone
 	calcCrossBasedRegion(); //1.4s@150p // standalone
 //	calcCensusString(); //6.4s@150p // depend on average
-	calcCensusString(); //6.6s@150p // depend on average
+	calcCensusString(); //0.4s@150p // depend on average
 //
 	calcDisparity();
 
