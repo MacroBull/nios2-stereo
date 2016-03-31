@@ -449,6 +449,7 @@ void calcDisparity() {
 	uint16_t p, cnt;
 	uint32_t cost, minCost;
 
+	cesus_hammingAC();
 	for (i = 0; i < height; i++)
 		for (j = 0; j < width; j++) {
 			if (dispRange[POS(i, j)].p == MAXINT) { //pixels can't be matched
@@ -457,17 +458,15 @@ void calcDisparity() {
 				minCost = MAXINT;
 				edx = dispRange[POS(i, j)].s.r - j;
 				for (dx = dispRange[POS(i, j)].s.l - j; dx <= edx; dx++) {
-					cost = cnt = 0;
 					for (y = cbRegion[POS(i, j)].u; y <= cbRegion[POS(i, j)].d;
 							y++)
 						for (x = cbRegion[POS(i, j)].l;
 								x <= MIN(cbRegion[POS(i, j)].r, width-1-dx);
 								x++) {
-							cost += cesus_hamming(cStrLeft[POS(y, x + dx)],
+							cesus_hammingAvg(cStrLeft[POS(y, x + dx)],
 							cStrRight[POS(y, x)]);
-							cnt++;
 						}
-					cost = (cost + cnt / 2) / cnt;
+					cost = cesus_hammingAC();
 					if (cost < minCost) {
 						minCost = cost;
 						p = j + dx;

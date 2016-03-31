@@ -114,10 +114,58 @@ module soc (
 	wire         cpu_custom_instruction_master_multi_slave_translator0_ci_master_clk_en; // cpu_custom_instruction_master_multi_slave_translator0:ci_master_clken -> cesus:iClk_en
 	wire  [31:0] cpu_custom_instruction_master_multi_slave_translator0_ci_master_datab;  // cpu_custom_instruction_master_multi_slave_translator0:ci_master_datab -> cesus:iB
 	wire  [31:0] cpu_custom_instruction_master_multi_slave_translator0_ci_master_dataa;  // cpu_custom_instruction_master_multi_slave_translator0:ci_master_dataa -> cesus:iA
-	wire         cpu_custom_instruction_master_multi_slave_translator0_ci_master_start;  // cpu_custom_instruction_master_multi_slave_translator0:ci_master_start -> cesus:iStart
 	wire         cpu_custom_instruction_master_multi_slave_translator0_ci_master_reset;  // cpu_custom_instruction_master_multi_slave_translator0:ci_master_reset -> cesus:iReset
-	wire         cpu_custom_instruction_master_multi_slave_translator0_ci_master_done;   // cesus:oDone -> cpu_custom_instruction_master_multi_slave_translator0:ci_master_done
 	wire   [3:0] cpu_custom_instruction_master_multi_slave_translator0_ci_master_n;      // cpu_custom_instruction_master_multi_slave_translator0:ci_master_n -> cesus:iOp
+	wire         cpu_custom_instruction_master_multi_xconnect_ci_master1_readra;         // cpu_custom_instruction_master_multi_xconnect:ci_master1_readra -> cpu_custom_instruction_master_multi_slave_translator1:ci_slave_readra
+	wire   [4:0] cpu_custom_instruction_master_multi_xconnect_ci_master1_a;              // cpu_custom_instruction_master_multi_xconnect:ci_master1_a -> cpu_custom_instruction_master_multi_slave_translator1:ci_slave_a
+	wire   [4:0] cpu_custom_instruction_master_multi_xconnect_ci_master1_b;              // cpu_custom_instruction_master_multi_xconnect:ci_master1_b -> cpu_custom_instruction_master_multi_slave_translator1:ci_slave_b
+	wire         cpu_custom_instruction_master_multi_xconnect_ci_master1_readrb;         // cpu_custom_instruction_master_multi_xconnect:ci_master1_readrb -> cpu_custom_instruction_master_multi_slave_translator1:ci_slave_readrb
+	wire   [4:0] cpu_custom_instruction_master_multi_xconnect_ci_master1_c;              // cpu_custom_instruction_master_multi_xconnect:ci_master1_c -> cpu_custom_instruction_master_multi_slave_translator1:ci_slave_c
+	wire         cpu_custom_instruction_master_multi_xconnect_ci_master1_clk;            // cpu_custom_instruction_master_multi_xconnect:ci_master1_clk -> cpu_custom_instruction_master_multi_slave_translator1:ci_slave_clk
+	wire  [31:0] cpu_custom_instruction_master_multi_xconnect_ci_master1_ipending;       // cpu_custom_instruction_master_multi_xconnect:ci_master1_ipending -> cpu_custom_instruction_master_multi_slave_translator1:ci_slave_ipending
+	wire         cpu_custom_instruction_master_multi_xconnect_ci_master1_start;          // cpu_custom_instruction_master_multi_xconnect:ci_master1_start -> cpu_custom_instruction_master_multi_slave_translator1:ci_slave_start
+	wire         cpu_custom_instruction_master_multi_xconnect_ci_master1_reset_req;      // cpu_custom_instruction_master_multi_xconnect:ci_master1_reset_req -> cpu_custom_instruction_master_multi_slave_translator1:ci_slave_reset_req
+	wire         cpu_custom_instruction_master_multi_xconnect_ci_master1_done;           // cpu_custom_instruction_master_multi_slave_translator1:ci_slave_done -> cpu_custom_instruction_master_multi_xconnect:ci_master1_done
+	wire   [7:0] cpu_custom_instruction_master_multi_xconnect_ci_master1_n;              // cpu_custom_instruction_master_multi_xconnect:ci_master1_n -> cpu_custom_instruction_master_multi_slave_translator1:ci_slave_n
+	wire  [31:0] cpu_custom_instruction_master_multi_xconnect_ci_master1_result;         // cpu_custom_instruction_master_multi_slave_translator1:ci_slave_result -> cpu_custom_instruction_master_multi_xconnect:ci_master1_result
+	wire         cpu_custom_instruction_master_multi_xconnect_ci_master1_estatus;        // cpu_custom_instruction_master_multi_xconnect:ci_master1_estatus -> cpu_custom_instruction_master_multi_slave_translator1:ci_slave_estatus
+	wire         cpu_custom_instruction_master_multi_xconnect_ci_master1_clk_en;         // cpu_custom_instruction_master_multi_xconnect:ci_master1_clken -> cpu_custom_instruction_master_multi_slave_translator1:ci_slave_clken
+	wire  [31:0] cpu_custom_instruction_master_multi_xconnect_ci_master1_datab;          // cpu_custom_instruction_master_multi_xconnect:ci_master1_datab -> cpu_custom_instruction_master_multi_slave_translator1:ci_slave_datab
+	wire  [31:0] cpu_custom_instruction_master_multi_xconnect_ci_master1_dataa;          // cpu_custom_instruction_master_multi_xconnect:ci_master1_dataa -> cpu_custom_instruction_master_multi_slave_translator1:ci_slave_dataa
+	wire         cpu_custom_instruction_master_multi_xconnect_ci_master1_reset;          // cpu_custom_instruction_master_multi_xconnect:ci_master1_reset -> cpu_custom_instruction_master_multi_slave_translator1:ci_slave_reset
+	wire         cpu_custom_instruction_master_multi_xconnect_ci_master1_writerc;        // cpu_custom_instruction_master_multi_xconnect:ci_master1_writerc -> cpu_custom_instruction_master_multi_slave_translator1:ci_slave_writerc
+	wire  [31:0] cpu_custom_instruction_master_multi_slave_translator1_ci_master_result; // hammingAvg4:oRes -> cpu_custom_instruction_master_multi_slave_translator1:ci_master_result
+	wire         cpu_custom_instruction_master_multi_slave_translator1_ci_master_clk;    // cpu_custom_instruction_master_multi_slave_translator1:ci_master_clk -> hammingAvg4:iClk
+	wire         cpu_custom_instruction_master_multi_slave_translator1_ci_master_clk_en; // cpu_custom_instruction_master_multi_slave_translator1:ci_master_clken -> hammingAvg4:iClk_en
+	wire  [31:0] cpu_custom_instruction_master_multi_slave_translator1_ci_master_datab;  // cpu_custom_instruction_master_multi_slave_translator1:ci_master_datab -> hammingAvg4:iB
+	wire  [31:0] cpu_custom_instruction_master_multi_slave_translator1_ci_master_dataa;  // cpu_custom_instruction_master_multi_slave_translator1:ci_master_dataa -> hammingAvg4:iA
+	wire         cpu_custom_instruction_master_multi_slave_translator1_ci_master_reset;  // cpu_custom_instruction_master_multi_slave_translator1:ci_master_reset -> hammingAvg4:iReset
+	wire         cpu_custom_instruction_master_multi_slave_translator1_ci_master_n;      // cpu_custom_instruction_master_multi_slave_translator1:ci_master_n -> hammingAvg4:iOp
+	wire         cpu_custom_instruction_master_multi_xconnect_ci_master2_readra;         // cpu_custom_instruction_master_multi_xconnect:ci_master2_readra -> cpu_custom_instruction_master_multi_slave_translator2:ci_slave_readra
+	wire   [4:0] cpu_custom_instruction_master_multi_xconnect_ci_master2_a;              // cpu_custom_instruction_master_multi_xconnect:ci_master2_a -> cpu_custom_instruction_master_multi_slave_translator2:ci_slave_a
+	wire   [4:0] cpu_custom_instruction_master_multi_xconnect_ci_master2_b;              // cpu_custom_instruction_master_multi_xconnect:ci_master2_b -> cpu_custom_instruction_master_multi_slave_translator2:ci_slave_b
+	wire         cpu_custom_instruction_master_multi_xconnect_ci_master2_readrb;         // cpu_custom_instruction_master_multi_xconnect:ci_master2_readrb -> cpu_custom_instruction_master_multi_slave_translator2:ci_slave_readrb
+	wire   [4:0] cpu_custom_instruction_master_multi_xconnect_ci_master2_c;              // cpu_custom_instruction_master_multi_xconnect:ci_master2_c -> cpu_custom_instruction_master_multi_slave_translator2:ci_slave_c
+	wire         cpu_custom_instruction_master_multi_xconnect_ci_master2_clk;            // cpu_custom_instruction_master_multi_xconnect:ci_master2_clk -> cpu_custom_instruction_master_multi_slave_translator2:ci_slave_clk
+	wire  [31:0] cpu_custom_instruction_master_multi_xconnect_ci_master2_ipending;       // cpu_custom_instruction_master_multi_xconnect:ci_master2_ipending -> cpu_custom_instruction_master_multi_slave_translator2:ci_slave_ipending
+	wire         cpu_custom_instruction_master_multi_xconnect_ci_master2_start;          // cpu_custom_instruction_master_multi_xconnect:ci_master2_start -> cpu_custom_instruction_master_multi_slave_translator2:ci_slave_start
+	wire         cpu_custom_instruction_master_multi_xconnect_ci_master2_reset_req;      // cpu_custom_instruction_master_multi_xconnect:ci_master2_reset_req -> cpu_custom_instruction_master_multi_slave_translator2:ci_slave_reset_req
+	wire         cpu_custom_instruction_master_multi_xconnect_ci_master2_done;           // cpu_custom_instruction_master_multi_slave_translator2:ci_slave_done -> cpu_custom_instruction_master_multi_xconnect:ci_master2_done
+	wire   [7:0] cpu_custom_instruction_master_multi_xconnect_ci_master2_n;              // cpu_custom_instruction_master_multi_xconnect:ci_master2_n -> cpu_custom_instruction_master_multi_slave_translator2:ci_slave_n
+	wire  [31:0] cpu_custom_instruction_master_multi_xconnect_ci_master2_result;         // cpu_custom_instruction_master_multi_slave_translator2:ci_slave_result -> cpu_custom_instruction_master_multi_xconnect:ci_master2_result
+	wire         cpu_custom_instruction_master_multi_xconnect_ci_master2_estatus;        // cpu_custom_instruction_master_multi_xconnect:ci_master2_estatus -> cpu_custom_instruction_master_multi_slave_translator2:ci_slave_estatus
+	wire         cpu_custom_instruction_master_multi_xconnect_ci_master2_clk_en;         // cpu_custom_instruction_master_multi_xconnect:ci_master2_clken -> cpu_custom_instruction_master_multi_slave_translator2:ci_slave_clken
+	wire  [31:0] cpu_custom_instruction_master_multi_xconnect_ci_master2_datab;          // cpu_custom_instruction_master_multi_xconnect:ci_master2_datab -> cpu_custom_instruction_master_multi_slave_translator2:ci_slave_datab
+	wire  [31:0] cpu_custom_instruction_master_multi_xconnect_ci_master2_dataa;          // cpu_custom_instruction_master_multi_xconnect:ci_master2_dataa -> cpu_custom_instruction_master_multi_slave_translator2:ci_slave_dataa
+	wire         cpu_custom_instruction_master_multi_xconnect_ci_master2_reset;          // cpu_custom_instruction_master_multi_xconnect:ci_master2_reset -> cpu_custom_instruction_master_multi_slave_translator2:ci_slave_reset
+	wire         cpu_custom_instruction_master_multi_xconnect_ci_master2_writerc;        // cpu_custom_instruction_master_multi_xconnect:ci_master2_writerc -> cpu_custom_instruction_master_multi_slave_translator2:ci_slave_writerc
+	wire  [31:0] cpu_custom_instruction_master_multi_slave_translator2_ci_master_result; // hammingPlus:oRes -> cpu_custom_instruction_master_multi_slave_translator2:ci_master_result
+	wire         cpu_custom_instruction_master_multi_slave_translator2_ci_master_clk;    // cpu_custom_instruction_master_multi_slave_translator2:ci_master_clk -> hammingPlus:iClk
+	wire         cpu_custom_instruction_master_multi_slave_translator2_ci_master_clk_en; // cpu_custom_instruction_master_multi_slave_translator2:ci_master_clken -> hammingPlus:iClk_en
+	wire  [31:0] cpu_custom_instruction_master_multi_slave_translator2_ci_master_datab;  // cpu_custom_instruction_master_multi_slave_translator2:ci_master_datab -> hammingPlus:iB
+	wire  [31:0] cpu_custom_instruction_master_multi_slave_translator2_ci_master_dataa;  // cpu_custom_instruction_master_multi_slave_translator2:ci_master_dataa -> hammingPlus:iA
+	wire         cpu_custom_instruction_master_multi_slave_translator2_ci_master_reset;  // cpu_custom_instruction_master_multi_slave_translator2:ci_master_reset -> hammingPlus:iReset
+	wire         cpu_custom_instruction_master_multi_slave_translator2_ci_master_n;      // cpu_custom_instruction_master_multi_slave_translator2:ci_master_n -> hammingPlus:iOp
 	wire  [31:0] cpu_data_master_readdata;                                               // mm_interconnect_0:cpu_data_master_readdata -> cpu:d_readdata
 	wire         cpu_data_master_waitrequest;                                            // mm_interconnect_0:cpu_data_master_waitrequest -> cpu:d_waitrequest
 	wire         cpu_data_master_debugaccess;                                            // cpu:debug_mem_slave_debugaccess_to_roms -> mm_interconnect_0:cpu_data_master_debugaccess
@@ -185,15 +233,13 @@ module soc (
 	wire         cpu_debug_reset_request_reset;                                          // cpu:debug_reset_request -> rst_controller:reset_in1
 
 	cesus cesus (
-		.oRes    (cpu_custom_instruction_master_multi_slave_translator0_ci_master_result), // ins_cesus.result
-		.oDone   (cpu_custom_instruction_master_multi_slave_translator0_ci_master_done),   //          .done
-		.iA      (cpu_custom_instruction_master_multi_slave_translator0_ci_master_dataa),  //          .dataa
-		.iB      (cpu_custom_instruction_master_multi_slave_translator0_ci_master_datab),  //          .datab
-		.iClk    (cpu_custom_instruction_master_multi_slave_translator0_ci_master_clk),    //          .clk
-		.iClk_en (cpu_custom_instruction_master_multi_slave_translator0_ci_master_clk_en), //          .clk_en
-		.iStart  (cpu_custom_instruction_master_multi_slave_translator0_ci_master_start),  //          .start
-		.iReset  (cpu_custom_instruction_master_multi_slave_translator0_ci_master_reset),  //          .reset
-		.iOp     (cpu_custom_instruction_master_multi_slave_translator0_ci_master_n)       //          .n
+		.iA      (cpu_custom_instruction_master_multi_slave_translator0_ci_master_dataa),  // cesus.dataa
+		.iB      (cpu_custom_instruction_master_multi_slave_translator0_ci_master_datab),  //      .datab
+		.iClk    (cpu_custom_instruction_master_multi_slave_translator0_ci_master_clk),    //      .clk
+		.iReset  (cpu_custom_instruction_master_multi_slave_translator0_ci_master_reset),  //      .reset
+		.iOp     (cpu_custom_instruction_master_multi_slave_translator0_ci_master_n),      //      .n
+		.oRes    (cpu_custom_instruction_master_multi_slave_translator0_ci_master_result), //      .result
+		.iClk_en (cpu_custom_instruction_master_multi_slave_translator0_ci_master_clk_en)  //      .clk_en
 	);
 
 	soc_cpu cpu (
@@ -258,6 +304,26 @@ module soc (
 		.oOut (cpu_custom_instruction_master_comb_slave_translator0_ci_master_result), // ins_hamming.result
 		.iA   (cpu_custom_instruction_master_comb_slave_translator0_ci_master_dataa),  //            .dataa
 		.iB   (cpu_custom_instruction_master_comb_slave_translator0_ci_master_datab)   //            .datab
+	);
+
+	hammingAvg4 hammingavg4 (
+		.oRes    (cpu_custom_instruction_master_multi_slave_translator1_ci_master_result), // hammingAvg4.result
+		.iA      (cpu_custom_instruction_master_multi_slave_translator1_ci_master_dataa),  //            .dataa
+		.iB      (cpu_custom_instruction_master_multi_slave_translator1_ci_master_datab),  //            .datab
+		.iOp     (cpu_custom_instruction_master_multi_slave_translator1_ci_master_n),      //            .n
+		.iClk    (cpu_custom_instruction_master_multi_slave_translator1_ci_master_clk),    //            .clk
+		.iClk_en (cpu_custom_instruction_master_multi_slave_translator1_ci_master_clk_en), //            .clk_en
+		.iReset  (cpu_custom_instruction_master_multi_slave_translator1_ci_master_reset)   //            .reset
+	);
+
+	hammingPlus hammingplus (
+		.oRes    (cpu_custom_instruction_master_multi_slave_translator2_ci_master_result), // hammingPlus.result
+		.iA      (cpu_custom_instruction_master_multi_slave_translator2_ci_master_dataa),  //            .dataa
+		.iB      (cpu_custom_instruction_master_multi_slave_translator2_ci_master_datab),  //            .datab
+		.iOp     (cpu_custom_instruction_master_multi_slave_translator2_ci_master_n),      //            .n
+		.iClk    (cpu_custom_instruction_master_multi_slave_translator2_ci_master_clk),    //            .clk
+		.iClk_en (cpu_custom_instruction_master_multi_slave_translator2_ci_master_clk_en), //            .clk_en
+		.iReset  (cpu_custom_instruction_master_multi_slave_translator2_ci_master_reset)   //            .reset
 	);
 
 	soc_jtag_uart jtag_uart (
@@ -511,13 +577,49 @@ module soc (
 		.ci_master0_clken     (cpu_custom_instruction_master_multi_xconnect_ci_master0_clk_en),     //           .clk_en
 		.ci_master0_reset_req (cpu_custom_instruction_master_multi_xconnect_ci_master0_reset_req),  //           .reset_req
 		.ci_master0_start     (cpu_custom_instruction_master_multi_xconnect_ci_master0_start),      //           .start
-		.ci_master0_done      (cpu_custom_instruction_master_multi_xconnect_ci_master0_done)        //           .done
+		.ci_master0_done      (cpu_custom_instruction_master_multi_xconnect_ci_master0_done),       //           .done
+		.ci_master1_dataa     (cpu_custom_instruction_master_multi_xconnect_ci_master1_dataa),      // ci_master1.dataa
+		.ci_master1_datab     (cpu_custom_instruction_master_multi_xconnect_ci_master1_datab),      //           .datab
+		.ci_master1_result    (cpu_custom_instruction_master_multi_xconnect_ci_master1_result),     //           .result
+		.ci_master1_n         (cpu_custom_instruction_master_multi_xconnect_ci_master1_n),          //           .n
+		.ci_master1_readra    (cpu_custom_instruction_master_multi_xconnect_ci_master1_readra),     //           .readra
+		.ci_master1_readrb    (cpu_custom_instruction_master_multi_xconnect_ci_master1_readrb),     //           .readrb
+		.ci_master1_writerc   (cpu_custom_instruction_master_multi_xconnect_ci_master1_writerc),    //           .writerc
+		.ci_master1_a         (cpu_custom_instruction_master_multi_xconnect_ci_master1_a),          //           .a
+		.ci_master1_b         (cpu_custom_instruction_master_multi_xconnect_ci_master1_b),          //           .b
+		.ci_master1_c         (cpu_custom_instruction_master_multi_xconnect_ci_master1_c),          //           .c
+		.ci_master1_ipending  (cpu_custom_instruction_master_multi_xconnect_ci_master1_ipending),   //           .ipending
+		.ci_master1_estatus   (cpu_custom_instruction_master_multi_xconnect_ci_master1_estatus),    //           .estatus
+		.ci_master1_clk       (cpu_custom_instruction_master_multi_xconnect_ci_master1_clk),        //           .clk
+		.ci_master1_reset     (cpu_custom_instruction_master_multi_xconnect_ci_master1_reset),      //           .reset
+		.ci_master1_clken     (cpu_custom_instruction_master_multi_xconnect_ci_master1_clk_en),     //           .clk_en
+		.ci_master1_reset_req (cpu_custom_instruction_master_multi_xconnect_ci_master1_reset_req),  //           .reset_req
+		.ci_master1_start     (cpu_custom_instruction_master_multi_xconnect_ci_master1_start),      //           .start
+		.ci_master1_done      (cpu_custom_instruction_master_multi_xconnect_ci_master1_done),       //           .done
+		.ci_master2_dataa     (cpu_custom_instruction_master_multi_xconnect_ci_master2_dataa),      // ci_master2.dataa
+		.ci_master2_datab     (cpu_custom_instruction_master_multi_xconnect_ci_master2_datab),      //           .datab
+		.ci_master2_result    (cpu_custom_instruction_master_multi_xconnect_ci_master2_result),     //           .result
+		.ci_master2_n         (cpu_custom_instruction_master_multi_xconnect_ci_master2_n),          //           .n
+		.ci_master2_readra    (cpu_custom_instruction_master_multi_xconnect_ci_master2_readra),     //           .readra
+		.ci_master2_readrb    (cpu_custom_instruction_master_multi_xconnect_ci_master2_readrb),     //           .readrb
+		.ci_master2_writerc   (cpu_custom_instruction_master_multi_xconnect_ci_master2_writerc),    //           .writerc
+		.ci_master2_a         (cpu_custom_instruction_master_multi_xconnect_ci_master2_a),          //           .a
+		.ci_master2_b         (cpu_custom_instruction_master_multi_xconnect_ci_master2_b),          //           .b
+		.ci_master2_c         (cpu_custom_instruction_master_multi_xconnect_ci_master2_c),          //           .c
+		.ci_master2_ipending  (cpu_custom_instruction_master_multi_xconnect_ci_master2_ipending),   //           .ipending
+		.ci_master2_estatus   (cpu_custom_instruction_master_multi_xconnect_ci_master2_estatus),    //           .estatus
+		.ci_master2_clk       (cpu_custom_instruction_master_multi_xconnect_ci_master2_clk),        //           .clk
+		.ci_master2_reset     (cpu_custom_instruction_master_multi_xconnect_ci_master2_reset),      //           .reset
+		.ci_master2_clken     (cpu_custom_instruction_master_multi_xconnect_ci_master2_clk_en),     //           .clk_en
+		.ci_master2_reset_req (cpu_custom_instruction_master_multi_xconnect_ci_master2_reset_req),  //           .reset_req
+		.ci_master2_start     (cpu_custom_instruction_master_multi_xconnect_ci_master2_start),      //           .start
+		.ci_master2_done      (cpu_custom_instruction_master_multi_xconnect_ci_master2_done)        //           .done
 	);
 
 	altera_customins_slave_translator #(
 		.N_WIDTH          (4),
-		.USE_DONE         (1),
-		.NUM_FIXED_CYCLES (0)
+		.USE_DONE         (0),
+		.NUM_FIXED_CYCLES (2)
 	) cpu_custom_instruction_master_multi_slave_translator0 (
 		.ci_slave_dataa      (cpu_custom_instruction_master_multi_xconnect_ci_master0_dataa),          //  ci_slave.dataa
 		.ci_slave_datab      (cpu_custom_instruction_master_multi_xconnect_ci_master0_datab),          //          .datab
@@ -544,8 +646,6 @@ module soc (
 		.ci_master_clk       (cpu_custom_instruction_master_multi_slave_translator0_ci_master_clk),    //          .clk
 		.ci_master_clken     (cpu_custom_instruction_master_multi_slave_translator0_ci_master_clk_en), //          .clk_en
 		.ci_master_reset     (cpu_custom_instruction_master_multi_slave_translator0_ci_master_reset),  //          .reset
-		.ci_master_start     (cpu_custom_instruction_master_multi_slave_translator0_ci_master_start),  //          .start
-		.ci_master_done      (cpu_custom_instruction_master_multi_slave_translator0_ci_master_done),   //          .done
 		.ci_master_readra    (),                                                                       // (terminated)
 		.ci_master_readrb    (),                                                                       // (terminated)
 		.ci_master_writerc   (),                                                                       // (terminated)
@@ -554,7 +654,95 @@ module soc (
 		.ci_master_c         (),                                                                       // (terminated)
 		.ci_master_ipending  (),                                                                       // (terminated)
 		.ci_master_estatus   (),                                                                       // (terminated)
-		.ci_master_reset_req ()                                                                        // (terminated)
+		.ci_master_reset_req (),                                                                       // (terminated)
+		.ci_master_start     (),                                                                       // (terminated)
+		.ci_master_done      (1'b0)                                                                    // (terminated)
+	);
+
+	altera_customins_slave_translator #(
+		.N_WIDTH          (1),
+		.USE_DONE         (0),
+		.NUM_FIXED_CYCLES (2)
+	) cpu_custom_instruction_master_multi_slave_translator1 (
+		.ci_slave_dataa      (cpu_custom_instruction_master_multi_xconnect_ci_master1_dataa),          //  ci_slave.dataa
+		.ci_slave_datab      (cpu_custom_instruction_master_multi_xconnect_ci_master1_datab),          //          .datab
+		.ci_slave_result     (cpu_custom_instruction_master_multi_xconnect_ci_master1_result),         //          .result
+		.ci_slave_n          (cpu_custom_instruction_master_multi_xconnect_ci_master1_n),              //          .n
+		.ci_slave_readra     (cpu_custom_instruction_master_multi_xconnect_ci_master1_readra),         //          .readra
+		.ci_slave_readrb     (cpu_custom_instruction_master_multi_xconnect_ci_master1_readrb),         //          .readrb
+		.ci_slave_writerc    (cpu_custom_instruction_master_multi_xconnect_ci_master1_writerc),        //          .writerc
+		.ci_slave_a          (cpu_custom_instruction_master_multi_xconnect_ci_master1_a),              //          .a
+		.ci_slave_b          (cpu_custom_instruction_master_multi_xconnect_ci_master1_b),              //          .b
+		.ci_slave_c          (cpu_custom_instruction_master_multi_xconnect_ci_master1_c),              //          .c
+		.ci_slave_ipending   (cpu_custom_instruction_master_multi_xconnect_ci_master1_ipending),       //          .ipending
+		.ci_slave_estatus    (cpu_custom_instruction_master_multi_xconnect_ci_master1_estatus),        //          .estatus
+		.ci_slave_clk        (cpu_custom_instruction_master_multi_xconnect_ci_master1_clk),            //          .clk
+		.ci_slave_clken      (cpu_custom_instruction_master_multi_xconnect_ci_master1_clk_en),         //          .clk_en
+		.ci_slave_reset_req  (cpu_custom_instruction_master_multi_xconnect_ci_master1_reset_req),      //          .reset_req
+		.ci_slave_reset      (cpu_custom_instruction_master_multi_xconnect_ci_master1_reset),          //          .reset
+		.ci_slave_start      (cpu_custom_instruction_master_multi_xconnect_ci_master1_start),          //          .start
+		.ci_slave_done       (cpu_custom_instruction_master_multi_xconnect_ci_master1_done),           //          .done
+		.ci_master_dataa     (cpu_custom_instruction_master_multi_slave_translator1_ci_master_dataa),  // ci_master.dataa
+		.ci_master_datab     (cpu_custom_instruction_master_multi_slave_translator1_ci_master_datab),  //          .datab
+		.ci_master_result    (cpu_custom_instruction_master_multi_slave_translator1_ci_master_result), //          .result
+		.ci_master_n         (cpu_custom_instruction_master_multi_slave_translator1_ci_master_n),      //          .n
+		.ci_master_clk       (cpu_custom_instruction_master_multi_slave_translator1_ci_master_clk),    //          .clk
+		.ci_master_clken     (cpu_custom_instruction_master_multi_slave_translator1_ci_master_clk_en), //          .clk_en
+		.ci_master_reset     (cpu_custom_instruction_master_multi_slave_translator1_ci_master_reset),  //          .reset
+		.ci_master_readra    (),                                                                       // (terminated)
+		.ci_master_readrb    (),                                                                       // (terminated)
+		.ci_master_writerc   (),                                                                       // (terminated)
+		.ci_master_a         (),                                                                       // (terminated)
+		.ci_master_b         (),                                                                       // (terminated)
+		.ci_master_c         (),                                                                       // (terminated)
+		.ci_master_ipending  (),                                                                       // (terminated)
+		.ci_master_estatus   (),                                                                       // (terminated)
+		.ci_master_reset_req (),                                                                       // (terminated)
+		.ci_master_start     (),                                                                       // (terminated)
+		.ci_master_done      (1'b0)                                                                    // (terminated)
+	);
+
+	altera_customins_slave_translator #(
+		.N_WIDTH          (1),
+		.USE_DONE         (0),
+		.NUM_FIXED_CYCLES (2)
+	) cpu_custom_instruction_master_multi_slave_translator2 (
+		.ci_slave_dataa      (cpu_custom_instruction_master_multi_xconnect_ci_master2_dataa),          //  ci_slave.dataa
+		.ci_slave_datab      (cpu_custom_instruction_master_multi_xconnect_ci_master2_datab),          //          .datab
+		.ci_slave_result     (cpu_custom_instruction_master_multi_xconnect_ci_master2_result),         //          .result
+		.ci_slave_n          (cpu_custom_instruction_master_multi_xconnect_ci_master2_n),              //          .n
+		.ci_slave_readra     (cpu_custom_instruction_master_multi_xconnect_ci_master2_readra),         //          .readra
+		.ci_slave_readrb     (cpu_custom_instruction_master_multi_xconnect_ci_master2_readrb),         //          .readrb
+		.ci_slave_writerc    (cpu_custom_instruction_master_multi_xconnect_ci_master2_writerc),        //          .writerc
+		.ci_slave_a          (cpu_custom_instruction_master_multi_xconnect_ci_master2_a),              //          .a
+		.ci_slave_b          (cpu_custom_instruction_master_multi_xconnect_ci_master2_b),              //          .b
+		.ci_slave_c          (cpu_custom_instruction_master_multi_xconnect_ci_master2_c),              //          .c
+		.ci_slave_ipending   (cpu_custom_instruction_master_multi_xconnect_ci_master2_ipending),       //          .ipending
+		.ci_slave_estatus    (cpu_custom_instruction_master_multi_xconnect_ci_master2_estatus),        //          .estatus
+		.ci_slave_clk        (cpu_custom_instruction_master_multi_xconnect_ci_master2_clk),            //          .clk
+		.ci_slave_clken      (cpu_custom_instruction_master_multi_xconnect_ci_master2_clk_en),         //          .clk_en
+		.ci_slave_reset_req  (cpu_custom_instruction_master_multi_xconnect_ci_master2_reset_req),      //          .reset_req
+		.ci_slave_reset      (cpu_custom_instruction_master_multi_xconnect_ci_master2_reset),          //          .reset
+		.ci_slave_start      (cpu_custom_instruction_master_multi_xconnect_ci_master2_start),          //          .start
+		.ci_slave_done       (cpu_custom_instruction_master_multi_xconnect_ci_master2_done),           //          .done
+		.ci_master_dataa     (cpu_custom_instruction_master_multi_slave_translator2_ci_master_dataa),  // ci_master.dataa
+		.ci_master_datab     (cpu_custom_instruction_master_multi_slave_translator2_ci_master_datab),  //          .datab
+		.ci_master_result    (cpu_custom_instruction_master_multi_slave_translator2_ci_master_result), //          .result
+		.ci_master_n         (cpu_custom_instruction_master_multi_slave_translator2_ci_master_n),      //          .n
+		.ci_master_clk       (cpu_custom_instruction_master_multi_slave_translator2_ci_master_clk),    //          .clk
+		.ci_master_clken     (cpu_custom_instruction_master_multi_slave_translator2_ci_master_clk_en), //          .clk_en
+		.ci_master_reset     (cpu_custom_instruction_master_multi_slave_translator2_ci_master_reset),  //          .reset
+		.ci_master_readra    (),                                                                       // (terminated)
+		.ci_master_readrb    (),                                                                       // (terminated)
+		.ci_master_writerc   (),                                                                       // (terminated)
+		.ci_master_a         (),                                                                       // (terminated)
+		.ci_master_b         (),                                                                       // (terminated)
+		.ci_master_c         (),                                                                       // (terminated)
+		.ci_master_ipending  (),                                                                       // (terminated)
+		.ci_master_estatus   (),                                                                       // (terminated)
+		.ci_master_reset_req (),                                                                       // (terminated)
+		.ci_master_start     (),                                                                       // (terminated)
+		.ci_master_done      (1'b0)                                                                    // (terminated)
 	);
 
 	soc_mm_interconnect_0 mm_interconnect_0 (

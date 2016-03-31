@@ -18,33 +18,113 @@ module hamming(oOut,
 	
 endmodule
 	
-module hammingPlus(oOut,
+module hammingPlus(oRes,
 	iA, iB,
-	iClk,
-	iReset
-	);
-	
-	output	[31:0]	oOut;
+	iOp,
+	iClk, iClk_en,
+	iReset);
+
+	output	[31:0]	oRes;
 	
 	input	[31:0]	iA, iB;
-	input	iClk, iReset;
+	input	iOp;
 	
-	wire	[31:0]	wD;
+	input	iClk, iReset, iClk_en;
 	
-	reg	[31:0]	rOut;
+	reg	[31:0]	rAcc, rCnt, rRes;
+	reg	rDone;
 	
-	assign oOut = rOut;
-	assign wD = iA ^ iB;
+	wire	[31:0]	wH;
 	
-	always@(negedge iClk or negedge iReset)begin
-		if (!iReset) rOut = 0;
-		else rOut = rOut + ((((wD[0]+wD[1])+(wD[2]+wD[3]))+((wD[4]+wD[5])+(wD[6]+wD[7])))+
-		(((wD[8]+wD[9])+(wD[10]+wD[11]))+((wD[12]+wD[13])+(wD[14]+wD[15]))))+
-		((((wD[16]+wD[17])+(wD[18]+wD[19]))+((wD[20]+wD[21])+(wD[22]+wD[23])))+
-		(((wD[24]+wD[25])+(wD[26]+wD[27]))+((wD[28]+wD[29])+(wD[30]+wD[31]))));
+	assign	oRes = rRes;
+	
+	hamming	comp0(wH, iA, iB);
+	
+	always@(posedge iClk or posedge iReset or negedge iClk_en) begin
+		if (iReset) begin
+			rRes <= 32'h0;
+			rDone <= 0;
+		end else if (!iClk_en) rDone <= 0;
+		else begin
+			rDone <= 1;
+			if (!rDone) begin
+				if (!iOp) begin // clear and report result
+					rRes <= rAcc;
+				end
+			end
+		end
+	end
+	
+	always@(negedge iClk or posedge iReset) begin
+		if (iReset) begin
+			rAcc <= 32'h0;
+			rCnt <= 32'h0;
+		end else if (iClk_en && rDone) begin
+			if (!iOp) begin
+				rAcc <= 32'h0;
+				rCnt <= 32'h0;
+			end else begin
+				rAcc <= rAcc + wH;
+				rCnt <= rCnt + 32'h1;
+			end
+		end
 	end
 
 endmodule
+
 	
+module hammingAvg4(oRes,
+	iA, iB,
+	iOp,
+	iClk, iClk_en,
+	iReset);
+
+	output	[31:0]	oRes;
 	
+	input	[31:0]	iA, iB;
+	input	iOp;
+	
+	input	iClk, iReset, iClk_en;
+	
+	reg	[31:0]	rAcc, rCnt, rRes;
+	reg	rDone;
+	
+	wire	[31:0]	wH;
+	
+	assign	oRes = rRes;
+	
+	hamming	comp0(wH, iA, iB);
+	
+	always@(posedge iClk or posedge iReset or negedge iClk_en) begin
+		if (iReset) begin
+			rRes <= 32'h0;
+			rDone <= 0;
+		end else if (!iClk_en) rDone <= 0;
+		else begin
+			rDone <= 1;
+			if (!rDone) begin
+				if (!iOp) begin // clear and report result
+					rRes <= (rCnt>0)?(rAcc*4 + rCnt/2)/rCnt:0;
+				end
+			end
+		end 
+	end
+	
+	always@(negedge iClk or posedge iReset) begin
+		if (iReset) begin
+			rAcc <= 32'h0;
+			rCnt <= 32'h0;
+		end else if (iClk_en && rDone) begin
+			if (!iOp) begin
+				rAcc <= 32'h0;
+				rCnt <= 32'h0;
+			end else begin
+				rAcc <= rAcc + wH;
+				rCnt <= rCnt + 32'h1;
+			end
+		end
+	end
+
+endmodule
+
 	

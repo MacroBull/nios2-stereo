@@ -20,12 +20,20 @@ image left, right, tof, disp;
 int main() {
 	DEBUG("Booted.");
 
-	cStr a = {.a=1,.b=0,.c=0,.d=0}, b={.a=0,.b=0,.c=0,.d=0};
-	while(1){
-//		fprintf(stderr, "%lu\n", cesus_hamming(a, b));
-		fprintf(stdout, "res=%lu\n", cesus_hamming(a, b));
-		usleep(1000*100);
-	}
+//	puts("000000");
+//	usleep(100*1000);
+//	puts("111111");
+//	cesus_hammingAC();
+//	cStr a = {.a=0xf0800000,.b=0xe1000000,.c=0xc2800000,.d=0}, b={.a=0x0a000070,.b=0x85000000,.c=0x19800000,.d=0};
+//	while(1){
+//		cesus_hammingAvg(a, b);
+//		uint32_t r = cesus_hammingAC();
+////		fprintf(stdout, "res=%ld\n", hammingPC());
+//		fprintf(stdout, "res=%ld\n", r);
+//		fprintf(stderr, "res=%ld\n", r);
+//		usleep(1000*100);
+//	}
+
 
 	int32_t *p;
 
