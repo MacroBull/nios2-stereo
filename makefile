@@ -1,7 +1,6 @@
  
-SRC = ins_census.v ins_census_tb.v
-#fixPoint.v complex.v fractal_i.v
-# top.sv hexTest.v svTest.sv
+# SRC = ins_census.v ins_census_tb.v
+SRC = ins_hamming.v ins_hamming_tb.v
 
 VC = iverilog
 VP = vvp

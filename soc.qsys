@@ -69,7 +69,23 @@
    {
       datum baseAddress
       {
-         value = "67244152";
+         value = "67244280";
+         type = "String";
+      }
+   }
+   element perfCounter
+   {
+      datum _sortIndex
+      {
+         value = "11";
+         type = "int";
+      }
+   }
+   element perfCounter.control_slave
+   {
+      datum baseAddress
+      {
+         value = "67244096";
          type = "String";
       }
    }
@@ -117,7 +133,39 @@
    {
       datum baseAddress
       {
-         value = "67244112";
+         value = "67244240";
+         type = "String";
+      }
+   }
+   element soc
+   {
+      datum _originalDeviceFamily
+      {
+         value = "Cyclone IV E";
+         type = "String";
+      }
+   }
+   element soc
+   {
+      datum _originalDeviceFamily
+      {
+         value = "Cyclone IV E";
+         type = "String";
+      }
+   }
+   element soc
+   {
+      datum _originalDeviceFamily
+      {
+         value = "Cyclone IV E";
+         type = "String";
+      }
+   }
+   element soc
+   {
+      datum _originalDeviceFamily
+      {
+         value = "Cyclone IV E";
          type = "String";
       }
    }
@@ -229,7 +277,7 @@
    {
       datum baseAddress
       {
-         value = "67244144";
+         value = "67244272";
          type = "String";
       }
    }
@@ -245,7 +293,7 @@
    {
       datum baseAddress
       {
-         value = "67244064";
+         value = "67244192";
          type = "String";
       }
    }
@@ -303,14 +351,14 @@
   <parameter name="cpuArchRev" value="1" />
   <parameter name="cpuID" value="0" />
   <parameter name="cpuReset" value="false" />
-  <parameter name="customInstSlavesSystemInfo"><![CDATA[<info><slave name="census" baseAddress="0" addressSpan="16" clockCycleType="MULTICYCLE" /><slave name="hammingavg4" baseAddress="32" addressSpan="2" clockCycleType="MULTICYCLE" /><slave name="hamming" baseAddress="34" addressSpan="1" clockCycleType="COMBINATORIAL" /></info>]]></parameter>
+  <parameter name="customInstSlavesSystemInfo"><![CDATA[<info><slave name="census" baseAddress="0" addressSpan="16" clockCycleType="MULTICYCLE" /><slave name="hammingavg4" baseAddress="16" addressSpan="2" clockCycleType="MULTICYCLE" /><slave name="hamming" baseAddress="18" addressSpan="1" clockCycleType="COMBINATORIAL" /></info>]]></parameter>
   <parameter name="customInstSlavesSystemInfo_nios_a" value="&lt;info/&gt;" />
   <parameter name="customInstSlavesSystemInfo_nios_b" value="&lt;info/&gt;" />
   <parameter name="customInstSlavesSystemInfo_nios_c" value="&lt;info/&gt;" />
   <parameter name="dataAddrWidth" value="27" />
   <parameter name="dataMasterHighPerformanceAddrWidth" value="1" />
   <parameter name="dataMasterHighPerformanceMapParam" value="" />
-  <parameter name="dataSlaveMapParam"><![CDATA[<address-map><slave name='sdram.s1' start='0x2000000' end='0x4000000' type='altera_avalon_new_sdram_controller.s1' /><slave name='ram.s1' start='0x4010000' end='0x401A000' type='altera_avalon_onchip_memory2.s1' /><slave name='cpu.debug_mem_slave' start='0x4020800' end='0x4021000' type='altera_nios2_gen2.debug_mem_slave' /><slave name='uart.s1' start='0x4021020' end='0x4021040' type='altera_avalon_uart.s1' /><slave name='seg6.s1' start='0x4021050' end='0x4021060' type='altera_avalon_pio.s1' /><slave name='sysid.control_slave' start='0x4021070' end='0x4021078' type='altera_avalon_sysid_qsys.control_slave' /><slave name='jtag_uart.avalon_jtag_slave' start='0x4021078' end='0x4021080' type='altera_avalon_jtag_uart.avalon_jtag_slave' /></address-map>]]></parameter>
+  <parameter name="dataSlaveMapParam"><![CDATA[<address-map><slave name='sdram.s1' start='0x2000000' end='0x4000000' type='altera_avalon_new_sdram_controller.s1' /><slave name='ram.s1' start='0x4010000' end='0x401A000' type='altera_avalon_onchip_memory2.s1' /><slave name='cpu.debug_mem_slave' start='0x4020800' end='0x4021000' type='altera_nios2_gen2.debug_mem_slave' /><slave name='perfCounter.control_slave' start='0x4021040' end='0x4021080' type='altera_avalon_performance_counter.control_slave' /><slave name='uart.s1' start='0x40210A0' end='0x40210C0' type='altera_avalon_uart.s1' /><slave name='seg6.s1' start='0x40210D0' end='0x40210E0' type='altera_avalon_pio.s1' /><slave name='sysid.control_slave' start='0x40210F0' end='0x40210F8' type='altera_avalon_sysid_qsys.control_slave' /><slave name='jtag_uart.avalon_jtag_slave' start='0x40210F8' end='0x4021100' type='altera_avalon_jtag_uart.avalon_jtag_slave' /></address-map>]]></parameter>
   <parameter name="data_master_high_performance_paddr_base" value="0" />
   <parameter name="data_master_high_performance_paddr_size" value="0" />
   <parameter name="data_master_paddr_base" value="0" />
@@ -349,7 +397,7 @@
   <parameter name="icache_tagramBlockType" value="Automatic" />
   <parameter name="impl" value="Fast" />
   <parameter name="instAddrWidth" value="27" />
-  <parameter name="instSlaveMapParam"><![CDATA[<address-map><slave name='sdram.s1' start='0x2000000' end='0x4000000' type='altera_avalon_new_sdram_controller.s1' /><slave name='ram.s1' start='0x4010000' end='0x401A000' type='altera_avalon_onchip_memory2.s1' /><slave name='cpu.debug_mem_slave' start='0x4020800' end='0x4021000' type='altera_nios2_gen2.debug_mem_slave' /><slave name='uart.s1' start='0x4021020' end='0x4021040' type='altera_avalon_uart.s1' /><slave name='seg6.s1' start='0x4021050' end='0x4021060' type='altera_avalon_pio.s1' /><slave name='sysid.control_slave' start='0x4021070' end='0x4021078' type='altera_avalon_sysid_qsys.control_slave' /><slave name='jtag_uart.avalon_jtag_slave' start='0x4021078' end='0x4021080' type='altera_avalon_jtag_uart.avalon_jtag_slave' /></address-map>]]></parameter>
+  <parameter name="instSlaveMapParam"><![CDATA[<address-map><slave name='sdram.s1' start='0x2000000' end='0x4000000' type='altera_avalon_new_sdram_controller.s1' /><slave name='ram.s1' start='0x4010000' end='0x401A000' type='altera_avalon_onchip_memory2.s1' /><slave name='cpu.debug_mem_slave' start='0x4020800' end='0x4021000' type='altera_nios2_gen2.debug_mem_slave' /><slave name='perfCounter.control_slave' start='0x4021040' end='0x4021080' type='altera_avalon_performance_counter.control_slave' /><slave name='uart.s1' start='0x40210A0' end='0x40210C0' type='altera_avalon_uart.s1' /><slave name='seg6.s1' start='0x40210D0' end='0x40210E0' type='altera_avalon_pio.s1' /><slave name='sysid.control_slave' start='0x40210F0' end='0x40210F8' type='altera_avalon_sysid_qsys.control_slave' /><slave name='jtag_uart.avalon_jtag_slave' start='0x40210F8' end='0x4021100' type='altera_avalon_jtag_uart.avalon_jtag_slave' /></address-map>]]></parameter>
   <parameter name="instructionMasterHighPerformanceAddrWidth" value="1" />
   <parameter name="instructionMasterHighPerformanceMapParam" value="" />
   <parameter name="instruction_master_high_performance_paddr_base" value="0" />
@@ -488,6 +536,13 @@
   <parameter name="writeIRQThreshold" value="8" />
  </module>
  <module
+   name="perfCounter"
+   kind="altera_avalon_performance_counter"
+   version="15.1"
+   enabled="1">
+  <parameter name="numberOfSections" value="3" />
+ </module>
+ <module
    name="ram"
    kind="altera_avalon_onchip_memory2"
    version="15.1"
@@ -589,7 +644,7 @@
    start="cpu.data_master"
    end="jtag_uart.avalon_jtag_slave">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x04021078" />
+  <parameter name="baseAddress" value="0x040210f8" />
   <parameter name="defaultConnection" value="false" />
  </connection>
  <connection
@@ -598,7 +653,16 @@
    start="cpu.data_master"
    end="sysid.control_slave">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x04021070" />
+  <parameter name="baseAddress" value="0x040210f0" />
+  <parameter name="defaultConnection" value="false" />
+ </connection>
+ <connection
+   kind="avalon"
+   version="15.1"
+   start="cpu.data_master"
+   end="perfCounter.control_slave">
+  <parameter name="arbitrationPriority" value="1" />
+  <parameter name="baseAddress" value="0x04021040" />
   <parameter name="defaultConnection" value="false" />
  </connection>
  <connection
@@ -617,12 +681,12 @@
  </connection>
  <connection kind="avalon" version="15.1" start="cpu.data_master" end="uart.s1">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x04021020" />
+  <parameter name="baseAddress" value="0x040210a0" />
   <parameter name="defaultConnection" value="false" />
  </connection>
  <connection kind="avalon" version="15.1" start="cpu.data_master" end="seg6.s1">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x04021050" />
+  <parameter name="baseAddress" value="0x040210d0" />
   <parameter name="defaultConnection" value="false" />
  </connection>
  <connection kind="avalon" version="15.1" start="cpu.data_master" end="sdram.s1">
@@ -636,7 +700,7 @@
    start="cpu.instruction_master"
    end="jtag_uart.avalon_jtag_slave">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x04021078" />
+  <parameter name="baseAddress" value="0x040210f8" />
   <parameter name="defaultConnection" value="false" />
  </connection>
  <connection
@@ -645,7 +709,16 @@
    start="cpu.instruction_master"
    end="sysid.control_slave">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x04021070" />
+  <parameter name="baseAddress" value="0x040210f0" />
+  <parameter name="defaultConnection" value="false" />
+ </connection>
+ <connection
+   kind="avalon"
+   version="15.1"
+   start="cpu.instruction_master"
+   end="perfCounter.control_slave">
+  <parameter name="arbitrationPriority" value="1" />
+  <parameter name="baseAddress" value="0x04021040" />
   <parameter name="defaultConnection" value="false" />
  </connection>
  <connection
@@ -672,7 +745,7 @@
    start="cpu.instruction_master"
    end="uart.s1">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x04021020" />
+  <parameter name="baseAddress" value="0x040210a0" />
   <parameter name="defaultConnection" value="false" />
  </connection>
  <connection
@@ -681,7 +754,7 @@
    start="cpu.instruction_master"
    end="seg6.s1">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x04021050" />
+  <parameter name="baseAddress" value="0x040210d0" />
   <parameter name="defaultConnection" value="false" />
  </connection>
  <connection
@@ -699,6 +772,7 @@
  <connection kind="clock" version="15.1" start="clk.clk" end="uart.clk" />
  <connection kind="clock" version="15.1" start="clk.clk" end="seg6.clk" />
  <connection kind="clock" version="15.1" start="clk.clk" end="sdram.clk" />
+ <connection kind="clock" version="15.1" start="clk.clk" end="perfCounter.clk" />
  <connection kind="clock" version="15.1" start="clk.clk" end="ram.clk1" />
  <connection kind="interrupt" version="15.1" start="cpu.irq" end="jtag_uart.irq">
   <parameter name="irqNumber" value="0" />
@@ -722,7 +796,7 @@
    end="hammingAvg4.hammingAvg4">
   <parameter name="CIName" value="hammingavg4" />
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="32" />
+  <parameter name="baseAddress" value="16" />
  </connection>
  <connection
    kind="nios_custom_instruction"
@@ -731,7 +805,7 @@
    end="hamming.ins_hamming">
   <parameter name="CIName" value="hamming" />
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="34" />
+  <parameter name="baseAddress" value="18" />
  </connection>
  <connection
    kind="reset"
@@ -743,6 +817,11 @@
  <connection kind="reset" version="15.1" start="clk.clk_reset" end="uart.reset" />
  <connection kind="reset" version="15.1" start="clk.clk_reset" end="seg6.reset" />
  <connection kind="reset" version="15.1" start="clk.clk_reset" end="sdram.reset" />
+ <connection
+   kind="reset"
+   version="15.1"
+   start="clk.clk_reset"
+   end="perfCounter.reset" />
  <connection kind="reset" version="15.1" start="clk.clk_reset" end="ram.reset1" />
  <connection
    kind="reset"
@@ -774,6 +853,11 @@
    version="15.1"
    start="cpu.debug_reset_request"
    end="sdram.reset" />
+ <connection
+   kind="reset"
+   version="15.1"
+   start="cpu.debug_reset_request"
+   end="perfCounter.reset" />
  <connection
    kind="reset"
    version="15.1"

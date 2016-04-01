@@ -590,7 +590,7 @@ void calcDisparity1() {
 	uint16_t y, u, d, l, r1, dxRange;
 	int16_t dx, edx;
 	uint16_t p = 0;
-	uint32_t cost, minCost, sum, cnt;
+	uint32_t cost, minCost, cnt;
 
 	uint32_t accStep0, accStep1;
 	uint32_t *lineAcc;
@@ -606,12 +606,12 @@ void calcDisparity1() {
 	for (i = 0; i < height; i++)
 		for (j = 0; j < dxRange; j++) {
 			dx = j + dxMin;
-			sum = 0;
+			cost = 0;
 			lineAcc[i * accStep1 + j * accStep0] = 0;
 			for (k = MAX(0, -dx); k < MIN(width, width-dx); k++) {
-				sum += census_hamming(cStrLeft[POS(i, k + dx)],
+				cost += census_hamming(cStrLeft[POS(i, k + dx)],
 				cStrRight[POS(i, k)]);
-				lineAcc[i * accStep1 + j * accStep0 + k + 1] = sum;
+				lineAcc[i * accStep1 + j * accStep0 + k + 1] = cost;
 			}
 //			assert(sum<60000);
 			disp33(i, j);
@@ -626,19 +626,19 @@ void calcDisparity1() {
 				edx = dispRange[POS(i, j)].s.r - j;
 				u = cbRegion[POS(i, j)].u;
 				d = cbRegion[POS(i, j)].d;
-				l = cbRegion[POS(i, j)].l;
 
 				for (dx = dispRange[POS(i, j)].s.l - j; dx <= edx; dx++) {
-					cnt = sum = 0;
-					r1 = MIN(cbRegion[POS(i, j)].r+1, width-dx);
+					cost = cnt = 0;
 					for (y = u; y <= d; y++) {
-						sum += lineAcc[y * accStep1 + (dx - dxMin) * accStep0
+						l = cbRegion[POS(y, j)].l;
+						r1 = MIN(cbRegion[POS(i, j)].r+1, width-dx);
+						cost += lineAcc[y * accStep1 + (dx - dxMin) * accStep0
 								+ r1]
 								- lineAcc[y * accStep1 + (dx - dxMin) * accStep0
 										+ l];
 						cnt += r1 - l;
 					}
-					cost = (sum + cnt / 2) / cnt;
+					cost = (cost + cnt / 2) / cnt;
 					if (cost < minCost) {
 						minCost = cost;
 						p = j + dx;
@@ -684,15 +684,21 @@ void stereoMatch(image *disp, image left, image right, image tof,
 
 	validate(left, right);
 	calcRange(offset, bf, deta); // standalone
-	calcAverage(); // 3.6s@150p // standalone
-//	calcAverage1(); // 0.7s@150p // standalone
+//	calcAverage(); // 3.6s@150p // standalone
+	calcAverage1(); // 0.7s@150p // standalone
 	calcCrossBasedRegion(); //1.4s@150p // standalone
-	calcCensusString(); //6.4s@150p // depend on average
-//	calcCensusString1(); //0.4s@150p // depend on average
+//	calcCensusString(); //6.4s@150p // depend on average
+	calcCensusString1(); //0.4s@150p // depend on average
 //
-	calcDisparity(); // 160s@150p
-//	calcDisparity1(); // 18s@150p
+//	calcDisparity(); // 160s@150p
+	calcDisparity1(); // 18s@150p
 
+	/*
+	 * opt-off:95s
+	 * +avg:-0.9s
+	 * +census:-2.1s
+	 * opt-full:9.5s
+	 */
 //////////////////////////////////
 
 //	memcpy(g_disp, g_avgLeft, g_totalSize);

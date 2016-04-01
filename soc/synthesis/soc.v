@@ -163,6 +163,11 @@ module soc (
 	wire  [31:0] mm_interconnect_0_jtag_uart_avalon_jtag_slave_writedata;                // mm_interconnect_0:jtag_uart_avalon_jtag_slave_writedata -> jtag_uart:av_writedata
 	wire  [31:0] mm_interconnect_0_sysid_control_slave_readdata;                         // sysid:readdata -> mm_interconnect_0:sysid_control_slave_readdata
 	wire   [0:0] mm_interconnect_0_sysid_control_slave_address;                          // mm_interconnect_0:sysid_control_slave_address -> sysid:address
+	wire  [31:0] mm_interconnect_0_perfcounter_control_slave_readdata;                   // perfCounter:readdata -> mm_interconnect_0:perfCounter_control_slave_readdata
+	wire   [3:0] mm_interconnect_0_perfcounter_control_slave_address;                    // mm_interconnect_0:perfCounter_control_slave_address -> perfCounter:address
+	wire         mm_interconnect_0_perfcounter_control_slave_begintransfer;              // mm_interconnect_0:perfCounter_control_slave_begintransfer -> perfCounter:begintransfer
+	wire         mm_interconnect_0_perfcounter_control_slave_write;                      // mm_interconnect_0:perfCounter_control_slave_write -> perfCounter:write
+	wire  [31:0] mm_interconnect_0_perfcounter_control_slave_writedata;                  // mm_interconnect_0:perfCounter_control_slave_writedata -> perfCounter:writedata
 	wire  [31:0] mm_interconnect_0_cpu_debug_mem_slave_readdata;                         // cpu:debug_mem_slave_readdata -> mm_interconnect_0:cpu_debug_mem_slave_readdata
 	wire         mm_interconnect_0_cpu_debug_mem_slave_waitrequest;                      // cpu:debug_mem_slave_waitrequest -> mm_interconnect_0:cpu_debug_mem_slave_waitrequest
 	wire         mm_interconnect_0_cpu_debug_mem_slave_debugaccess;                      // mm_interconnect_0:cpu_debug_mem_slave_debugaccess -> cpu:debug_mem_slave_debugaccess
@@ -202,7 +207,7 @@ module soc (
 	wire         irq_mapper_receiver0_irq;                                               // jtag_uart:av_irq -> irq_mapper:receiver0_irq
 	wire         irq_mapper_receiver1_irq;                                               // uart:irq -> irq_mapper:receiver1_irq
 	wire  [31:0] cpu_irq_irq;                                                            // irq_mapper:sender_irq -> cpu:irq
-	wire         rst_controller_reset_out_reset;                                         // rst_controller:reset_out -> [cpu:reset_n, irq_mapper:reset, jtag_uart:rst_n, mm_interconnect_0:cpu_reset_reset_bridge_in_reset_reset, ram:reset, rst_translator:in_reset, sdram:reset_n, seg6:reset_n, sysid:reset_n, uart:reset_n]
+	wire         rst_controller_reset_out_reset;                                         // rst_controller:reset_out -> [cpu:reset_n, irq_mapper:reset, jtag_uart:rst_n, mm_interconnect_0:cpu_reset_reset_bridge_in_reset_reset, perfCounter:reset_n, ram:reset, rst_translator:in_reset, sdram:reset_n, seg6:reset_n, sysid:reset_n, uart:reset_n]
 	wire         rst_controller_reset_out_reset_req;                                     // rst_controller:reset_req -> [cpu:reset_req, ram:reset_req, rst_translator:reset_req_in]
 	wire         cpu_debug_reset_request_reset;                                          // cpu:debug_reset_request -> rst_controller:reset_in1
 
@@ -300,6 +305,16 @@ module soc (
 		.av_writedata   (mm_interconnect_0_jtag_uart_avalon_jtag_slave_writedata),   //                  .writedata
 		.av_waitrequest (mm_interconnect_0_jtag_uart_avalon_jtag_slave_waitrequest), //                  .waitrequest
 		.av_irq         (irq_mapper_receiver0_irq)                                   //               irq.irq
+	);
+
+	soc_perfCounter perfcounter (
+		.clk           (clk_clk),                                                   //           clk.clk
+		.reset_n       (~rst_controller_reset_out_reset),                           //         reset.reset_n
+		.address       (mm_interconnect_0_perfcounter_control_slave_address),       // control_slave.address
+		.begintransfer (mm_interconnect_0_perfcounter_control_slave_begintransfer), //              .begintransfer
+		.readdata      (mm_interconnect_0_perfcounter_control_slave_readdata),      //              .readdata
+		.write         (mm_interconnect_0_perfcounter_control_slave_write),         //              .write
+		.writedata     (mm_interconnect_0_perfcounter_control_slave_writedata)      //              .writedata
 	);
 
 	soc_ram ram (
@@ -679,6 +694,11 @@ module soc (
 		.jtag_uart_avalon_jtag_slave_writedata   (mm_interconnect_0_jtag_uart_avalon_jtag_slave_writedata),   //                                .writedata
 		.jtag_uart_avalon_jtag_slave_waitrequest (mm_interconnect_0_jtag_uart_avalon_jtag_slave_waitrequest), //                                .waitrequest
 		.jtag_uart_avalon_jtag_slave_chipselect  (mm_interconnect_0_jtag_uart_avalon_jtag_slave_chipselect),  //                                .chipselect
+		.perfCounter_control_slave_address       (mm_interconnect_0_perfcounter_control_slave_address),       //       perfCounter_control_slave.address
+		.perfCounter_control_slave_write         (mm_interconnect_0_perfcounter_control_slave_write),         //                                .write
+		.perfCounter_control_slave_readdata      (mm_interconnect_0_perfcounter_control_slave_readdata),      //                                .readdata
+		.perfCounter_control_slave_writedata     (mm_interconnect_0_perfcounter_control_slave_writedata),     //                                .writedata
+		.perfCounter_control_slave_begintransfer (mm_interconnect_0_perfcounter_control_slave_begintransfer), //                                .begintransfer
 		.ram_s1_address                          (mm_interconnect_0_ram_s1_address),                          //                          ram_s1.address
 		.ram_s1_write                            (mm_interconnect_0_ram_s1_write),                            //                                .write
 		.ram_s1_readdata                         (mm_interconnect_0_ram_s1_readdata),                         //                                .readdata

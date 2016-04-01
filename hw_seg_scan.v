@@ -95,7 +95,9 @@ module seg_dual(oSeg, oSel,
 	input	iIsHex;
 	input	iCLK;
 	
-	wire [23:0]	wHex, wSeg0, wSeg1, wSel0, wSel1;
+	wire [23:0]	wHex;
+	wire [7:0]	wSeg0, wSeg1;
+	wire [5:0]	wSel0, wSel1;
 	
 	assign oSeg = iIsHex?wSeg0:wSeg1;
 	assign oSel = iIsHex?wSel0:wSel1;

@@ -2,8 +2,8 @@
 
 module hamming_tb;
 	
-	wire	[31:0]	a;//, b, c, d;
-	reg	[31:0]	b, c, d;
+	wire	[31:0]	a, d;//, b, c, d;
+	reg	[31:0]	b, c;
 	
 	reg	[31:0]	cnt;
 	wire	clk;
@@ -32,12 +32,14 @@ module hamming_tb;
 	end
 	
 	hammingAvg4 comp0(a, b, c, op, clk, clk_en, reset);
+	hamming comp1(d, b, c);
 	
 // 	assign b = cnt*3+2;
 // 	assign c = cnt*5+7;
 
 	initial begin
-		#2
+		b <= 32;c<=1;
+		#8
 		b <= 32'hf0800000;c<=32'h0a000070;
 		#8
 		b<= 32'he1000000;c<=32'h85000000;
