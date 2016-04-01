@@ -24,7 +24,7 @@ char *request(char e[], const char r[]){
 		}
 		gets(resp);
 		fprintf(stderr, "request	rx<-:%s\n", resp);
-		SET_EOS(resp, 9);
+		SET_EOS(resp, 8);
 	}
 	strcpy(e, resp);
 	return e;
@@ -36,7 +36,7 @@ char *listen(char e[], const char r[]){
 	while (strcmp(req, e) ^ (e[0] == '\0')) {
 		gets(req);
 		fprintf(stderr, "listen	rx<-:%s\n", req);
-		SET_EOS(req, 9);
+		SET_EOS(req, 8);
 	}
 	if (r[0]) {
 		puts(r);
@@ -63,7 +63,7 @@ image *readImage(image *img) {
 	SET_EOS(resp, 0);
 	while (strcmp(resp, ACK)) {
 		gets(magic);
-		SET_EOS(magic, 9);
+		SET_EOS(magic, 8);
 		assert(strcmp(magic, PGM_MAGIC) == 0);
 
 		uint16_t width, height;
@@ -97,7 +97,7 @@ image *readImage(image *img) {
 		printf("%08lx\n", checksum);
 
 		gets(resp);
-		SET_EOS(resp, 9);
+		SET_EOS(resp, 8);
 		DEBUG(resp);
 	}
 	return img;

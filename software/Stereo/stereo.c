@@ -28,7 +28,6 @@ typedef union {
 
 hRange *g_dispRange;
 
-
 int16_t dxMin, dxMax;
 
 cStr *g_cStrLeft, *g_cStrRight;
@@ -140,8 +139,10 @@ void calcRange(int16_t offset, int32_t bf, int32_t deta) {
 				dispRange[POS(i, j)].s.l = MIN(MAX(start, 0), width);
 				dispRange[POS(i, j)].s.r = MIN(MAX(end, 0), width);
 
-				if (dispRange[POS(i, j)].s.l-j>dxMax) dxMax = dispRange[POS(i, j)].s.l-j;
-				if (dispRange[POS(i, j)].s.l-j<dxMin) dxMin = dispRange[POS(i, j)].s.l-j;
+				if (dispRange[POS(i, j)].s.l - j > dxMax)
+					dxMax = dispRange[POS(i, j)].s.l - j;
+				if (dispRange[POS(i, j)].s.l - j < dxMin)
+					dxMin = dispRange[POS(i, j)].s.l - j;
 			}
 		}
 
@@ -187,7 +188,7 @@ void avgFilter1(const uint8_t input[], uint8_t output[], uint8_t ws) {
 
 	uint8_t i, j;
 	int8_t x, y, sx, sy;
-	uint16_t sum, cnt;
+	uint16_t sum = 0, cnt;
 	uint16_t fCnt = (ws * 2 + 1) * (ws * 2 + 1);
 	uint16_t hCnt = fCnt / 2;
 	uint16_t *colSum;
@@ -218,7 +219,7 @@ void avgFilter1(const uint8_t input[], uint8_t output[], uint8_t ws) {
 				cnt = (sx * 2 + 1) * (sy * 2 + 1);
 				output[POS(i, j)] = (sum + cnt / 2) / cnt;
 			} else {
-				sum = sum + colSum[j + ws] - colSum[j - ws - 1];
+				sum += + colSum[j + ws] - colSum[j - ws - 1];
 				output[POS(i, j)] = (sum + hCnt) / fCnt;
 			}
 			disp33(i, j);
@@ -231,6 +232,22 @@ void avgFilter1(const uint8_t input[], uint8_t output[], uint8_t ws) {
 }
 
 void calcAverage() {
+	if (g_avgLeft)
+		free(g_avgLeft);
+	g_avgLeft = (uint8_t*) malloc(g_totalSize * sizeof(uint8_t));
+	assert(g_avgLeft!=NULL);
+	if (g_avgRight)
+		free(g_avgRight);
+	g_avgRight = (uint8_t*) malloc(g_totalSize * sizeof(uint8_t));
+	assert(g_avgRight!=NULL);
+
+	setDot(3);
+	avgFilter(g_left, g_avgLeft, 5);
+	setDot(0);
+	avgFilter(g_right, g_avgRight, 5);
+}
+
+void calcAverage1() {
 	if (g_avgLeft)
 		free(g_avgLeft);
 	g_avgLeft = (uint8_t*) malloc(g_totalSize * sizeof(uint8_t));
@@ -276,10 +293,10 @@ void calcCStr(const uint8_t img[], const uint8_t avgImg[], cStr output[]) {
 							if ((jx > 0) && (jx < width)
 									&& (img[POS(iy, jx)] < avg))
 								/*cs |= 1 << shift;*/
-								*(((uint32_t*) &cs) + (shift >> 5)) |= 1
-										<< (shift & 0x1f);
-//								*(((uint32_t*) &cs) + ((120-shift) >> 5)) |= 1
-//										<< ((120-shift) & 0x1f);
+//								*(((uint32_t*) &cs) + (shift >> 5)) |= 1
+//										<< (shift & 0x1f);
+								*(((uint32_t*) &cs) + ((120-shift) >> 5)) |= 1
+										<< ((120-shift) & 0x1f);
 						}
 
 			}
@@ -375,10 +392,25 @@ void calcCensusString() {
 	assert(g_cStrRight!=NULL);
 
 	setDot(3);
+	calcCStr(g_left, g_avgLeft, g_cStrLeft);
+	setDot(0);
+	calcCStr(g_right, g_avgRight, g_cStrRight);
+}
+
+void calcCensusString1() {
+	if (g_cStrLeft)
+		free(g_cStrLeft);
+	g_cStrLeft = (cStr*) malloc(g_totalSize * sizeof(cStr));
+	assert(g_cStrLeft!=NULL);
+	if (g_cStrRight)
+		free(g_cStrRight);
+	g_cStrRight = (cStr*) malloc(g_totalSize * sizeof(cStr));
+	assert(g_cStrRight!=NULL);
+
+	setDot(3);
 	calcCStr1(g_left, g_avgLeft, g_cStrLeft);
 	setDot(0);
 	calcCStr1(g_right, g_avgRight, g_cStrRight);
-
 }
 
 void calcCbRegion(const uint8_t image[], region *cbRegion) {
@@ -492,10 +524,10 @@ void calcDisparity() {
 #define cStrRight (g_cStrRight)
 
 	uint16_t i, j;
-	uint16_t x, y;
+	uint16_t x, y, u, d, l, r;
 	int16_t dx, edx;
-	uint16_t p;
-	uint32_t cost, minCost;
+	uint16_t p = 0;
+	uint32_t cost, minCost, cnt;
 
 	census_hammingAC();
 	for (i = 0; i < height; i++)
@@ -505,17 +537,20 @@ void calcDisparity() {
 			} else {
 				minCost = MAXINT;
 				edx = dispRange[POS(i, j)].s.r - j;
+				u = cbRegion[POS(i, j)].u;
+				d = cbRegion[POS(i, j)].d;
 
 				for (dx = dispRange[POS(i, j)].s.l - j; dx <= edx; dx++) {
-					for (y = cbRegion[POS(i, j)].u; y <= cbRegion[POS(i, j)].d;
-							y++)
-						for (x = cbRegion[POS(i, j)].l;
-								x <= MIN(cbRegion[POS(i, j)].r, width-1-dx);
-								x++) {
-							census_hammingAvg(cStrLeft[POS(y, x + dx)],
-							cStrRight[POS(y, x)]);
+					cost = cnt = 0;
+					for (y = u; y <= d; y++) {
+						l = cbRegion[POS(y, j)].l;
+						r = MIN(cbRegion[POS(y, j)].r, width-1-dx);
+						for (x = l; x <= r; x++) {
+							cost += census_hamming(cStrLeft[POS(y, x + dx)], cStrRight[POS(y, x)]);
+							cnt ++;
 						}
-					cost = census_hammingAC();
+					}
+					cost = (cost + cnt / 2) / cnt;
 					if (cost < minCost) {
 						minCost = cost;
 						p = j + dx;
@@ -554,13 +589,13 @@ void calcDisparity1() {
 	uint16_t i, j, k;
 	uint16_t y, u, d, l, r1, dxRange;
 	int16_t dx, edx;
-	uint16_t p;
+	uint16_t p = 0;
 	uint32_t cost, minCost, sum, cnt;
 
 	uint32_t accStep0, accStep1;
 	uint32_t *lineAcc;
 
-	dxRange = dxMax+1-dxMin;
+	dxRange = dxMax + 1 - dxMin;
 	lineAcc = (uint32_t*) malloc(
 	height * dxRange * (width + 1) * sizeof(uint32_t));
 	assert(lineAcc!=NULL);
@@ -597,8 +632,10 @@ void calcDisparity1() {
 					cnt = sum = 0;
 					r1 = MIN(cbRegion[POS(i, j)].r+1, width-dx);
 					for (y = u; y <= d; y++) {
-						sum += lineAcc[y * accStep1	+ (dx - dxMin) * accStep0 + r1]
-								- lineAcc[y * accStep1	+ (dx - dxMin) * accStep0 + l];
+						sum += lineAcc[y * accStep1 + (dx - dxMin) * accStep0
+								+ r1]
+								- lineAcc[y * accStep1 + (dx - dxMin) * accStep0
+										+ l];
 						cnt += r1 - l;
 					}
 					cost = (sum + cnt / 2) / cnt;
@@ -647,13 +684,14 @@ void stereoMatch(image *disp, image left, image right, image tof,
 
 	validate(left, right);
 	calcRange(offset, bf, deta); // standalone
-//	calcAverage(); // 3.6s@150p // standalone
-	calcAverage(); // 0.7s@150p // standalone
+	calcAverage(); // 3.6s@150p // standalone
+//	calcAverage1(); // 0.7s@150p // standalone
 	calcCrossBasedRegion(); //1.4s@150p // standalone
-//	calcCensusString(); //6.4s@150p // depend on average
-	calcCensusString(); //0.4s@150p // depend on average
+	calcCensusString(); //6.4s@150p // depend on average
+//	calcCensusString1(); //0.4s@150p // depend on average
 //
-	calcDisparity1();
+	calcDisparity(); // 160s@150p
+//	calcDisparity1(); // 18s@150p
 
 //////////////////////////////////
 
