@@ -12,6 +12,7 @@
 #include "seg6.h"
 #include "census.h"
 
+
 uint16_t g_height, g_width;
 #define g_totalSize (g_height * g_width)
 
@@ -98,6 +99,8 @@ void quadtoone(const uint32_t a[], uint8_t b[], uint8_t mode) {
 	}
 }
 
+
+
 ////////////////////////////////////////
 
 void validate(image left, image right) {
@@ -105,21 +108,20 @@ void validate(image left, image right) {
 	assert((g_width == right.width) && (g_height == right.height));
 }
 
-void calcRange(int16_t offset, int32_t bf, int32_t deta) {
+void calcRange(int16_t offset, int32_t bf, int32_t deta, uint8_t checkboard) {
 
 #define width (g_width)
 #define height (g_height)
 #define tof (g_tof)
+#define disp (g_disp)
 #define dispRange (g_dispRange)
 
 	int32_t start, end;
 	uint8_t vDisp;
 	uint16_t i, j;
 
-	hRange maxRange = { .p = MAXINT };
-
 	if (dispRange)
-		free(dispRange);
+		FREE(dispRange);
 	dispRange = (hRange*) malloc(g_totalSize * sizeof(hRange));
 	assert(dispRange!=NULL);
 
@@ -130,7 +132,8 @@ void calcRange(int16_t offset, int32_t bf, int32_t deta) {
 		for (j = 0; j < width; j++) {
 			vDisp = tof[POS(i, j)];
 			if ((vDisp == 0) || (vDisp + j >= width)) {
-				dispRange[POS(i, j)] = maxRange;
+				dispRange[POS(i, j)].p = MAXINT;
+				disp[POS(i, j)] = checkboard?(((i/checkboard+j/checkboard)&1)?85:170):tof[POS(i, j)];
 			} else {
 				vDisp += offset;
 				start = bf * vDisp / (bf + deta * vDisp) + j - offset;
@@ -151,6 +154,7 @@ void calcRange(int16_t offset, int32_t bf, int32_t deta) {
 #undef width
 #undef height
 #undef tof
+#undef disp
 #undef dispRange
 
 }
@@ -225,7 +229,7 @@ void avgFilter1(const uint8_t input[], uint8_t output[], uint8_t ws) {
 			disp33(i, j);
 		}
 	}
-	free(colSum);
+	FREE(colSum);
 
 #undef width
 #undef height
@@ -233,11 +237,11 @@ void avgFilter1(const uint8_t input[], uint8_t output[], uint8_t ws) {
 
 void calcAverage() {
 	if (g_avgLeft)
-		free(g_avgLeft);
+		FREE(g_avgLeft);
 	g_avgLeft = (uint8_t*) malloc(g_totalSize * sizeof(uint8_t));
 	assert(g_avgLeft!=NULL);
 	if (g_avgRight)
-		free(g_avgRight);
+		FREE(g_avgRight);
 	g_avgRight = (uint8_t*) malloc(g_totalSize * sizeof(uint8_t));
 	assert(g_avgRight!=NULL);
 
@@ -249,11 +253,11 @@ void calcAverage() {
 
 void calcAverage1() {
 	if (g_avgLeft)
-		free(g_avgLeft);
+		FREE(g_avgLeft);
 	g_avgLeft = (uint8_t*) malloc(g_totalSize * sizeof(uint8_t));
 	assert(g_avgLeft!=NULL);
 	if (g_avgRight)
-		free(g_avgRight);
+		FREE(g_avgRight);
 	g_avgRight = (uint8_t*) malloc(g_totalSize * sizeof(uint8_t));
 	assert(g_avgRight!=NULL);
 
@@ -383,11 +387,11 @@ void calcCStr1(const uint8_t img[], const uint8_t avgImg[], cStr output[]) {
 
 void calcCensusString() {
 	if (g_cStrLeft)
-		free(g_cStrLeft);
+		FREE(g_cStrLeft);
 	g_cStrLeft = (cStr*) malloc(g_totalSize * sizeof(cStr));
 	assert(g_cStrLeft!=NULL);
 	if (g_cStrRight)
-		free(g_cStrRight);
+		FREE(g_cStrRight);
 	g_cStrRight = (cStr*) malloc(g_totalSize * sizeof(cStr));
 	assert(g_cStrRight!=NULL);
 
@@ -399,11 +403,11 @@ void calcCensusString() {
 
 void calcCensusString1() {
 	if (g_cStrLeft)
-		free(g_cStrLeft);
+		FREE(g_cStrLeft);
 	g_cStrLeft = (cStr*) malloc(g_totalSize * sizeof(cStr));
 	assert(g_cStrLeft!=NULL);
 	if (g_cStrRight)
-		free(g_cStrRight);
+		FREE(g_cStrRight);
 	g_cStrRight = (cStr*) malloc(g_totalSize * sizeof(cStr));
 	assert(g_cStrRight!=NULL);
 
@@ -502,7 +506,7 @@ void calcCbRegion(const uint8_t image[], region *cbRegion) {
 
 void calcCrossBasedRegion() {
 	if (g_cbRegion)
-		free(g_cbRegion);
+		FREE(g_cbRegion);
 	g_cbRegion = (region*) malloc(g_totalSize * sizeof(region));
 	assert(g_cbRegion!=NULL);
 
@@ -515,7 +519,6 @@ void calcDisparity() {
 
 #define width (g_width)
 #define height (g_height)
-#define tof (g_tof)
 #define disp (g_disp)
 
 #define dispRange (g_dispRange)
@@ -532,9 +535,7 @@ void calcDisparity() {
 	census_hammingAC();
 	for (i = 0; i < height; i++)
 		for (j = 0; j < width; j++) {
-			if (dispRange[POS(i, j)].p == MAXINT) { //pixels can't be matched
-				disp[POS(i, j)] = tof[POS(i, j)];
-			} else {
+			if (dispRange[POS(i, j)].p < MAXINT) {
 				minCost = MAXINT;
 				edx = dispRange[POS(i, j)].s.r - j;
 				u = cbRegion[POS(i, j)].u;
@@ -565,7 +566,6 @@ void calcDisparity() {
 
 #undef width
 #undef height
-#undef tof
 #undef disp
 #undef dispRange
 #undef cbRegion
@@ -578,7 +578,6 @@ void calcDisparity1() {
 
 #define width (g_width)
 #define height (g_height)
-#define tof (g_tof)
 #define disp (g_disp)
 
 #define dispRange (g_dispRange)
@@ -590,14 +589,15 @@ void calcDisparity1() {
 	uint16_t y, u, d, l, r1, dxRange;
 	int16_t dx, edx;
 	uint16_t p = 0;
-	uint32_t cost, minCost, cnt;
+	uint16_t cost, minCost, cnt;
 
-	uint32_t accStep0, accStep1;
-	uint32_t *lineAcc;
+	uint16_t accStep0;
+	uint32_t accStep1;
+	uint16_t *lineAcc;
 
 	dxRange = dxMax + 1 - dxMin;
-	lineAcc = (uint32_t*) malloc(
-	height * dxRange * (width + 1) * sizeof(uint32_t));
+	lineAcc = (uint16_t*) malloc(
+	height * dxRange * (width + 1) * sizeof(uint16_t));
 	assert(lineAcc!=NULL);
 
 	setDot(3);
@@ -613,15 +613,13 @@ void calcDisparity1() {
 				cStrRight[POS(i, k)]);
 				lineAcc[i * accStep1 + j * accStep0 + k + 1] = cost;
 			}
-//			assert(sum<60000);
+//			assert(cost<60000); // max width:250
 			disp33(i, j);
 		}
 
 	for (i = 0; i < height; i++)
 		for (j = 0; j < width; j++) {
-			if (dispRange[POS(i, j)].p == MAXINT) { //pixels can't be matched
-				disp[POS(i, j)] = tof[POS(i, j)];
-			} else {
+			if (dispRange[POS(i, j)].p < MAXINT) {
 				minCost = MAXINT;
 				edx = dispRange[POS(i, j)].s.r - j;
 				u = cbRegion[POS(i, j)].u;
@@ -651,11 +649,10 @@ void calcDisparity1() {
 			}
 		}
 
-	free(lineAcc);
+	FREE(lineAcc);
 
 #undef width
 #undef height
-#undef tof
 #undef disp
 #undef dispRange
 #undef cbRegion
@@ -664,31 +661,44 @@ void calcDisparity1() {
 
 }
 
-void stereoMatch(image *disp, image left, image right, image tof,
-		int16_t offset, int32_t deta, int32_t bf) {
+void stereoMatch(image *disp, image *left, image *right, image *tof,
+		int16_t offset, int32_t deta, int32_t bf,
+		uint8_t checkboard) {
 
-	g_width = tof.width;
-	g_height = tof.height;
+	g_width = tof->width;
+	g_height = tof->height;
 	disp->width = g_width;
 	disp->height = g_height;
-	disp->white = tof.white;
+	disp->white = tof->white;
 	if (disp->data)
-		free(disp->data);
+		FREE(disp->data);
 	disp->data = (uint8_t*) malloc(g_width * g_height);
 	assert(disp->data != NULL);
 
-	g_left = left.data;
-	g_right = right.data;
-	g_tof = tof.data;
+	g_left = left->data;
+	g_right = right->data;
+	g_tof = tof->data;
 	g_disp = disp->data;
 
-	validate(left, right);
-	calcRange(offset, bf, deta); // standalone
+	validate(*left, *right);
+
+	calcRange(offset, bf, deta, checkboard); // standalone
+	FREE(g_tof);
+
 //	calcAverage(); // 3.6s@150p // standalone
 	calcAverage1(); // 0.7s@150p // standalone
-	calcCrossBasedRegion(); //1.4s@150p // standalone
 //	calcCensusString(); //6.4s@150p // depend on average
 	calcCensusString1(); //0.4s@150p // depend on average
+
+	FREE(g_avgLeft);
+	FREE(g_avgRight);
+	FREE(g_left);
+
+	calcCrossBasedRegion(); //1.4s@150p // standalone
+
+	FREE(g_right);
+
+	left->width = right->width = tof->width = 0;
 //
 //	calcDisparity(); // 160s@150p
 	calcDisparity1(); // 18s@150p

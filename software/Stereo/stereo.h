@@ -16,9 +16,9 @@
 
 
 extern void stereoMatch(image *disp,
-				image left, image right, image tof,
+				image *left, image *right, image *tof,
 				int16_t	offset,
-				int32_t deta, int32_t bf); // BF and DETA has same unit
+				int32_t deta, int32_t bf, uint8_t checkboard); // BF and DETA has same unit
 				
 				
 				

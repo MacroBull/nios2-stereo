@@ -15,5 +15,7 @@
 #include "system.h"
 #include "../BSP/drivers/inc/altera_avalon_pio_regs.h"
 
+#define FREE(x)	{free(x);x=NULL;}
+
 
 #endif /* SOC_H_ */

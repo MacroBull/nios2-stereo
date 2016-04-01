@@ -49,8 +49,8 @@ int main() {
 		readImage(&tof);
 		DEBUG("Started.");
 		stereoMatch(&disp,
-				left, right, tof,
-				(int16_t)p[0], p[1], p[2]);
+				&left, &right, &tof,
+				(int16_t)p[0], p[1], p[2], p[3]);
 		DEBUG("Done.");
 		request(ACK, FLAG1);
 		writeImage(disp);

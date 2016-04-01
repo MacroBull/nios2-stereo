@@ -1,11 +1,18 @@
 #! /usr/bin/env python3
 
+IF_DISP = "disparity.pgm"
+
+
+IF_LEFT = "default/left.pgm"
+IF_RIGHT = "default/right.pgm"
+IF_TOF = "default/tof.pgm"
+
 IF_LEFT = "left.pgm"
 IF_RIGHT = "right.pgm"
 IF_TOF = "tof.pgm"
-IF_DISP = "disparity.pgm"
 
-PARAMS=[100, 100, int(round(146.316*3646.308))]
+PARAMS=[int(100/8), int(100/3), int(146.316*3646.308/12), 0] #int16_t offset, int32_t deta, int32_t bf, char checkboard
+
 
 PGM_MAGIC="P5"
 FLAG0="START"
@@ -21,8 +28,14 @@ if len(sys.argv)>1 and sys.argv[1] == '-d':
 else:
 	import os
 	f = os.popen("cd ../Stereo && /opt/Altera/QuartusPrime-15.1/nios2eds/nios2_command_shell.sh make -j6 download-elf")
+	success = True
 	for l in f:
 		print(l.rstrip())
+		l = l.lower()
+		for s in ["fail", "error"]:
+			if s in l:
+				success = False
+		if not success: exit()
 
 
 def validate():
@@ -89,7 +102,7 @@ def transfer():
 	
 	request(ser, FLAG0, ACK, poll = True)
 	ts0 = time.time()	
-	print("Sending parameters...")
+	print("Sending {} parameters...".format(len(PARAMS)))
 	ser.write("{}\n".format(len(PARAMS)).encode('utf-8'))
 	ser.write("{}\n".format(" ".join([str(p) for p in PARAMS])).encode('utf-8'))
 	request(ser, FLAG1)

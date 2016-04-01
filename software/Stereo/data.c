@@ -11,6 +11,7 @@
 #include <assert.h>
 #include <stdlib.h>
 
+#include "soc.h"
 #include "crc32.h"
 #include "seg6.h"
 
@@ -80,7 +81,7 @@ image *readImage(image *img) {
 			img->width = width;
 			img->height = height;
 			if (img->data)
-				free(img->data);
+				FREE(img->data);
 			img->data = (uint8_t *) malloc(
 					img->width * img->height * sizeof(uint8_t));
 			assert(img->data != NULL);
