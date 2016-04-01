@@ -37,6 +37,7 @@ extern char *listen(char e[], const char r[]);
 extern void waitfor(const char target[]);
 
 extern int32_t *readParams();
+extern void readParams1(int32_t *p);
 extern image *readImage(image *img);
 extern void writeImage(const image img);
 

@@ -59,6 +59,13 @@ int32_t *readParams(){
 	return p - l;
 }
 
+void readParams1(int32_t *p){
+	uint8_t l;
+	scanf("%hhu", &l);
+	fprintf(stderr, "Reading %u parameters...\n", l);
+	while (l--) scanf("%ld", p++);
+}
+
 image *readImage(image *img) {
 	char magic[9], resp[9];
 	SET_EOS(resp, 0);

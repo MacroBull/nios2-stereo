@@ -102,7 +102,7 @@ def transfer():
 	
 	request(ser, FLAG0, ACK, poll = True)
 	ts0 = time.time()	
-	print("Sending {} parameters...".format(len(PARAMS)))
+	print("Sending {} parameters:{}".format(len(PARAMS), " ".join([str(p) for p in PARAMS])))
 	ser.write("{}\n".format(len(PARAMS)).encode('utf-8'))
 	ser.write("{}\n".format(" ".join([str(p) for p in PARAMS])).encode('utf-8'))
 	request(ser, FLAG1)

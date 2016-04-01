@@ -680,27 +680,33 @@ void stereoMatch(image *disp, image *left, image *right, image *tof,
 	g_tof = tof->data;
 	g_disp = disp->data;
 
+	puts("validate");
 	validate(*left, *right);
 
+	puts("calcRange");
 	calcRange(offset, bf, deta, checkboard); // standalone
-	FREE(g_tof);
+	FREE(tof->data);
 
 //	calcAverage(); // 3.6s@150p // standalone
+	puts("calcAverage1");
 	calcAverage1(); // 0.7s@150p // standalone
 //	calcCensusString(); //6.4s@150p // depend on average
+	puts("calcCensusString1");
 	calcCensusString1(); //0.4s@150p // depend on average
 
 	FREE(g_avgLeft);
 	FREE(g_avgRight);
-	FREE(g_left);
+	FREE(left->data);
 
+	puts("calcCrossBasedRegion");
 	calcCrossBasedRegion(); //1.4s@150p // standalone
 
-	FREE(g_right);
+	FREE(right->data);
 
 	left->width = right->width = tof->width = 0;
 //
 //	calcDisparity(); // 160s@150p
+	puts("calcDisparity1");
 	calcDisparity1(); // 18s@150p
 
 	/*

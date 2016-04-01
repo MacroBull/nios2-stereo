@@ -35,11 +35,13 @@ int main() {
 //	}
 
 
-	int32_t *p;
+// 	int32_t *p;
+	int32_t p[9];
 
 	while (1) {
 		listen(FLAG0, ACK);
-		p = readParams();
+// 		p = readParams();
+		readParams1(p);
 		listen(FLAG1, ACK);
 		setDot(3);
 		readImage(&left);
@@ -50,8 +52,9 @@ int main() {
 		DEBUG("Started.");
 		stereoMatch(&disp,
 				&left, &right, &tof,
-				(int16_t)p[0], p[1], p[2], p[3]);
+				(int16_t)p[0], p[1], p[2], (uint8_t)p[3]);
 		DEBUG("Done.");
+// 		FREE(p);
 		request(ACK, FLAG1);
 		writeImage(disp);
 	}
